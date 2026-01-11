@@ -1,0 +1,133 @@
+\subsection*{Spettro Continuo}
+Negli spazi di Hilbert a infinite dimensioni, è possibile che la base sia continua invece che discreta. In questo caso, gli autovalori dell'operatore non sono numerabili e l'espansione di uno stato in termini di autostati diventa un'integrale:
+\[
+    |\psi\ket = \int \, \bra \xi | \psi \ket |\xi \ket d\xi
+\]
+dove $\bra \xi | \psi \ket$ è il proiettore con variazione continua.
+Risulta che
+\[
+    \bra \xi | \xi' \ket = c_0\delta(\xi - \xi')
+\]
+Inoltre un autovettore in uno spazio di questo tipo ha questo aspetto:
+\[
+    \hat X |\xi\ket = \xi |\xi\ket
+\]
+E l'espansione dell'identità diventa
+\[
+    \hat Id = \int |\xi\ket \bra \xi | d\xi
+\]
+
+\subsubsection*{Un esempio}
+Consideriamo gli operatori posizione, che funzionano in questo modo:
+
+\begin{align*}
+    |\vec x\ket = |x,y,z\ket \\
+    \hat{X}_j |\vec x\ket = \vec x |\vec x\ket \\
+    \hat{Y} |\vec x\ket = \vec y |\vec x\ket \\
+    \hat{Z} |\vec x\ket = \vec z |\vec x\ket
+\end{align*}
+
+\subsubsection*{Altro esempio: operatore di traslazione}
+Chiamiamo $\tau$ l'operatore che si comporta in questo modo:
+\[
+    \tau (\vec {dx}) |\vec x\ket = |\vec x + \vec {dx}\ket
+\]
+Al chè si può usare il solito trucco:
+\[
+    \tau (\vec {dx}) \hat{Id} |\psi\ket = \int |\vec x + \vec {dx}\ket \bra \vec x + \vec {dx} | \psi\ket d^3x
+\]
+Inoltre serve che $\tau$ rispetti altre proprietà:
+\begin{align*}
+    \bra\psi|\tau^\dag (\vec{dx}) \tau(\vec{dx})|\psi\ket = \hat{Id} \\
+    \tau(\vec{dx}_1) \tau(\vec{dx}_2) = \tau(\vec{dx}_1 + \vec{dx}_2) \\
+    \tau(\vec{0}) = \hat{Id}
+\end{align*}
+
+Una valida implementazione di $\tau$ è la seguente:
+\[
+    \tau (\vec {dx}) = \hat{Id} - i \hat k \cdot \vec{dx}
+\]
+Si può dimostrare che l'ultima espressione è sufficiente per rispettare le proprietà richieste, a patto che $\vec{p}$ sia un operatore hermitiano ($\hat{k} = \hat{k} ^ \dag$). \\
+A questo punto si ha anche
+\[
+    \tau^\dag (\vec{dx}) = \hat{Id} + i \hat k \cdot \vec{dx}
+\]
+Si può provare a calcolare il commutatore tra posizione e traslazione:
+\begin{align*}
+    [\hat{X}_j, \tau(\vec{dx})] |\vec x\ket &= \hat{X}_j \tau(\vec{dx}) |\vec x\ket - \tau(\vec{dx}) \hat{X}_j |\vec x\ket \\
+    &= \hat{X}_j |\vec x + \vec{dx}\ket - \tau(\vec{dx}) \vec x |\vec x\ket \\
+    &= (\vec{dx}) |\vec x + \vec{dx}\ket
+\end{align*}
+per ogni operatore posizione al variare di $j$. \\
+Risulta infine:
+\[
+    [\hat{X}_i, \hat{k}_j] = \delta_{ij} \hat{Id}
+\]
+ma ricordando che $[\hat{X}_j, \hat{p}_l] = i \hslash \delta_{jl} \hat{Id}$, si ottiene che
+\[
+    \hat{p}_l = i\hslash \hat{k}_l
+\]
+Però ora è possibile indurre questo ragionamento: per avere una traslazione finita, è possibile ripetere molte volte una traslazione infinitesima. Quindi:
+\begin{align*}
+    \tau(\vec{x}) &= \lim_{N \to \infty} \left[ \tau\left(\frac{\vec{x}}{N}\right) \right]^N \\
+    &= \lim_{N \to \infty} \left[ \hat{Id} - i \hat{k} \cdot \frac{\vec{x}}{N} \right]^N \\
+    &= e^{-i \hat{k} \cdot \vec{x}} \\
+    &= e^{-\frac{i}{\hslash} \hat{p} \cdot \vec{x}}
+\end{align*}
+Inoltre i $\hat p$ devono commutare, così da avere traslazioni indipendenti nelle tre direzioni spaziali:
+\[
+    [\hat{p}_j, \hat{p}_l] = 0
+\]
+E, siccome $\hat p |\vec p\ket = \vec p |\vec p\ket$, si ha
+\[
+    \tau(\vec x)|\vec p\ket = e^{-\frac{i}{\hslash} \hat p \cdot \vec x} |\vec p\ket = e^{-\frac{i}{\hslash} \vec p \cdot \vec x} |\vec p\ket
+\]
+Si mostri per esercizio che in tutti i termini dell'espansione di taylor risulta che le $\hat p$ diventano $\vec p$, e quindi vale l'equivalenza.
+
+\subsubsection*{Rappresentazione nella base dei momenti}
+Proviamo ad espandere $\tau(\vec{dx})|\psi\ket$:
+\begin{align*}
+    \tau(\vec{dx})|\psi\ket = \tau(\vec{dx}) \int |\vec x \ket \bra \vec x | \psi\ket d^3x =\\
+    = \int |\vec x + \vec{dx} \ket \bra \vec x || \psi\ket d^3x =  \int |\vec x \ket \bra \vec x - \vec{dx} | \psi\ket d^3x = \\
+    \int |\vec x \ket \psi(\vec x - \vec{dx}) d^3x \simeq \int |\vec x \ket \left[ \psi(\vec x) - \vec{dx} \cdot \Grad \psi(\vec x) \right] d^3x = \\
+    = \int |\vec x \ket \left[ \bra \vec x | \psi \ket - \vec{dx} \cdot \Grad \bra \vec x | \psi \ket \right] d^3x = \\
+    = \hat{Id} - \int |\vec x \ket \bra \vec x |  \vec{dx} \cdot \Grad |\psi\ket d^3x
+\end{align*}
+PERFA VORE RIVEDERE LA LEZIONE (11:10)
+
+Risulta quindi, in sostanza, che uno stato $\psi$ può essere rappresentato nella base dei momenti $\vec p$ invece che della posizione $\vec x$.
+
+
+\subsubsection*{Autofunzioni del momento nella base delle posizioni}
+\begin{align*}
+    \hat p |\vec p\ket = \vec p |\vec p\ket \\
+    \bra \vec x | \hat p | \vec p\ket = \vec p \bra \vec x | \vec p\ket \\
+    -i \hslash \Grad \bra \vec x | \vec p\ket = \vec p \bra \vec x | \vec p\ket \\
+\end{align*}
+Chiamiamo ora $\Phi_{\vec p}(\vec x) = \bra \vec x | \vec p\ket $ e inseriamo nella precedente equazione:
+\[
+    -i \hslash \Grad \Phi_{\vec p}(\vec x) = \vec p \Phi_{\vec p}(\vec x) \]\[
+    \Phi_{\vec p}(\vec x) = A e^{\frac{i}{\hslash} \vec p \cdot \vec x}
+\]
+Dove $\Phi_{\vec p}(\vec x)$ sono le soluzioni improprie dell'equazione differenziale.
+Ora si può espandere
+\begin{align*}
+    \bra \vec x' | \vec x'' \ket = \delta(\vec x' - \vec x'') = \\
+    = \int \bra \vec x' | \vec p \ket \bra \vec p | \vec x'' \ket d^3p = \\
+    = |A|^2 \int e^{\frac{i}{\hslash} \vec p \cdot (\vec x' - \vec x'')} d^3p = \\
+    = |A|^2 (2 \pi \hslash)^3 \delta(\vec x' - \vec x'')
+\end{align*}
+Al chè si può porre $A = \frac{1}{(2 \pi \hslash)^{3/2}}$.
+E quindi usare questi fatti per espandere anche uno stato generico:
+\begin{align*}
+    \bra \vec x | \psi \ket = \psi(\vec x) = \\
+    = \int \bra \vec x | \vec p \ket \bra \vec p | \psi \ket d^3p = \\
+    = \frac{1}{(2 \pi \hslash)^{3/2}} \int e^{\frac{i}{\hslash} \vec p \cdot \vec x} \psi(\vec p) d^3p
+\end{align*}
+Che coincide con la definizione della trasformata di Fourier.
+
+Siccome in questo caso stiamo applicando una funzione a un operatore, risulta utile definirene il significato. Risulta che, se la funzione è analitica, è sufficiente usare lo sviluppo in serie di Taylor moltiplicando per l'operatore iterato:
+\[
+    f(\hat{A}) = \sum_{n=0}^{\infty} \frac{f^{(n)}(x_0)}{n!} \hat{A}^n
+\]
+

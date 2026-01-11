@@ -1,0 +1,81 @@
+\section{Nuove basi}
+Dato uno spazio di Hilbert che descrive gli stati di un sistema, ogni operatore autoaggiunto genera una base ortonormale; per eccellenza l'Hamiltoniana è l'operatore ottimale per problemi dinamici. Si ha anche che in qualsiasi base ci si pone, lo spettro degli autovalori di un operatore qualsiasi si conserva, ma non si può dire lo stesso per gli autostati.\\
+Alcuni spazi di Hlibert (in particolare a dimensione discreta o meglio ancora finita) sono tali da permettere di scrivere gli operatori in forma di matrici. Siano allora due operatori autoaggiungi $\hat A$ e $\hat B$ e i $\Ket {a_n}$ e $\Ket {b_n}$ le rispettive basi di autofunzioni. Il passaggio di base da $\{\Ket {a_n}\}$ a $\{\Ket {b_n}\}$ è esprimibile nella prima base come:
+\[
+	\U = \sum_k \ketbra{b_k}{a_k} \]\[
+	\U\Ket {a_n} = \sum_k \ketbra{b_k}{a_k} \Ket {a_n} = \Ket {b_n}
+\]
+
+Tra l'altro risulta (conti per esercizio) che $\U$ è unitario, ovvero l'inverso coincide con l'aggiunto, e quindi il passaggio inverso è comodamente l'aggiunto di $\U$.
+
+Per un operatore generico $\hat X$ risulta:
+\[
+	\bra a_j | \hat X | a_k \ket \text{ nella base di } \hat A \]\[
+	\bra b_j | \hat X | b_k \ket = \bra _j | \sum_l \ketbra{a_l}{a_l} | \hat X | \sum_m \ketbra{a_m}{a_m} | a_k \ket = \]\[
+	= \sum_{l,m} \braket{b_j}{a_l} \bra a_j | \hat X | a_k \ket \braket{a_m}{b_k}
+\]
+Ovvero $\hat X' = \U^\dag \hat X \U$, dove $\hat X'$ è $\hat X$ nella nuova base.
+
+\subsection*{Osservabili unitariamente equivalenti}
+Siano come prima due operatori $\A$ e $\B$ che generano le relative basi. Se si calcola:
+\[
+	(\U\hat A\U^\dag)\U\Ket {a_l} = \U\hat A \Ket {a_l} = a_l \U \Ket {a_l} = a_l \Ket {b_l}
+\]
+Ovvero che $\U\hat A\U^\dag$ e $\hat A$ hanno stessa traccia. Si dice che sono \textbf{unitariamente equivalenti} \index{Operatori Unitariamente Equivalenti}. Si ha che tendenzialmente due operatori unitariamente equivalenti, dal punto di vista dell'osservabilità, sono lo stesso identico operatore, in quanto gli osservabili permettono di leggere solo gli autovalori.
+
+\subsection*{Spazi tensoriali}
+Siano $\H_1$ e $\H_2$ spazi di Hilbert di dimensioni $N_1$ e $N_2$. Il prodotto cartesiano tra i due lo chiamiamo $\H$ e si denota con:
+\[
+	\H = \H_1 \otimes \H_2
+\]
+Si definisce quindi l'operazione di prodotto tensoriale tra un elemento $\Ket \psi$ di $H_1$ e uno $\Ket \vphi$ di $\H_2$ e risulta che
+\[
+	\Ket \psi \otimes \Ket \vphi \in \H
+\]
+è un'operatzione lineare. \\
+Siano ora $\{\Ket {u_i}\}$ e $\{\Ket {v_i}\}$ due sistemi ortonormali completi rispettivamente in $\H_1$ e $\H_2$. Risulta ovviamente che il prodotto tensoriale di elementi due elementi di queste base sono in $\H$, e anche che, dati due elementi $\Ket \psi$ di $H_1$ e uno $\Ket \vphi$ di $\H_2$ si ha:
+\[
+	\Ket \psi \otimes \Ket \vphi = \sum_{ij} \psi_i\vphi_j \left( \Ket {u_i} \otimes \Ket {v_j} \right)
+\]
+Tuttavia si ha anche che esistono degli stati $\Ket \chi$ che stanno in $\H$, ma che non sono generati da nessuna coppia di stati da $\H_1$ e $\H_2$! Questi sono detti tstati \textbf{entangled}. \indent{Entangled States}
+
+Di solito di usa la notazione abbreviata $\Ket {\psi, \vphi} = \Ket \psi \otimes \Ket \vphi$. E quindi il prodotto interno risulta:
+\[
+	\braket{\psi, \vphi}{\psi', \vphi'} = \braket{\psi}{\psi'} \braket{\vphi}{\vphi'}
+\]
+Al chè l'ortonormalità di $\{\Ket {u_i, v_i}\}$.
+
+Ora sia $\A_1$ un operatore che agisce su elementi di $\H_1$. È possibile allora definire l'estensione $\tilde A$ di $\A_1$ come segue:
+\[
+	\tilde A = \A_1 \otimes \hat {Id_2}, \]\[
+	\tilde A \Ket {u_i, v_j} = \A_1 \Ket {u_i} \otimes \Ket {v_i}
+\]
+Questo nuovo operatore in sostanza lavora sugli stati di $\H$, e agisce sulla "componente" in $\H_1$ come $\A$ e lascia inalterati quella in $\H_2$. Ovviamente vale anche l'estensione di opeartori da $\H_2$ in operatori di $\H$.
+
+A questo punto è possibile anche definire l'operatore $\A_1 \otimes \B_2$ (anche $\A_1\B_2$), che lavora in maniera evidente.
+
+\subsubsection*{Problemi degli autovalori}
+Se siamo nella condizione in cui abbiamo due operatori $\A_1$ in $\H_1$ e $\B_2$ in $\H_2$. Sia ora $\tilde C = \tilde A + \tilde B$. Risulta:
+\[
+	\tilde C \Ket {u_i, v_j} = \left( a_i + b_j \right) \Ket {u_i, v_j}
+\]
+Chiamiamo $\gamma_{ij} = a_i + b_j$ questi nuovi "autovalori". $\tilde C$ è detto operatore \textbf{separabile}\index{Operatori separabili}, in quanto le "componenti" sono indipendenti.
+
+La definizione di media temporale su uno stato nello spazio prodotto deriva dalle definizioni date.
+
+\subsubsection*{Spazi composti}
+Siamo in $\R^3$, e abbiamo due particelle inizialmente isolate e nella base delle posizioni, una in $\H_1$ e una in $\H_2$, quindi chiamiamo gli autossati $\Ket {r_1}$ e $\Ket {r_2}$ dell'operatore posizione (radiale). Nello spazio prodotto $\H$ si ha l'autostato complessivo del sistema: $\Ket {r_1r_2} = \Ket {r_1} \otimes \Ket {r_2}$.
+
+Sia invece ora una sola particella, stavolta provvista di spin $s$. I due spazi di Hilbert saranno quindi quello della posizione e quello dello spin:
+\[
+	\H_1 = \L^2(\R^3), \]\[
+	\H_2 = \M_{2s + 1}
+\]
+Lo spazio prodotto deriva dalle definizioni date; l'esempio è nel caso in cui $s = \half$:
+\[
+	\Ket \psi = \left( \begin{matrix}
+		\psi_{\uparrow} (r) \\
+		\psi_{\downarrow} (r) \\
+	\end{matrix} \right)
+\]
+e quindi $\fabs \psi ^2 = \rnint[3] \sabs{\psi_\uparrow(r)} + \sabs{\psi_\downarrow(r)} dr$

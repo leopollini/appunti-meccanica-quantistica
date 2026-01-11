@@ -1,0 +1,206 @@
+\section{Introduzione}
+\subsubsection*{Gli stati classici} \index{Stati Classici}
+In meccanica classica, lo stato di una particella è descritto da una coppia ordinata $(\vect r, \vect p)$, dove $\vect r$ è la posizione e $\vect p$ la quantità di moto. Lo spazio degli stati è quindi lo spazio delle fasi, uno spazio a 6 dimensioni (3 per la posizione e 3 per la quantità di moto).\\
+Ovviamente se la particella in quetsione è sottintesa, o vi è associata una massa, o e puntiforme, ci si può acconterntare di $(\vect r, \vect v)$, ovvero usare la velocità invece della quantità di moto.
+
+Siccome non è sempre necessario conoscere lo stato esatto del sistema, ad esempio quando vi sono dei vincoli, è possibile "riassumere" lo stato del sistema in una "configurazione", ovvero un insieme di coordinate generalizzate $q_i$ e delle loro derivate temporali $\dot q_i$.\\
+In questo caso lo spazio degli stati è chiamato spazio delle configurazioni, uno spazio a $n \le 6$ dimensioni, previa ridondanza (due per ogni coordinata generalizzata).
+
+In questa guida si utilizzerà la definizione tipica della meccanica relativistica di Campo Magnetico e Campo Elettrico, ovvero quella in cui sono scalati per avere la stessa unità di misura.
+
+\subsubsection*{Meccanica Analitica}
+
+La \MQ vedrà moltissimi usi e applicazioni della meccanica classinca analitica, in particolare della meccanica Hamiltoniana.\\
+Quindi si ricordano alcuni concetti fondamentali:\\
+(Approccio Lagrangiano)
+\begin{itemize}
+	\item Equazione del moto di un sistema lagrangiano: $\frac{d}{dt} \left( \frac{\partial L}{\partial \dot q_i} \right) - \frac{\partial L}{\partial q_i} = 0$
+	\item Teorema di Noether (corrispondenza tra simmetrie e quantità conservate): invarianza temporale $\implies$ conservazione dell'energia meccanica; invarianza spaziale $\implies$ conservazione della quantità di moto; invarianza rotazionale $\implies$ conservazione del momento angolare. \index{Teorema di Noether}
+\end{itemize}
+(Approccio Hamiltoniano)
+\begin{itemize}
+	\item Trasformazione di Legendre: da Lagrangiano ad Hamiltoniano. \index{Trasformazione di Legendre}
+	\[
+		H(q_i, p_i, t) = \sum_i p_i \dot q_i - L(q_i, \dot q_i, t)
+	\]
+	\item Equazioni di Hamilton: \index{Equazioni di Hamilton}
+	\[
+	\begin{cases}
+		\dot q_i = \deriv[p_i]{H} \\
+		\dot p_i = -\deriv[q_i]{H}
+	\end{cases}
+	\]
+	\item Parentesi di Poisson: \index{Parentesi di Poisson}
+\begin{definizione}
+	Siano f(\textbf{q}, \textbf{p}), g(\textbf{q}, \textbf{p}) funzioni $C^2$ delle \textbf{q} = ($q_0, ... q_n$) e delle \textbf{p} = ($p_0, ... p_n$) come definite in Meccanica Analitica. Allora la \text{Parentesi di Poisson} è definita come segue:
+
+	\[
+		\{f,g\} = \sum_0^n (\deriv[q_i]{g}\deriv[p_i]{f} - \deriv[q_i]{g}\deriv[p_i]{f})
+	\] 
+	
+	Le proprietà principali sonno le seguenti:
+
+	\begin{enumerate}
+		\item \( \{f,f\} = 0 \)
+		\item \( \{f,g\} = -\{g,f\} \)
+		\item \( \{f,g + h\} = \{f,g\} + \{f,h\} \) (linearità)
+		\item \( \{f,gh\} = \{f,g\}h + g\{f,h\} \) (regola del prodotto)
+		\item \( \{\{f,g\},h\} + \{\{h,f\},g\} + \{\{g,h\},f\} = 0 \) (Identità di Jacobi)
+		\item \( \{p_i,p_j\} = \{q_i,q_j\} = 0;\ \ \{q_i,p_j\} = \delta_{ij} \) (Parentesi fondamentali)
+	\end{enumerate}
+	e sono tutte facilmente derivabili dalle proprietà degli operatori differenziali.
+
+\end{definizione}
+
+Le parentesi di Poisson sono uno strumento essenziale per generare una classe d'equivalenza per i cambiamenti di variabile in Meccanica Hamiltoniana.
+\end{itemize}
+Vediamo ora un esempio tipico di problema classico risolvibile facilmente con i concetti di meccanica Analitica.
+\subsection*{Problema dei due corpi: soluzione di Newton} \index{Problema dei due corpi}
+Hahaha
+
+Fino a qui si è in sostanza parlato di dinamica delle particelle. Ora è necessario introdurre la dinamica delle onde, in quanto la \MQ si basa pesantemente sulle proprietà delle onde.
+
+
+
+
+
+
+\subsection*{Dalle Onde stazionarie ...}
+A partire dalle equazioni di maxwell si ottiene: \index{Onde elettromagnetiche}
+\begin{align*}
+	\Curl (\VCurl E) &= \Grad (\VDiv E) - \Lap E = - \Lap \vect E\\
+	&= \Curl (- \invc \Vtderiv{B}) = - \invc \tderiv{}\VCurl B =  - \invcs \stderiv{} \vect E
+\end{align*}
+da cui
+\[
+	\Lap \vect E - \invcs \Vstderiv{E} = 0
+\]
+ovvero che il campo elettrico nel vuoto si comporta in accordo con l'equazione delle onde.\\
+Si può dimostrare lo stesso per il campo magnetico.
+
+\subsubsection*{Da \texorpdfstring{$(\vect E, \vect B)$}{} a \texorpdfstring{$(V, \vect A)$}{} }
+Siccome si ha che $\vect E$ è un campo irrotazionale e $\vect B$ è un campo solenoidale, si può fare uso del teorema di Helmholtz per esprimere i campi in funzione di un potenziale scalare $V$ e di un potenziale vettoriale $\vect A$:
+\[
+	\begin{cases}
+		\vect B = \vCurl A \\
+		\vect E = - \Grad V - \vtderiv{ A}
+	\end{cases}
+\]
+Questo modo di esprimere i campi Elettrico e Magnetico risultano molto comodi, in quanto si diminuiscono i gradi di libertà del sistema. Si ha tuttavia anche una perdita, ovvero che $\vec A$ e $V$ non sono quantità misurabili direttamente.
+
+\subsubsection*{Restrizioni e Libertà di \texorpdfstring{$(V, \vect A)$}{}}
+Risulta che $V$ e $\vec A$ possono essere quantificati a posteriori a partire dalle misurazioni di \evect E ed \evect B. Risulta però che non sono univocamente determinate:
+\[
+	\begin{cases}
+		V' = V + \beta \\
+		\vec A' = \vec A + \Grad \varphi
+	\end{cases}
+\]
+se $\Grad \beta = 0$ allora $V'$ e $\vec A'$ producono gli stessi $\vect E$ e $\vect B$
+
+\subsubsection*{Gauge Theory} \index{Gauge Theory}
+Un Gauge non è altro che una particolare scelta di $V$ e $\vec A$, possibilmente adatte a semplificare i conti in una specifica situazione.\\
+Vediamo come ricavare il \textbf{Gauge di Lorentz}: \index{Gauge Theory! Gauge di Lorentz}
+\begin{align*}
+	\VCurl B = \Curl (\vCurl A) &= \Grad (\vDiv A) - \Lap A \\
+	&=\invc \tderiv{} (- \invc \tderiv{} \vec A - \Grad V) 
+\end{align*}
+e quindi 
+\[
+	\Lap \vec A - \invcs \stderiv{\vec A} = \Grad (\vDiv A + \invc \tderiv{V})
+\]
+Questa è l'unica vera restrizione sulla forma di $\vec A$ e $V$.
+Il Gauge di Lorentz pone l'argomento del gradiente al secondo termine uguale a zero, ovvero:
+\[
+	\vDiv A + \invc \tderiv{V} = 0 \ \implies\ \ \Lap \vec A - \invcs \stderiv{\vec A} = 0
+\]
+
+che è anche l'equazione delle onde per il potenziale vettoriale. Con simili ragionamenti si arriva a mostrare che anche $V$ rispetta l'equazione delle onde (esercizio).
+Al chè di può dimostrare che il gauge di Lorentz è una classe di gauge, tali che permettono di passare da $(V, \vec A)$ a $(V', \vec A')$ tramite una funzione scalare $\varphi$ che rispetta l'equazione delle onde:
+\[
+	\Lap \varphi - \invcs \stderiv{\varphi} = 0
+\]
+(si dimostri per esercizio).
+
+È importante riportare anche il \textbf{Gauge di Radiazione} \index{Gauge Theory! Gauge di Radiazione}, definito come segue:
+\[
+	\Grad V = 0,\ \vDiv A = 0 \ \implies\ \ 
+	\begin{cases}
+		\vect E = - \invc \vtderiv{A} \\
+		\vect B = \vCurl A
+	\end{cases}
+\]
+È chiaro che il Gauge di Radiazione non è altro che un caso specifico di Gauge di Lorentz.
+
+
+\subsection*{... Alla Dinamica dei pacchetti d'onda}
+È necessario introdurre ora un nuovo strumento essenziale per comprendere la dinamica delle onde reali: la Trasformata di Fourier.
+\fidaty
+\begin{definizione}[Trasformata di Fourier] \index{Trasformata di Fourier}
+Data una funzione $f$ integrabile da $\R^n$ in $\R^n$, esiste una funzione $\tilde f$ tale che
+\[
+	f(x) = \fourierconst \rnint \tilde f(k) e^{ik\cdot x} dk
+\]
+in particolare si può dare un'espressione a $\tilde f$:
+\[
+	\tilde f(k) = \fourierconst \rnint f(x) e^{-ik\cdot x} dx
+\]
+e si dice che $\tilde f$ è nel dominio delle frequenze, mentre $f$ è nel dominio funzione.
+\end{definizione}
+
+Risulta tra l'altro che campo Magnetico e campo Elettrico sono integrabili fintanto che l'energia totale del campo sia finita, quindi si può applicare la trasformata di Fourier ai campi elettromagnetici (in particolare sono entrambi in $L^2$ in quanto $2W = \int (|\vect E|^2 + |\vect B|^2) dV < \infty$).
+
+Si applichi per esercizio la definizione al potenziale vettore. [Soluzione: quel che risulta è che la trasformata di Fourier del potenziale vettoriale soddisfa l'equazione delle onde nello spazio delle frequenze, e in particolare permette di definire la relazione di dispersione $\omega = c|\vect k|$.]
+
+\subsubsection*{Varianza} \index{Varianza}
+La varianza di un operatore o di una funzione $A$ è indicata con $\var A$ ed è definita nel seguente modo:
+\[
+	\var A^2 =\ \avg{A^2} - \avg{A}^2
+\]
+dove $\avg f$ è la media sullo stato, che, dato uno stato (una funzione $\L^2$) generico $\psi(x)$, equivale all'integrale
+\[
+	\avg A \ = \rnint \psi^*(x)A(x)\psi(x) dx
+\]
+In caso di ambiguità è opportuno indicare il fatto che la media è fatta sullo stato $\psi(x)$ con $\avg[\psi] A$.\\
+È necessario notare che non è detto che $A$ sia uno scalare: nel caso in cui lo fosse è chiaro che è possibile raccogliere grazie alla proprietà commutativa il prodotto $\psi^*(x)\psi(x) = |\psi(x)|^2$; altrimenti è necessario procedere nel modo definito dall'operatore (per esempio l'operatore $\hat p = -i\hslash\deriv[x]{}$ viene applicato solo alla $\psi(x)$ di destra, modificandone il comportamento). La notazione estesa è $\bra \psi | A | \psi \ket$.
+
+\subsubsection*{Trasformata della Gaussiana} \index{Trasformata di Forurer ! Gaussiana}
+Siccome la gaussiana è tanto comoda risulta utile costruire la sua trasformata di Fourier. Si consideri la gaussiana unidimensionale:
+\[
+	f(x) = A e^{-\frac{x^2}{2 \sigma^2}}
+\]
+Allora la sua trasformata di Fourier risulta essere:
+\[
+	\tilde f(k) = A \sigma \sqrt{2 \pi} e^{-\frac{\sigma^2 k^2}{2}}
+\]
+
+Si noti che la trasformata di Fourier di una gaussiana è ancora una gaussiana, con varianza inversamente proporzionale a quella della gaussiana di partenza.
+
+Si calcoli per esercizio la varianza dell'identità sulla gaussiana (usualmente indicata con $\sigma^2 = \var x^2$), e si dimostri la validità, chiamata $\tilde \sigma^2 = \var k^2$ la varianza dell'identità sulla trasformata di Fourier della gaussiana, del prodotto $\var \sigma \var \tilde \sigma = 1$.
+
+\subsubsection*{Delta di Dirac}	\index{Trasformata di Forurer ! Delta di Dirac}
+La funzione Delta di Dirac $\delta(x)$ è, in parole povere, una funzione che fa zero ovunque tranne in 0, dove fa infinito. Per avere una definizione valida di questa idea è necessario procedere come segue:
+\begin{definizione}[Delta di Dirac]
+	
+La delta di Dirac può essere definita come il limite di una successione di funzioni gaussiane normalizzate di varianza via via decrescente:
+
+Sia $g_n(x)$ una successione di gaussiane definite come:
+\[
+	g_n(x) = \frac{\sqrt{n}}{\sqrt{\pi}} e^{-n x^2}
+\]
+allora la delta di Dirac è definita come:
+\[
+	\delta(x) = \lim_{n \to \infty} g_n(x)
+\]
+
+Questa successione ha le seguenti proprietà:
+\begin{enumerate}
+	\item $\forall x \neq 0$, $\lim_{n \to \infty} g_n(x) = 0$
+	\item $\forall f$ continua, $\lim_{n \to \infty} \int_{-\infty}^{\infty} g_n(x)f(x) dx = f(0)$
+	\item $\forall n$, $\int_{-\infty}^{\infty} g_n(x) dx = 1$ (normalizzazione)
+\end{enumerate}
+
+L'ultima proprietà è quella che caratterizza la delta di Dirac come distribuzione.
+\end{definizione}
+
+Gli ultimi due fatti importanti da menzionare sono la stabilità del prodotto $\sigma\tilde\sigma$, che per il \textbf{Teorema di Fourier} assume sempre valori nell'ordine di grandezza di $\pi$, e la conservazione della norma $\L^p$ nel passaggio da $f$ a $\tilde f$ (\textbf{Teorema di Parseval}).

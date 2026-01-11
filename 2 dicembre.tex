@@ -1,0 +1,62 @@
+\subsection*{Matrice Densità}
+La matrice densità si definisce come segue. Si parte con una successione di 'pesi':
+\[
+    \omega_i \geq 0\ , \ \ \ \sum_{i=1}^{N} = 1
+\]
+e con un operatore con la sua base:
+\[
+    \hat A \ , \ \ \ \{ \Ket {a_i} \} \ , \ \ \ \hat A \Ket {a_i} = a_i \Ket {a_i}  
+\]
+Si definisce la media statistica di $\hat A$ in modo diverso dal solito:
+\[
+    \overline A = \sum_{i=1}^{N} \omega_i \Bra {a_i} \hat A \Ket {a_i}
+\]
+che è espandibile in termini di una nuova base a piacere $\{ \Ket b \}$:
+\[
+    \overline A = \sum_{i=1}^{N} \omega_i \Bra {a_i} \sum_{b,b'} \ketbra{b}{b'} \hat A \sum_{b,b'} \ketbra{b}{b'} \Ket {a_i} = \]\[
+    \sum_{b,b'} \Bra {b'} \left( \sum_{i=1}^{N} \omega_i \ketbra{a_i}{a_i} \right) \Ket {b} \Bra {b} \hat A \Ket {b'} = \sum_{b'}  \Bra {b'} \hat \rho \hat A \Ket {b'}
+\]
+Si può notare come la quantità finale è la traccia della matrice $\hat \rho_{ij} \hat A_{jk}$. Qeusto operatore $\hat \rho$ è detto \textbf{matrice densità}.\index{Matrice Densità} Tra le proprietà di questa matrice si ha che è hermitiana, ha traccia minore o uguale a uno e che è definita positiva. Da questi fatti risulta anche che la traccia che è la somma dei suoi autovalori (tutti reali) è minore o uguale a uno.
+
+\subsubsection*{Spazio Puro}
+Un operatore $\rho$ si dice \textbf{Stato Puro}\index{Stati puri} se esiste uno stato $\Ket \psi$ generico tale che la matrice densità è scrivibile come $\hat \rho = \ketbra \psi \psi$. In questo caso si ha la successione degli $\omega_i$ è formata da un solo elemento uguale a uno e tutti gli altri nulli. Si ha anche che $\hat \rho^2 = \hat \rho$, al chè si può mostrare che in questo caso gli autovalori possono essere solo 0 e 1.\\
+(IN GENERE GLI OPERATORI PURI SONO CHIAMATI STATI PURI, molto trol. Ricordarli come stati puri.)
+
+\subsubsection*{Esempio}
+Se attraverso un apparato di Stern e Gerlak si fanno passare un fascio di elettroni non polarizzato, e uno nello stato $\Ket {x+}$, per i motivi descritti nel capitolo 3, i fasci uscenti saranno in entrambi i casi distribuiti al $50\% \ \Ket +$ e al $50\% \ \Ket -$. La matrice densità del primo fascio sarà quindi:
+\[
+    \hat \rho = \half \ketbra {z+} {z+} + \half \ketbra {z-} {z-} = \half \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{pmatrix}
+\]
+mentre quella del secondo fascio sarà:
+\[
+    \hat \rho = \half \ketbra {x+} {x+} + \half \ketbra {x-} {x-} = \half \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{pmatrix}
+\]
+Ovvero i due fasci, pur essendo preparati in modi diversi, sono descritti dallo stesso operatore di matrice densità, e quindi sono indistinguibili dal punto di vista delle misure effettuabili.
+
+\subsubsection*{Restrizioni degli operatori puri (caso spin 1/2)}
+Si vuole che l'oepratore generico $\hat \rho$ sia di traccia 1 e tale ceh $\hat \rho^2 = \hat \rho$. Fare i conti per esercizio.
+\\
+
+Ora ci si potrebbe chiedere: è possibile distinguere un'operatore puro da uno mixed mediante misurazione? Beh ecco dipende, tendenzialmente no.
+
+\subsubsection*{Esempio: elettrone e protone}
+Si parte dallo stato $\Ket \psi = \half \l \Ket + _p \otimes \Ket - _e + \Ket - _p \otimes \Ket + _e \r$. Se si vuole calcolare ma media del momento angolare dell'elettrone in una direzione generica si calcola:
+\[
+    \overline{\S_{\vec n}} = \Tr_e\l \sigma_{e\vec n} \hro_e\r
+\]
+al ché:
+\[
+    \hro_e = \Tr_p \hro = \Tr_p \l \half \ketbrabra{\psi} = \begin{matrix}
+        \half & 0 \\ 0 & \half
+    \end{matrix} \r
+\]
+(Concludere per eservicisio)
+\\
+
+Affinché un (sotto-)sistema in stato puro non sia rotto da una misurazione è necessario che lo stato del sistema \textbf{non} sia entangled, ovvero che lo stato sia della forma $\Ket \psi = \Ket {\psi_1} \otimes \Ket {\psi_2}$.

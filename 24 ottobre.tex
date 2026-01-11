@@ -1,0 +1,19 @@
+\subsection*{Teorema di Ehrenfest generalizzato}
+
+Si consideri un operatore generico $\hat A$ che non dipende esplicitamente dal tempo. Si vuole calcolare la derivata temporale del valor medio di questo operatore in uno stato $|\psi(t)\ket$ che evolve secondo l'equazione di Schrödinger (per comodità si usa la notazione $\bra A(t) \ket_\psi = \bra \psi | A(t) | \psi\ket$):
+\[
+    \bra A(t) \ket_\psi = \bra \psi(t) | \hat A | \psi(t) \ket
+\]
+Si calcoli la derivata temporale:
+\begin{align*}
+    \deriv[t]{} \bra A(t) \ket_\psi &= \deriv[t]{} \bra \psi(t) | \hat A | \psi(t) \ket \\
+    &= \bra \deriv[t]{} \psi(t) | \hat A | \psi(t) \ket + \bra \psi(t) | \hat A |   \deriv[t]{} \psi(t) \ket \\
+    &= \bra \left( -\frac{i}{\hbar} \hat H |\psi(t)\ket \right) | \hat A | \psi(t) \ket + \bra \psi(t) | \hat A | \left( -\frac{i}{\hbar} \hat H |\psi(t)\ket \right) \\
+    &= -\frac{i}{\hbar} \left( \bra \psi(t) | \hat H \hat A | \psi(t) \ket - \bra \psi(t) | \hat A \hat H | \psi(t) \ket \right) \\
+    &= -\frac{i}{\hbar} \bra \psi(t) | \left[ \hat H, \hat A \right] | \psi(t) \ket
+\end{align*}
+Quindi:
+\[
+    i \hbar \deriv[t]{} \bra A(t) \ket_\psi = \bra \left[ \hat A, \hat H \right] \ket_\psi
+\]
+Questo risultato è il teorema di Ehrenfest generalizzato. \\

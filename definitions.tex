@@ -1,0 +1,157 @@
+\usepackage[italian]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+% \usepackage{yfonts}
+\usepackage{amsthm}
+\usepackage{esint}
+\usepackage{eso-pic} 
+\usepackage{tikz}
+\usepackage{csquotes}
+\usepackage{wrapfig}
+
+\usepackage{blindtext}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+% \usepackage{algorithmic}
+\usepackage{graphicx,color}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{balance}
+\usepackage{multicol}
+
+\usepackage{imakeidx}
+
+\usepackage{pgfplots} 
+\pgfplotsset{compat=1.17}
+
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{1em}
+
+
+% \newcommand{\definizione}[1]{\textbf{\textit{Definizione (#1)}}}
+
+\newcommand{\boldit}[1]{\mathbf{\mathit{#1}}}
+
+% Fast symbols (\newcommand is better than \def because it is always evaluated)
+\newcommand{\CHI}{\boldsymbol{\chi}}
+\newcommand{\vepsi}{\varepsilon}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Co}{\mathcal{C}}
+\newcommand{\K}{\mathbb{K}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\A}{\hat A}
+\newcommand{\B}{\hat B}
+\newcommand{\U}{\hat{U}}
+\newcommand{\N}{\hat{N}}
+\renewcommand{\S}{\hat{S}}
+\newcommand{\J}{\vect{J}}
+\newcommand{\Tr}{\text{Tr}}
+\renewcommand{\l}{\left(}
+\renewcommand{\r}{\right)}
+\newcommand{\hro}{\hat \rho}
+\newcommand{\invc}{\frac{1}{c}}
+\newcommand{\invcs}{\frac{1}{c^2}}
+\newcommand{\fourierconst}[1][n]{\frac{1}{(2 \pi)^{#1/2}}}
+\newcommand{\fourierconstinv}[1][n]{(2 \pi)^{#1/2}}
+\newcommand{\MQ}{Meccanica Quantistica }
+\newcommand{\vx}{\vec{x}}
+\newcommand{\evx}{\evec{x}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\hhalf}{\frac{\hslash}{2}}
+\newcommand{\thhalf}{$\hslash$/2}
+\newcommand{\hh}{\frac{\hslash}{\sqrt{2}}}
+\newcommand{\sqrthalf}{\frac{1}{\sqrt{2}}}
+\newcommand{\var}{\Delta}
+\newcommand{\ket}{\rangle}
+\newcommand{\bra}{\langle}
+
+\newcommand{\vhat}[1]{\vec \hat #1}
+\newcommand{\vthat}[1]{\vect \hat #1}
+
+% Vector notations
+\newcommand{\vect}[1]{\vec{\textbf{#1}}}
+\newcommand{\evect}[1]{$\vect{#1}$}
+\newcommand{\evec}[1]{$\vec{#1}$}
+
+% Differential operators
+\newcommand{\Grad}{\nabla}
+\newcommand{\Div}{\nabla\cdot}
+\newcommand{\Curl}{\nabla\times}
+\newcommand{\vDiv}{\nabla\cdot\vec}
+\newcommand{\vCurl}{\nabla\times\vec}
+\newcommand{\VDiv}{\nabla\cdot\vect}
+\newcommand{\VCurl}{\nabla\times\vect}
+\newcommand{\Lap}{\Delta}
+\newcommand{\vLap}{\Delta\vec}
+\newcommand{\VLap}{\Delta\vect}
+\newcommand{\RLap}{\Box}
+\newcommand{\scal}{\cdot}
+\newcommand{\rint}{\int_{\R}}
+\newcommand{\rnint}[1][n]{\int_{\R^n}}
+\newcommand{\cint}{\int_{\C}}
+\newcommand{\cnint}{\int_{\C^n}}
+\newcommand{\kint}{\int_{\K}}
+\newcommand{\knint}{\int_{\K^n}}
+
+% Complex operators
+\newcommand{\conj}{^\star}
+\newcommand{\dagg}{\dagger}
+
+% Quantum stuff
+\newcommand{\state}[1]{|#1\ket}
+\newcommand{\dstate}[1]{\bra#1|}
+
+% Operators as functions
+\renewcommand{\H}{\hat{H}}
+\renewcommand{\P}{\mathcal P}
+\newcommand{\SG}[1]{\hat{S}_{#1}}
+\newcommand{\tderiv}[1]{\frac{\partial #1}{\partial t}}
+\newcommand{\Vtderiv}[1]{\frac{\partial\vec #1}{\partial t}}
+\newcommand{\vtderiv}[1]{\frac{\partial\vect #1}{\partial t}}
+\newcommand{\stderiv}[1]{\frac{\partial^2 #1}{\partial t^2}}
+\newcommand{\vstderiv}[1]{\frac{\partial^2\vec #1}{\partial t^2}}
+\newcommand{\Vstderiv}[1]{\frac{\partial^2\vect #1}{\partial t^2}}
+\newcommand{\deriv}[2][x]{\frac{\partial #2}{\partial #1}}
+\newcommand{\sderiv}[2][x]{\frac{\partial^2 #2}{\partial #1^2}}
+\newcommand{\nderiv}[3][x]{\frac{\partial^#3 #2}{\partial #1^#3}}
+\newcommand{\Bra}[1]{\bra #1 |}
+\newcommand{\Ket}[1]{| #1 \ket}
+\newcommand{\fscal}[2]{\langle #1 | #2 \rangle}
+\newcommand{\braket}[2]{\bra #1 | #2 \ket}
+\newcommand{\fcross}[2]{\rangle #1 | #2 \langle}
+\newcommand{\ketbra}[2]{|#1\ket \bra #2|}
+\newcommand{\ketbrabra}[1]{|#1\ket \bra #1|}
+\newcommand{\avg}[2][]{\bra#2\ket_{#1}}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\fabs}[1]{||#1||}
+\newcommand{\sabs}[1]{|#1|^2}
+\newcommand{\sfabs}[1]{||#1||^2}
+\newcommand{\scalket}[3]{\braket{#1}{#2}\Ket{#3}}
+\newcommand{\crossToScalket}[3]{\braket{#2}{#3}\Ket{#1}}
+
+% Other shortcurs
+\newcommand{\vphi}{\varphi}
+
+% Theorems
+\newtheorem{teorema}{Teorema.}
+\newtheorem{definizione}{Definizione}
+\newtheorem{proposizione}{Proposizione}
+
+\def\fidaty {
+% \begin{wrapfigure}{r}{5.5cm}
+%     \centering
+%     \includegraphics[width=0.2\textwidth]{images/Fidaty.png}
+% \end{wrapfigure}
+}

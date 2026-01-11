@@ -1,0 +1,155 @@
+\section{Quantum Dynamics}
+\subsection*{Operatore Evoluzione Temporale}
+Si indica con $\hat U(t,t_0)$ l'operatore di evoluzione temporale, che "fa avanzare" uno stato in un altro stato di un tempo $t-t_0$:
+\[  
+    |\psi,t\ket = \hat U(t,t_0) |\psi,t_0\ket
+\]
+L'operatore di evoluzione temporale deve rispettare alcune proprietà:
+\begin{itemize}
+    \item Deve essere lineare
+    \item Deve essere unitario, per preservare la norma degli stati:
+    \[
+        \hat U^\dag (t,t_0) \hat U(t,t_0) = \hat{Id}
+    \]
+    \item Deve rispettare la proprietà di composizione:
+    \[
+        \hat U(t_2,t_0) = \hat U(t_2,t_1) \hat U(t_1,t_0)
+    \]
+    \item Deve essere continuo rispetto al tempo:
+    \[
+        \lim_{t \to t_0} \hat U(t,t_0) = \hat{Id}
+    \]
+\end{itemize}
+
+Si consideri ora l'operatore infinitesimo di evoluzione temporale:
+\[
+    \hat U(t_0 + dt, t_0) = \hat{Id} - i / \hbar \hat H dt
+\]
+dove $\hat H$ è un operatore hermitiano \textbf{indipendente dal tempo}, così da garantire l'unitarietà di $\hat U$. \\
+Ora espandiamo questo caso particolare:
+\begin{align*}
+    \hat U(t + dt, t) \hat U(t, t_0) &= \hat U(t + dt, t_0) \\
+    (\hat{Id} - i / \hbar \hat H dt) \hat U(t, t_0) &= \hat U(t + dt, t_0) \\
+    \hat U(t + dt, t_0) - \hat U(t, t_0) &= \frac{i}{\hbar} \hat H \hat U(t, t_0) dt
+\end{align*}
+Che è molto simiele alla definizione di derivata; tuttavia siccome si tratta di operatori è necessario definire il comportamento della derivata in questo caso:
+\[
+    \deriv[t]{} \hat U(t, t_0) = \lim_{dt \to 0} \frac{\hat U(t + dt, t_0) - \hat U(t, t_0)}{dt} = -\frac{i}{\hbar} \hat H \hat U(t, t_0)
+\]
+che, posto $\hat H$ l'operatore hamiltoniano solito, corrisponde alla dichicarazione dell'equazione di Schrödinger!
+\[
+    i \hbar \deriv[t]{} \hat U(t, t_0) |\psi\ket = \hat H \hat U(t, t_0) |\psi\ket
+\]
+Ora proviamo ad espandere l'operatore hamiltoniano:
+LOL NON SI È CAPITO NIENTE. RIVEDERE LEZIONE ALLE 10:50
+
+Per ricostruire l'operatore di evoluzione temporale per tempi finiti, si può procedere come per le traslazioni spaziali, ripetendo a cascata volte l'operatore infinitesimo:
+\begin{align*}
+    \hat U(t, t_0) &= \lim_{N \to \infty} \left[ \hat U\left(t_0 + \frac{t - t_0}{N}, t_0\right) \right]^N \\
+    &= \lim_{N \to \infty} \left[ \hat{Id} - \frac{i}{\hbar} \hat H \frac{t - t_0}{N} \right]^N \\
+    &= e^{-\frac{i}{\hbar} \hat H (t - t_0)}
+\end{align*}
+
+\subsubsection*{Stati nella Base delle Energie}
+Inoltre accade che se si sceglie come base per lo spazio di Hilbert gli autostati dell'hamiltoniano, oltre a molte altre comodità che salteranno fuoir più avanti, l'operatore di evoluzione temporale risulta diagonale:
+\[
+    \hat U(t, t_0) = \sum_j e^{-\frac{i}{\hbar} a_j (t - t_0)} |\psi_j \ket \bra \psi_j |
+\]
+e l'espressione dello stato $\psi$ in un tempo $t$ risulta:
+\[
+    |\psi, t\ket = \hat U(t, t_0) |\psi, t_0\ket = \sum_j e^{-\frac{i}{\hbar} a_j (t - t_0)} |\psi_j \ket \bra \psi_j | \psi, t_0\ket
+\]
+ma siccome gli stati $|\psi_j \ket$ sono autostati dell'hamiltoniano, si ha che:
+\begin{align*}
+    \hat H |\psi_j \ket = a_j |\psi_j \ket \\
+    \implies |\psi_j, t\ket = e^{-\frac{i}{\hbar} a_j (t - t_0)} |\psi_j, t_0\ket
+\end{align*}
+(Si verifichi questa affermazione per esercizio). Al chè:
+\[
+    |\psi, t\ket = \sum_j c_j e^{-\frac{i}{\hbar} a_j (t - t_0)} |\psi_j \ket
+\]
+Quest'equazione riassume tutta la dinamica quantistica, che è molto comodo, infatti:
+\begin{align*}
+    c_j(t) &= c_j(t_0) e^{-\frac{i}{\hbar} a_j (t - t_0)} \\
+    |c_j(t)|^2 &= |c_j(t_0)|^2|e^{-\frac{i}{\hbar} a_j (t - t_0)}|^2 = |c_j(t_0)|^2
+\end{align*}
+ovvero le probabilità di trovare il sistema in uno stato autostato dell'hamiltoniano sono costanti nel tempo!
+\subsection*{Valori medi degli osservabili nel tempo}
+Dato uno stato $|\psi, t\ket$ che evolve nel tempo secondo l'operatore di evoluzione temporale, si può calcolare il valore medio di un osservabile $\hat A$ nel tempo $t$ come:
+\begin{align*}
+    \bra \hat A(t) \ket_ \psi &= \bra \psi, t | \hat A | \psi, t \ket \\
+    &= \bra \psi, t_0 | \hat U^\dag(t, t_0) \hat A \hat U(t, t_0) | \psi, t_0 \ket \\
+    &= \bra \psi, t_0 | e^{\frac{i}{\hbar} a_j (t - t_0)} \hat A e^{-\frac{i}{\hbar} a_j (t - t_0)} | \psi, t_0 \ket
+\end{align*}
+Ora si possono analizzare due casi:
+\begin{itemize}
+    \item $\hat A$ è costante del moto ($[\hat A, \hat H] = 0$). Banalmente risulta che:
+    \[
+        \bra \hat A(t)\ket_\psi = \bra \psi, t_0 | \hat A | \psi, t_0 \ket
+    \]
+    in quanto si possono semplificare i due esponenziali.
+    \item $\hat A$ non commuta con l'hamiltoniano. In questo caso si può inserire l'identità tra gli esponenziali e l'operatore:
+    \[
+        \bra \hat A(t) \ket_\psi = \bra \psi, t_0 | \hat A | \psi, t_0 \ket = \]\[
+        = \sum_{i,j} \bra \psi, t_0|\psi_i\ket e^{\frac{i}{\hbar} (a_j - a_i) (t - t_0)} \bra \psi_i | \hat A | \psi_j\ket \bra \psi_j | \psi, t_0\ket = \]\[
+        = \sum_{i,j} c_i^* c_j e^{\frac{i}{\hbar} (a_j - a_i) (t - t_0)} A_{ij}
+    \]
+    dove $A_{ij}$ è la matrice dell'operatore $\hat A$ nella base degli autostati dell'hamiltoniano. Non è un conto semplice, quindi ci si limita ad analizzare un paio di casi specifici:
+
+    \textit{Si consideri uno stato del tipo $| \psi \ket = |\psi_0\ket$. Risulta facilmente che $\bra A(t)\ket_\psi = \bra A(t_0)\ket_\psi$.}
+
+    \textit{Si consideri ora uno stato del tipo $| \psi \ket = \frac{1}{\sqrt{2}}|\psi_0\ket + \frac{1}{\sqrt{2}}|\psi_1\ket$. Stavolta risulta: (esercizioo) che differisce dalla precedente per un termine di interferenza. (si chiama $\omega_{ij}$ la differenza di energie degli autostati (gli autovalori) diviso $\hslash$)}
+\end{itemize}
+Questi esempi mettono in luce il fatto che se uno stato di partenza è una sovrapposizione di autostati, allora l'evoluzione nel tempo dipende solo dagli autostati considerati, e non dagli autostati che non erano considerati.
+
+
+
+
+\section{Rappresentazioni alternative}
+La rappresentazione di Schrödinger è quella che abbiamo usato fin'ora, in cui gli stati evolvono nel tempo secondo l'equazione di Schrödinger e gli operatori sono costanti nel tempo. (\textit{Schrödinger picture}).
+
+È possibile introdurre anche un'altra rappresentazione, detta \textit{Heisenberg picture}, in cui sono gli operatori a evolvere nel tempo e gli stati sono costanti. \\
+Si definisce l'operatore di Heisenberg come:
+\begin{align*}
+    \hat A_H(t) &= \hat U^\dag(t, t_0) \hat A \hat U(t, t_0) = \\
+    &= e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \hat H (t - t_0)}
+\end{align*}
+In cui il pedice $H$ indica che si tratta di un operatore in rappresentazione di Heisenberg. \\
+Si può calcolare la derivata temporale di questo operatore:
+\begin{align*}
+    \deriv[t]{} \hat A_H(t) &= \deriv[t]{} \left( e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \hat H (t - t_0)} \right) \\
+    &= -\frac{i}{\hbar} \hat H e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \hat H (t - t_0)} + e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A \left( -\frac{i}{\hbar} \hat H e^{-\frac{i}{\hbar} \hat H (t - t_0)} \right) \\
+    &= -\frac{i}{\hbar} \left[ \hat H, \hat A_H(t) \right]
+\end{align*}
+Da cui l'equazione di Heisenberg:
+\[
+    i \hbar \deriv[t]{} \hat A_H(t) = \left[ \hat H, \hat A_H(t) \right]
+\]
+(ricavabile per esercizio).
+
+\subsection*{Rappresentazione di Heisenberg: un esempio}
+Si consideri l'operatore posizione e l'operatore momento di una particella libera in 1D:
+\begin{align*}
+    \left[ \hat x, \hat p \right] &= i \hbar \\
+    \hat H &= \frac{\hat p^2}{2m}
+\end{align*}
+Ora si cerca
+\[
+    \left[ \hat x, \hat p^2 \right] = \hat x \hat p^2 - \hat p^2 \hat x = \hat p \left[\hat x, \hat p \right] + \left[ \hat x, \hat p \right] \hat p = 2 i \hbar \hat p
+\]
+Ora
+\[
+    \left[ \hat x, \hat p^3 \right] = \hat x \hat p^3 - \hat p^3 \hat x = \hat p^2 \left[\hat x, \hat p \right] + \left[ \hat x, \hat p \right] \hat p^2 = 3 i \hbar \hat p^2
+\]
+E in generale
+\[
+    \left[ \hat x, \hat p^n \right] = n i \hbar \hat p^{n-1}
+\]
+(si può dimostrare per induzione come esercizio). Questa operatzione è molto simile alla derivata, infatti si può scrivere:
+\[
+    \left[ \hat x, f(\hat p) \right] = i \hbar \deriv[\hat p]{} f(\hat p)
+\]
+E lo stesso vale scambiando $\hat p$ con $\hat x$. Non necessita dimostrazione il fatto che
+\[
+    \left[\hat x, f(\hat p)\right] = i\hbar \deriv[\hat p]{} f(\hat p);\ \ \left[\hat p, f(\hat x)\right] = -i\hbar \deriv[\hat x]{} f(\hat x)
+\]
