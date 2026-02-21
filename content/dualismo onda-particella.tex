@@ -1,65 +1,69 @@
 \section{Luce in forma particellare}
-Come abbiamo appena visto, se si suppone che la luce è in forma esclusivamente ondulatoria si va in contro ad alcuni conflitti con i dati sperimentali. È quindi necessario ri-definire il concetto stesso di "onda luminosa": ora non sarà più una semplice onda ma un pacchetto d'onda formato da una distribuzione continua di onde monocromatiche. È facile immaginare che la velocità del pacchetto d'onda sarà la velocità della luce: prima avevamo che per un'onda monocromatica $f(x,t) = a \cos (k \cdot x - \omega t)$ la velocità di propagazione era data da $v = |k|/\omega = c$ nel caso della luce. In particolare si aveva $\omega = ck$, che viene ora chiamata \textbf{relazione (o legge) di disperzione} \index{legge di disperzione} del pacchetto d'onda.\index{Relazione di dispersione} In generale si nota che vale $v = \deriv[k]{\omega(k)}$; questa quantità viene chiamata \textbf{velocità di gruppo}.\index{Velocità di Grupo}
+Come abbiamo appena visto, se si suppone che la luce è in forma esclusivamente ondulatoria si va in contro ad alcuni conflitti con i dati sperimentali. È quindi necessario ri-definire il concetto stesso di "onda luminosa": ora non sarà più una semplice onda ma un pacchetto d'onda formato da una distribuzione continua di onde monocromatiche. È facile immaginare che la velocità del pacchetto d'onda sarà la velocità della luce: prima avevamo che per un'onda monocromatica $f(x,t) = a \cos (k \cdot x - \omega t)$ la velocità di propagazione era data da $v = |k|/\omega = c$ nel caso della luce. In particolare si aveva $\omega = ck$, che sarebbe la \textbf{legge di dispersione} menzionata nell'Introduzione. In generale si nota che vale $v = \deriv[k]{\omega(k)}$; questa quantità viene chiamata \textbf{velocità di gruppo}.\index{Velocità di Gruppo}
 
 \subsection*{Distribuzione particellare}
-De Broglie: data una distribuzione di particelle, le cui cartteristiche seguono quindi le caratteristiche della meccanica classica, si ha che una particella è definita da \textbf{massa} $m$, \textbf{quantità di moto} $\vec p$, \textbf{energia} $E$.
-Essa ha anche un'onda associata, come visto prima, e in particolare ogni cosa ha un'onda associata! possibilmente stazionaria, anche la materia:
+Data una distribuzione di particelle, le cui cartteristiche seguono quindi le caratteristiche della meccanica classica, si ha che una particella è definita da \textbf{massa} $m$, \textbf{quantità di moto} $\vec p$, \textbf{energia} $E$.
+L'idea di De Broglie fu di associare a questa distribuzione una lunghezza d'onda (\textbf{lunghezza d'onda di De Broglie}\index{Lunghezza d'onda di De Broglie}), in analogia con le onde luminose:
 \[
 	\omega = \frac{E}{\hslash}, \ \ \ \ 
-	\vec k = \frac{\vec p}{\hslash}
+	\vec k = \frac{\vec p}{\hslash} = \frac{m\vec v}{\hslash}
 \]
-Infatti si può fare l'esperimento di Young con fasci di materia e produrre anche in questo caso delle figure di diffrazione! Ovviamente sono necessarie condizioni molto particolari, in quanto le lunghezze d'onda degli oggetti materiali sono molto più piccole di quelle della luce.
+questa idea si è rivelata corretta nel caso dell'esperimento di Young effettuato con fasci di materia invece che di luce: quindi risulta che ogni distribuzione di materia, che una particella o un'ammasso in movimento, è un'onda, e rispetta la proprietà di diffrazione!\\
+Queste lunghezze d'onda sono molto inferiori alla lunghezza d'onda della luce visivile, quindi sono necessarie condizioni particolari per questo esperimento.
 
-\subsection*{Legge di dispersione delle Matter Waves}
+È tuttavia anche necessario che queste 'matter waves' siano onde stazionarie: risulta che è necessaria l'equivalenza $\R = \frac{n}{\abs \vec k}$ dove R è boh, da cui si deriva anche $n\h = R \abs \vec p = L$, ovvero la quantizzazione del momento angolare, che Borh nel suo modello aveva preso per buona senza dimostrazione.
+
+\subsection*{Legge di dispersione delle Matter Waves} \index{Matter Waves}
 Per la luce era \( \omega = c|\vec k| \)\\
-Riarrangiando le espressioni introdotte poco fa risulta
+Riarrangiando le espressioni introdotte poco fa risulta:
 \[
 	\omega = \frac{\hslash|\vec k|^2}{2m}
 \]
-che è una legge di dispersione quadratica!
+; una legge di dispersione quadratica\footnote{Una valida analogia con le particelle classiche: un mucchio di particelle che si muovono, ognuna con una piccola differenza dalla velocità del centro di massa. Il mucchio si espande col passare del tempo, e le particelle si disperdono in modo lineare col tempo. Nel contesto quantistico questa dispersione diventa quadratica.}.
 
-Pacchetti d'onda? Facile!
-risulta
+Velocità di gruppo? Facile! Risulta:
 \[
 	\vec v_g = \Grad _{\vec k} \omega = \frac{2 \hslash \vec k}{2 m} = \frac{\vec p}{m} = \vec v
 \]
-
-che è proprio la velocità della particella. Al chè
-\begin{align*}
+che è proprio la velocità classica della particella. Al chè si può estendere l'onda al campo complesso, con l'equazione tipica dell'ottica:
+\begin{gather*}
 	\psi(\vec x, t) = e^{i(\vec k \scal \vec x - \omega t)} \\
-	\tderiv{\psi} = -i\omega \psi = \frac{E}{\hslash}\psi \\
-	\Lap \psi = -|k|^2\psi
-\end{align*}
-E quindi risulta (\textbf{Equazione di Schroedinger}) \index{Equazione di Schrödinger}
+	\tderiv{\psi} = -i\omega \psi = -i\frac{\hslash|\vec k|^2}{2m}\psi \\
+	\Lap \psi = -|\vec k|^2\psi
+\end{gather*}
+E quindi equagliando le due equazioni differenziali tramite $\psi$ risulta (\textbf{Equazione di Schroedinger}) \index{Equazione di Schrödinger}:
 \begin{equation}
 	i\hslash \tderiv{\psi (\vec x, t)} = - \frac{\hslash^2}{2m} \Lap \psi(\vec x, t)
 \end{equation}
-La soluzione a quest'equazione differenziale rappresenta lo \textbf{stato} del sistema, ovvero una quantità che permette di derivare la probabilità di trovare la particella in una certa posizione nello spazio ad un certo istante di tempo.
+La soluzione a quest'equazione differenziale è chiamato \textbf{stato} del sistema; è la funzione che permette di derivare la probabilità di trovare la particella in una data posizione nello spazio ad un certo istante di tempo (infatti l'unità di misuta è $\inv {m^{3/2}}$).
 In sostanza stiamo affermando che le misurazioni effettuabili su una matter wave sono regolate da principi statistici! \\
 È la quantità $|\psi(\vec x, t)|^2 $ ad essere una vera e propria distribuzione di probabilità, quindi si pone
 \[
 	\int_{\R^3} |\psi(\vec x, t)|^2 dx = 1 = ||\psi||^2
 \]
 dove $||\scal||$ è la norma $L^2$
-Risulta comodo definire anche l'operatore Hamiltoniano \index{operatore Hamiltoniano}
-\begin{align*}
-	\H = &- \frac{\hslash^2}{2m} \Lap + U(\vec x)\\
-	\H\psi = - \frac{\hslash^2}{2m} &\Lap \psi(\vec x, t) + U(\vec x) \psi(\vx, t)\\
-	\vec p = &- i \hslash \Div
-\end{align*}
+È quindi tempo di introdurre un potenziale $U$ (moltiplicativo) che definisca le interazioni della particella col sistema, e di definire l'operatore (lineare) Hamiltoniano \index{operatore Hamiltoniano}
+\begin{gather*}
+	\H = - \frac{\hslash^2}{2m} \Lap + \U(\vec x)\\
+	\H\psi = - \frac{\hslash^2}{2m} \Lap \psi(\vec x, t) + \U(\vec x) \psi(\vx, t)\\
+	\vec p = - i \hslash \Div \\
+	\H = \frac{\hat p ^2}{2m} + \U(\vec x)
+\end{gather*}
 per cui, dato il prodotto scalare tipico di $L^2(\C)$
 \[
 	\fscal f g = \int_{\R^3} f^\star g
 \]
-bisogna dimostrare (esercizio) che $\fscal\phi {\H\phi}$ = $\fscal {\H\phi} \phi \in \R$, ovvero è un operatore \textbf{hermitiano}.\\
+si dimostri per esercizio che $\fscal\phi {\H\phi}$ = $\fscal {\H\phi} \phi \in \R$, ovvero è un operatore \textbf{hermitiano}.\\
 La funzione $U(\vec x)$ è un potenziale definito localmente, utile per poter introdurre dei vincoli sul moto del pacchetto d'onda.
 
-La funzione $\psi$ è chiamata \textbf{funzione d'onda} \index{Funzione d'onda}, ed è quell'oggetto che contiene tutte le informazioni sullo stato del sistema (per convenienza viene anche chiamata \textit{stato}).
-
-Per finire, siccome $\sfabs \psi$ è una distribuzione di probabilità volumetrica, è opportuno definire un "flusso di probabilità", ovvero una funzione che esprime localmente la variazione nel tempo della densità di probabilità. Per esercizio si riccavi la formula
+Da queste definizioni risulta una forma più comoda dell'equazione di Schroedinger (incorporata col potenziale):
 \[
-	\J = \frac{\hslash}{2im}[\psi^*(\Div\psi) - \psi(\Div\psi^*)]
+	i\h\tderiv{\psi} = \H \psi
+\]
+
+Per finire, siccome $\sfabs \psi$ è una distribuzione di probabilità volumetrica, è opportuno definire un "flusso di probabilità", ovvero una funzione che esprime localmente la variazione nel tempo della densità di probabilità ($\rho$). Per esercizio si riccavi la formula
+\[
+	\J = \frac{\hslash}{2im}[\psi^*(\Div\psi) - \psi(\Div\psi^*)] \]\[
+	\Div \J = -\tderiv{\rho}
 \]
 Si ricavi inoltre che questa quantità coincide con la velocità della particella.
-
-L'ultimo fatto interessante è che le matter waves possono interferire tra loro.

@@ -34,7 +34,7 @@ Chiamiamo $\tau$ l'operatore che si comporta in questo modo:
 \]
 Al chè si può usare il solito trucco:
 \[
-    \tau (\vec {dx}) \hat{Id} |\psi\ket = \int |\vec x + \vec {dx}\ket \bra \vec x + \vec {dx} | \psi\ket d^3x
+    \tau (\vec {dx}) \hat{Id} |\psi\ket = \rnint |\vec x + \vec {dx}\ket \bra \vec x + \vec {dx} | \psi\ket d^nx
 \]
 Inoltre serve che $\tau$ rispetti altre proprietà:
 \begin{align*}
@@ -47,7 +47,7 @@ Una valida implementazione di $\tau$ è la seguente:
 \[
     \tau (\vec {dx}) = \hat{Id} - i \hat k \cdot \vec{dx}
 \]
-Si può dimostrare che l'ultima espressione è sufficiente per rispettare le proprietà richieste, a patto che $\vec{p}$ sia un operatore hermitiano ($\hat{k} = \hat{k} ^ \dag$). \\
+Si può verificare che l'ultima espressione è sufficiente per rispettare le proprietà richieste, a patto che $\vec{k}$ sia un operatore hermitiano ($\hat{k} = \hat{k} ^ \dag$). \\
 A questo punto si ha anche
 \[
     \tau^\dag (\vec{dx}) = \hat{Id} + i \hat k \cdot \vec{dx}
@@ -82,52 +82,58 @@ E, siccome $\hat p |\vec p\ket = \vec p |\vec p\ket$, si ha
 \[
     \tau(\vec x)|\vec p\ket = e^{-\frac{i}{\hslash} \hat p \cdot \vec x} |\vec p\ket = e^{-\frac{i}{\hslash} \vec p \cdot \vec x} |\vec p\ket
 \]
-Si mostri per esercizio che in tutti i termini dell'espansione di taylor risulta che le $\hat p$ diventano $\vec p$, e quindi vale l'equivalenza.
+
+All'inizio del prossimo capitolo verrà spiegato il significato di funzione di operatore.
 
 \subsubsection*{Rappresentazione nella base dei momenti}
 Proviamo ad espandere $\tau(\vec{dx})|\psi\ket$:
-\begin{align*}
-    \tau(\vec{dx})|\psi\ket = \tau(\vec{dx}) \int |\vec x \ket \bra \vec x | \psi\ket d^3x =\\
-    = \int |\vec x + \vec{dx} \ket \bra \vec x || \psi\ket d^3x =  \int |\vec x \ket \bra \vec x - \vec{dx} | \psi\ket d^3x = \\
-    \int |\vec x \ket \psi(\vec x - \vec{dx}) d^3x \simeq \int |\vec x \ket \left[ \psi(\vec x) - \vec{dx} \cdot \Grad \psi(\vec x) \right] d^3x = \\
-    = \int |\vec x \ket \left[ \bra \vec x | \psi \ket - \vec{dx} \cdot \Grad \bra \vec x | \psi \ket \right] d^3x = \\
-    = \hat{Id} - \int |\vec x \ket \bra \vec x |  \vec{dx} \cdot \Grad |\psi\ket d^3x
-\end{align*}
-PERFA VORE RIVEDERE LA LEZIONE (11:10)
+\begin{gather*}
+    \tau(\vec{dx})|\psi\ket = \tau(\vec{dx}) \rnint |\vec x \ket \bra \vec x | \psi\ket d^nx =\\
+    = \rnint |\vec x + \vec{dx} \ket \bra \vec x || \psi\ket d^nx =  \rnint |\vec x \ket \bra \vec x - \vec{dx} | \psi\ket d^nx = \\
+    = \rnint |\vec x \ket \psi(\vec x - \vec{dx}) d^nx = \rnint |\vec x \ket \left[ \psi(\vec x) - \vec{dx} \cdot \Grad \psi(\vec x) \right] d^nx = \\
+    = \rnint |\vec x \ket \left[ \bra \vec x | \psi \ket - \vec{dx} \cdot \Grad \bra \vec x | \psi \ket \right] d^nx
+    = \rnint \ketbrabra {\vec x} - |\vec x \ket \bra \vec x |  \vec{dx} \cdot \Grad |\psi\ket d^nx = \\
+    = \left[\hat {Id} - \rnint \vec{dx} \cdot \hat \Grad d^nx \right] \Ket \psi
+\end{gather*}
+Ma ricordando la definizione di $\tau$ risulta che:
+\begin{gather*}
+    \tau(\vec{dx})\Ket \psi = \l \cancel {\hat {Id}} - i\frac{\hat p}{\h} \cdot \vec{dx}\r\Ket \psi = \left[\cancel {\hat {Id}} - \rnint \vec{dx} \cdot \hat \Grad d^nx \right] \Ket \psi \\
+    \Bra {\vec x} \hat p \Ket \psi = \Bra {\vec x} -i\h\hat\Grad\Ket\psi = -i\h\hat\Grad \braket{\vec x}{\psi}
+\end{gather*}
 
-Risulta quindi, in sostanza, che uno stato $\psi$ può essere rappresentato nella base dei momenti $\vec p$ invece che della posizione $\vec x$.
-
+Quest'ultima equazione esprime l'azione dell'operatore momento ($\hat p$) quando lo stato è espresso nella base delle posizioni: in particolare ne è il gradiente!
 
 \subsubsection*{Autofunzioni del momento nella base delle posizioni}
-\begin{align*}
+\begin{gather*}
     \hat p |\vec p\ket = \vec p |\vec p\ket \\
-    \bra \vec x | \hat p | \vec p\ket = \vec p \bra \vec x | \vec p\ket \\
-    -i \hslash \Grad \bra \vec x | \vec p\ket = \vec p \bra \vec x | \vec p\ket \\
-\end{align*}
-Chiamiamo ora $\Phi_{\vec p}(\vec x) = \bra \vec x | \vec p\ket $ e inseriamo nella precedente equazione:
+    \bra \vec x | \hat p | \vec p\ket = \vec p \bra \vec x | \vec p\ket = -i \hslash \Grad \bra \vec x | \vec p\ket
+\end{gather*}
+\newcommand{\braketxp}{\braket {\vec x} {\vec p}}
+\newcommand{\braketpx}{\braket {\vec p} {\vec x}}
+Dove $\Ket {\vec p}$ è un'autostato dell'operatore momento. Quest'ultima è un'equazione differenziale in $\braketxp$, le cui soluzioni improprie sono del tipo:
 \[
-    -i \hslash \Grad \Phi_{\vec p}(\vec x) = \vec p \Phi_{\vec p}(\vec x) \]\[
-    \Phi_{\vec p}(\vec x) = A e^{\frac{i}{\hslash} \vec p \cdot \vec x}
+    \braketxp = A e^{\frac{i}{\hslash} \vec p \cdot \vec x}
 \]
-Dove $\Phi_{\vec p}(\vec x)$ sono le soluzioni improprie dell'equazione differenziale.
-Ora si può espandere
-\begin{align*}
-    \bra \vec x' | \vec x'' \ket = \delta(\vec x' - \vec x'') = \\
-    = \int \bra \vec x' | \vec p \ket \bra \vec p | \vec x'' \ket d^3p = \\
-    = |A|^2 \int e^{\frac{i}{\hslash} \vec p \cdot (\vec x' - \vec x'')} d^3p = \\
-    = |A|^2 (2 \pi \hslash)^3 \delta(\vec x' - \vec x'')
-\end{align*}
-Al chè si può porre $A = \frac{1}{(2 \pi \hslash)^{3/2}}$.
-E quindi usare questi fatti per espandere anche uno stato generico:
-\begin{align*}
+Per trovare la $A$ si può procedere come segue:
+\begin{gather*}
+    \bra \vec x' | \vec x'' \ket = \delta(\vec x' - \vec x'') 
+    = \rnint \bra \vec x' | \vec p \ket \bra \vec p | \vec x'' \ket d^np = \\
+    = |A|^2 \rnint e^{\frac{i}{\hslash} \vec p \cdot (\vec x' - \vec x'')} d^np
+    = |A|^2 (2 \pi \hslash)^{n/2} \delta(\vec x' - \vec x'')
+\end{gather*}
+Al chè $A = \frac{1}{(2 \pi \hslash)^{n/2}}$.\\
+Assemblando quanto trovato fin'ora risulta:
+\begin{gather*}
     \bra \vec x | \psi \ket = \psi(\vec x) = \\
-    = \int \bra \vec x | \vec p \ket \bra \vec p | \psi \ket d^3p = \\
-    = \frac{1}{(2 \pi \hslash)^{3/2}} \int e^{\frac{i}{\hslash} \vec p \cdot \vec x} \psi(\vec p) d^3p
-\end{align*}
-Che coincide con la definizione della trasformata di Fourier.
+    = \rnint \braketxp \braket {\vec p}{\psi} d^np = \\
+    = \frac{1}{(2 \pi \hslash)^{n/2}} \rnint e^{\frac{i}{\hslash} \vec p \cdot \vec x} \psi(\vec p) d^np
+\end{gather*}
+Che coincide con la definizione della trasformata di Fourier! E anche: siccome invertire i termini del prodotto scalare coincide col fare il complesso coniugato risulta anche:
 
-Siccome in questo caso stiamo applicando una funzione a un operatore, risulta utile definirene il significato. Risulta che, se la funzione è analitica, è sufficiente usare lo sviluppo in serie di Taylor moltiplicando per l'operatore iterato:
-\[
-    f(\hat{A}) = \sum_{n=0}^{\infty} \frac{f^{(n)}(x_0)}{n!} \hat{A}^n
-\]
-
+Assemblando quanto trovato fin'ora risulta:
+\begin{gather*}
+    \bra \vec p | \psi \ket = \psi(\vec p) = \\
+    = \rnint \braketpx \braket {\vec x}{\psi} d^nx = \\
+    = \frac{1}{(2 \pi \hslash)^{n/2}} \rnint e^{-\frac{i}{\hslash} \vec p \cdot \vec x} \psi(\vec x) d^nx
+\end{gather*}
+Ovvero l'antitrasformata!

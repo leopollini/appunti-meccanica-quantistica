@@ -1,24 +1,34 @@
-\subsection*{Equazione di Schroedinger per gli stati stazionari}
+\subsection*{Equazione di Schroedinger per gli stati stazionari} \index{Evoluzione degli Stati Stazionari}
 
-Ora, come si fa a prevedere l'andamento dell'equazione d'onda nel tempo e nello spazio?
-
-
-Sia $\psi(\vec x, t) = \varphi(\vec c)F(t)$. Allora risulta
+Ora, come quali sono le restrizioni sulla forma dell'equazione d'onda, data la legge di Scroedinger?\\
+Sia $\psi = \vphi(\vec x) F(t)$ la funzione d'onda separata nelle due variabili. Allora risulta:
 \[
-    \psi = \varphi (\vec x) e^{\frac{-i}{\hslash}Et}F(0)
+    i\h \vphi\tderiv{F} = F\H\vphi \]\[
 \]
-e
+dividendo da entrambi i lati per $\psi$:
 \[
-    |\psi|^2 = |\varphi(\vec x) F(0)|^2
+    i\h\frac{1}{F}\tderiv{F} = \frac{1}{\vphi}\H\vphi
 \]
-che non dipende dal tempo! Solo dalla posizione.
+Queste sono due equazioni differenziali indipendenti, quindi l'unica soluzione possibile è quando sono entrambe costanti:
+\[
+\begin{cases}
+    i\h \tderiv{F} = E F\\
+    \H\vphi = E \vphi
+\end{cases}
+\]
+La prima delle due ha soluzione $F(t) = F(0) e^{-i\frac{E}{\h}t}$, mentre la seconda dipende strettamente dal comportamento di $\H$. Tuttavia, sapendo che $\H$ è un'operatore lineare, è come se quella fosse l'equazione degli autovettori (problema spettrale). Risulta che questi autovettori sono chiamati autostati e sono gli stati stazionari del sistema (invarianti per traslazione temporale, a meno di un parametro complesso unitario).
 
-Risulta molto utile trovare le $\varphi$ tali che:
+Questi stati quindi si possono indicare come:
 \[
-    \H \varphi = E \varphi
+    \psi_k(\vec x, t) = \vphi_k(\vec x) e^{-i\frac{E_k}{\h}t}
 \]
-ovvero un problema di calcolo degli autovalori nello spazio delle funzioni.
-\subsubsection*{Caso I 1D}
+incorporando la $F(0)$ dentro $\vphi_k(\vec x)$. Risula facilmente anche:
+\[
+    \abs{\psi(\vec x,t)} = \abs{\psi(\vec x, 0)}
+\]
+
+
+\subsubsection*{Buca di potenziale 1D} \index{Buca di Potenziale ! Infinita 1D}
 Ci si pone nella condizione in cui è presente solo una buca di potenziale nullo larga $a$ contornata da pareti a potenziale infinito:
 
 \begin{figure}[h]
@@ -50,14 +60,14 @@ si pone $k^2 = \frac{2mE}{\hslash^2}>0$
         \vphi'' + k^2\vphi = 0\\
         \vphi(0) = \vphi(a) = 0
     \end{cases}
-    \ \implies\ \ \vphi = A\cos(kx) + B\sin(kx),\ \ A = 0, kn = n\pi
+    \ \implies\ \ \vphi = A\sin(kx),\ \ k = n\pi
 \]
 al ché si possono definire
 \[
-    \vphi_n(x) = B/sin(\frac{n\pi x}{a}),\ \ E_n = \frac{\hslash^2 n^2 \pi^2}{2 a^2 m}
+    \vphi_n(x) = A\sin(\frac{n\pi x}{a}),\ \ E_n = \frac{\hslash^2 \pi^2}{2 m a^2} n^2
 \]
 
-Queste sono tutte le armoniche, con energia $\propto n^2$. Ponendo poi $||\vphi_n||^2 = 1$ risulta, per ogni $n$, $B = \sqrt(\frac{2}{a})$ (ricavare per esercizio). Inoltre, dato che sono tutte soluzioni dell'equazione degli autovalori, tutte le $\vphi_n$ possono essere composte in una $\Phi$ pesate in modo che $||\Phi||^2 = 1$
+Queste sono tutte le armoniche, con energia $\propto n^2$. Ponendo poi $||\vphi_n||^2 = 1$ risulta, per ogni $n$, $A = \sqrt{\frac{2}{a}}$ (ricavare per esercizio). Inoltre, dato che sono tutte soluzioni dell'equazione degli autovalori, tutte le $\vphi_n$ possono essere composte in una $\Phi$ pesate in modo che $||\Phi||^2 = 1$
 
 Se invece si ha $\frac{2mE}{\hslash^2}<0$ risulta che non esistono soluzioni consistenti, in quanto gli esponenziali divergerebbero in tutte le direzioni.
 
@@ -85,33 +95,71 @@ Se invece si ha $\frac{2mE}{\hslash^2}<0$ risulta che non esistono soluzioni con
 \end{tikzpicture}
 \end{figure}
 
-\subsection*{Particella libera e spettro continuo (1D)}
+\subsection*{Particella libera e spettro continuo (1D)} \index{Particella libera}
 Come prima, si parte dell'equazione agli autovalori, però si ha che la buca di potenziale è infinitamente estesa (tutto R):
 \[
     E< 0\ \implies\ \vphi'' - k^2\vphi = 0\ \implies\ \vphi = Ae^{-kx}+Be^{kx}\]\[
     E> 0\ \implies\ \vphi'' + k^2\vphi = 0\ \implies\ \vphi = Ae^{-ikx}+Be^{ikx}
 \]
-Tuttavia queste sono soluzioni 'improprie', in quanto in entrambi i casi non sono mai normalizzabili (addirittura divergono quelle della prima riga). Proviamo però con i pacchetti d'onda, considerando le onde monocromatiche $\vphi_k = \frac{1}{\sqrt{1\pi}}e^{ikx}$
+Tuttavia queste soluzioni armoniche sono 'improprie', in quanto in entrambi i casi non sono mai normalizzabili (quelle della prima riga in particolare diversono).
+
+Tuttavia, ricordando la trasformata di Fuorier e le sue proprietà comode, è possibile rappresentare uno stato fisico ad energia finita con una distribuzione di 'onde monocromatiche' (autostati impropri: $\vphi_k = \frac{1}{\sqrt{2\pi}}e^{ikx}$)
 
 \subsubsection*{Dinamica quantistica della particella libera}
-Assemblando i passaggi precedenti:
+Assemblando i passaggi precedenti si possono costruire gli autostati evoluti nel tempo:
 \[
-    \psi_k = \vphi_ke^{-\frac{i}{\hslash}E_kt} = \frac{1}{s\sqrt{2\pi}} e^{ikx -\frac{i}{\hslash}E_kt}
+    \psi_k = \vphi_ke^{-\frac{i}{\hslash}E_kt} = \frac{1}{\sqrt{2\pi}} e^{ikx -\frac{i}{\hslash}E_kt}
+\]
+e qundi ulo stato di una particella libera (metter wave) è:
+\[
+    \psi(x, t) = \rint g(k) \frac{e^{ikx -\frac{i}{\hslash}E_kt}}{\sqrt{2\pi}} dk
+\]
+dove $g(x)$ è una distribuzione che si può esprimere tramite antitrasformata di Fourier:
+\[
+    \psi(x, 0) = \rint g(k) \frac{e^{ikx}}{\sqrt{2\pi}} dk\ \ \ \implies \ \ \     g(k) = \rint \psi(x, 0) \frac{e^{-ikx}}{\sqrt{2\pi}} dx
+\]
+Quindi, assemblando:
+\[
+    \psi(x, t) = \rint \psi(x, 0) \rint \frac{1}{2\pi} e^{-ikx'} e^{ikx} e^{-\frac{i}{\hslash}E_kt} dx'\ dk
+\]
+L'integrale interno di solito è chiamato Risolvente, o Nucleo Integrale, o \textbf{Funzione di Green}\index{Funzione di Green}, e si può indicare così:
+\[
+    \psi(x,t) = \rint\mathcal{G}(x-x',t)\psi(x',0)dx'
 \]
 
-Ora, i prossimi passaggi sono fare la trasformata dell'antitrasformata di Fourier di una distribuzione generica. Salta fuori la Funzione di Green \index{funzione di Green}, e il fatto che la densità di probabilità cambia nel tempo in funzione di TUTTI i possibili cammini da un punto della distribuzione iniziale al punto considerato. SI VEDANO GLI APPUNTI DER PROF 1d Problems infinite well pag 13
+In sostanza in questa forma di evoluzione temporale si tiene conto di tutti i cammini che una particella può fare per arrivare nel punto cercato, pesando con la funzione di Green.
 
-Risulta infine  
+\subsubsection*{Un caso particolare: wave packet spreading} \index{Wave Packet Spreading}
+Come esempio prendiamo un pacchetto d'onda con distribuzione gaussiana all'istante 0:
 \[
-    \psi(x,t) = \int_{-\infty}^{+\infty}\mathcal{G}(x-x',t)\psi(x',0)dx'
+    \psi(x, 0) = \frac{\sqrt a}{(2\pi)^{3/2}}\rint e^{\frac{a^2}{4}(k - k_0) + ikx} dk
 \]
-
-\subsubsection*{Un caso particolare: wave packet spreading}
+L'evoluzione temporale la porta a:
 \[
-    \psi(x,t) = \frac{\sqrt a}{(2\pi)^{3/4}}\rint e^{-\frac{a^2}{4}(k-k0)^2 + ikx - it\frac{\hslash k^2}{2m}}dk
+    \psi(x, t) = \frac{\sqrt a}{(2\pi)^{3/2}}\rint e^{\frac{a^2}{4}(k - k_0) + ikx -i\frac{E_k}{\h}t}\]\[
+    \abs{\psi(x,t)} = \sqrt{\frac{2}{\pi}}\frac{1}{a\sqrt{1 + \frac{4\h^2t^2}{m^2a^2}}}e^{-\frac{2a^2(x-x_0(t))^2}{a^4+2mx_0(t)^2/l}}
 \]
-(tanti conti) Risulta:
-\[
-    \psi(x,t) \propto \exp(-\frac{2a^2(x-\hslash k_0t/m)}{a^4+4\hslash^2t^2/m^2})
-\]
-e quel che risalta è che questa gaussiana si muove nel tempo con velocità $v = \hslash k_0/m = \frac{P_0}{m}$ e varianza $\sigma = \sqrt{\frac{a^2}{4} + \frac{\hslash^2t^2}{4m^2a^2}}$. Siccome la varianza dipende dal tempo succede che, attendendo abbastanza tempo, una particella inizialmente localizzata si troverebbe ovunque con la stessa densità di probabilità!
+ovvero una gaussiana la cui varianza aumenta col tempo! In sostanza la distribuzione si 'appiattisce'
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=2]
+    \draw[->] (-3,0) -- (3,0) node[right] {$x$};
+    \draw[->] (0,0) -- (0,1.2) node[above] {$|\psi|^2$};
+    
+    % First gaussian centered at origin
+    \draw[blue, thick] plot[domain=-3:3, samples=100] (\x, {exp(-2*\x*\x)});
+    \node[blue] at (0, 1.1) {$t=0$};
+    
+    % Second gaussian (wider, shifted right)
+    \draw[red, thick] plot[domain=-3:3, samples=100] (\x, {0.5*exp(-0.5*(\x-1.5)*(\x-1.5))});
+    \node[red] at (1.5, 0.6) {$t>0$};
+\end{tikzpicture}
+\end{figure}
+% \[
+%     \psi(x,t) = \frac{\sqrt a}{(2\pi)^{3/4}}\rint e^{-\frac{a^2}{4}(k-k0)^2 + ikx - it\frac{\hslash k^2}{2m}}dk
+% \]
+% (tanti conti) Risulta:
+% \[
+%     \psi(x,t) \propto \exp(-\frac{2a^2(x-\hslash k_0t/m)}{a^4+4\hslash^2t^2/m^2})
+% \]
+% e quel che risalta è che questa gaussiana si muove nel tempo con velocità $v = \hslash k_0/m = \frac{P_0}{m}$ e varianza $\sigma = \sqrt{\frac{a^2}{4} + \frac{\hslash^2t^2}{4m^2a^2}}$. Siccome la varianza dipende dal tempo succede che, attendendo abbastanza tempo, una particella inizialmente localizzata si troverebbe ovunque con la stessa densità di probabilità!

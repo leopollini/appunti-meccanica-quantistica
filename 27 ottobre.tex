@@ -1,10 +1,18 @@
 \subsection*{Oscillatore armonico 1D}
-LEL INIZIO LEZIONE CACCO
-Operatori di creazione e distruzione:
-\begin{align*}
-    \hat a &= \sqrt{\frac{m \omega}{2 \hbar}} \left( \hat x + \frac{i}{m \omega} \hat p \right) \\
-    \hat a^\dag &= \sqrt{\frac{m \omega}{2 \hbar}} \left( \hat x - \frac{i}{m \omega} \hat p \right)
-\end{align*}
+Così come nell'oscillatore armonico classico, l'energia del sistema è data da energia cinetica più un'energia potenziale proporzionale al quadrato dello spostamento:
+\[
+    \H = \frac{\hat p^2}{2m} + \half m \omega^2 \hat x^2
+\]
+Risulta comodo introdurre gli operatori di creazione e di distruzione:
+\begin{align}
+    \hat a^\dag &= \sqrt{\frac{m \omega}{2 \hbar}} \left( \hat x - \frac{i}{m \omega} \hat p \right) \\
+    \hat a &= \sqrt{\frac{m \omega}{2 \hbar}} \left( \hat x + \frac{i}{m \omega} \hat p \right)
+\end{align}
+Questa è una trasformazione canonica da $(\hat x, \hat p)$ a $(\hat a^\dag, \hat a)$ invertibile come segue:
+\begin{align}
+    \hat x &= \sqrt{\frac{\h}{2m\omega}}(\hat a^\dag + \hat a) \\
+    \hat p &= i\sqrt{\frac{\h m\omega}{2}}(\hat a^\dag - \hat a)
+\end{align}
 Si può verificare che:
 \[
     \left[ \hat a, \hat a^\dag \right] = 1
@@ -14,7 +22,10 @@ Per un sistema con autostati discreti risulta che questi operatori incrementano 
     \hat a |n\ket &= \sqrt{n} |n-1\ket \\
     \hat a^\dag |n\ket &= \sqrt{n+1} |n+1\ket
 \end{align*}
-È figo anche l'operatore numero $\N: \N\state n = n\state n $
+ìInfine, posto $\N = \hat a^\dag \hat a: \N\state n = n\state n$, risulta:
+\[
+    \H = \h\omega \l \hat N + \half\Id \r
+\]
 
 \subsection*{Zero point energy}
 L'energia dell'oscillatore armonico quantistico non può essere nulla, altrimenti si vuolerrebbe il principio d'indeterminazione. Infatti l'energia minima è:

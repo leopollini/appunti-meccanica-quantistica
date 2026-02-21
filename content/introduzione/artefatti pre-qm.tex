@@ -1,7 +1,7 @@
 LEGGERE BENE APPUNTI PROF Lezioni 4 e 5
 % Questo documento è stato quasi tutto ia generato lel
 
-\subsection*{Radiazione di Corpo Nero}
+\subsection*{Radiazione di Corpo Nero} \index{Artefatti pre-qm ! Radiazione di Corpo Nero}
 La radiazione di corpo nero è l'emissione elettromagnetica di un oggetto ideale che assorbe perfettamente tutta la radiazione incidente. La distribuzione spettrale di questa radiazione dipende solo dalla temperatura del corpo.
 
 Nel 1900, Lord Rayleigh e James Jeans proposero una formula per descrivere questa radiazione basata sulla fisica classica:
@@ -58,7 +58,7 @@ dove $h$ è la costante di Planck. Questo portò alla corretta formula per la ra
 
 Questa nuova visione è stata il primo passo verso la \MQ come oggi è nota.
 
-\subsection*{Effetto Fotoelettrico}
+\subsection*{Effetto Fotoelettrico} \index{Artefatti pre-qm ! Effetto fotoelettrico}
 L'effetto fotoelettrico è un fenomeno fisico che consiste nell'emissione di elettroni da parte di un materiale colpito da radiazione elettromagnetica. Questo fenomeno fu osservato per la prima volta da Heinrich Hertz nel 1887.
 
 La teoria classica dell'elettromagnetismo prevedeva che l'energia cinetica degli elettroni emessi dovesse aumentare con l'intensità della radiazione incidente. Tuttavia, gli esperimenti mostrarono che:
@@ -72,7 +72,7 @@ La teoria classica dell'elettromagnetismo prevedeva che l'energia cinetica degli
 Nel 1905, Einstein propose una spiegazione rivoluzionaria basata sulla quantizzazione della luce. Secondo questa teoria, la luce è composta da particelle discrete chiamate fotoni, ciascuno con energia:
 
 \[
-	E_0 = h\nu
+	E = h\nu
 \]
 
 dove $h$ è la costante di Planck e $\nu$ è la frequenza della radiazione.
@@ -88,43 +88,77 @@ Questa equazione, nota come equazione di Einstein per l'effetto fotoelettrico, s
 L'effetto fotoelettrico costituisce una delle prime e più convincenti prove della natura quantistica della luce, dimostrando che in determinate condizioni la radiazione elettromagnetica si comporta come un flusso di particelle discrete anziché come un'onda continua.
 
 
-\subsection*{Spettri d'emissione}
-Gli spettri d'emissione discreti osservati negli atomi rappresentano una delle evidenze più dirette della quantizzazione dell'energia nei sistemi microscopici. Storicamente, l'osservazione di righe spettrali ben definite, come quelle dell'idrogeno, ha posto seri problemi alla fisica classica, che prevedeva spettri continui per gli atomi. La spiegazione di questo fenomeno è stata possibile solo con l'avvento della meccanica quantistica.
-
-Nei modelli atomici classici, come quello di Rutherford, gli elettroni orbitano attorno al nucleo sotto l'azione della forza coulombiana. Tuttavia, secondo l'elettrodinamica classica, un elettrone accelerato dovrebbe emettere radiazione continuamente, perdendo energia e spiraleggiando verso il nucleo. Questo non è ciò che si osserva: gli atomi sono stabili e la radiazione emessa è composta da righe discrete.
-
-La svolta avviene con il modello di Bohr (1913), che introduce la quantizzazione delle orbite elettroniche. Bohr postulò che l'elettrone può occupare solo certe orbite stazionarie, caratterizzate da un momento angolare quantizzato:
-
+\subsection*{Spettri d'emissione}\index{Artefatti pre-qm ! Spettri atomici}
+Dalle osservazioni degli spettri d'assorbimento (o d'emissione) risulta che la distrubizione delle frequenze emesse (o assorbite) non è continua, né dipendente dall'intensità, ma è discreta. Risulta che i dati raccolti sono rappresentabili dalla legge:
 \[
-	L_n = n\hbar
+	\inv \lambda = R \l\inv{n_t^2} + \inv{n^2}\r
 \]
+In sostanza si osservavano diverse (variando $n_t$) delle 'accumulazioni' di lunghezze d'onda (variando $n$).\\
+Questi risultati hanno ispirato il modello atomico \textbf{Planetario di Bohr}, che riporta le proprietà di stazionarietà degli orbitali, e quantizzazione delle energie associate e dei raggi d'orbita. In sostanza esiste un'energia 'minima' che un'interazione fisica può trasformare.
 
-dove $n$ è un numero intero positivo (numero quantico principale) e $\hbar$ è la costante di Planck ridotta. In queste orbite, l'elettrone non emette radiazione. L'energia associata a ciascun livello è data da:
-
+È anche possibile calcolare i raggi di questi 'livelli' (per l'atomo d'idrogeno):
 \[
-	E_n = -\frac{m_e e^4}{8\varepsilon_0^2 h^2} \frac{1}{n^2}
+	R_H = \frac{2\pi^2 \mu e^2}{c \h^3}
 \]
-
-dove $m_e$ è la massa dell'elettrone, $e$ la carica elementare, $\varepsilon_0$ la permittività del vuoto e $h$ la costante di Planck.
-
-La radiazione viene emessa (o assorbita) solo quando l'elettrone compie un salto quantico tra due livelli energetici. La frequenza della radiazione emessa è determinata dalla differenza di energia tra i livelli:
-
+dove $\mu$ è la massa ridotta ($\sim 1$), e l'energia associata:
 \[
-	h\nu = E_{n_i} - E_{n_f}
+E_n = -\frac{m}{2}\frac{e^4}{n^2 \h^2}
 \]
+% Gli spettri d'emissione discreti osservati negli atomi rappresentano una delle evidenze più dirette della quantizzazione dell'energia nei sistemi microscopici. Storicamente, l'osservazione di righe spettrali ben definite, come quelle dell'idrogeno, ha posto seri problemi alla fisica classica, che prevedeva spettri continui per gli atomi. La spiegazione di questo fenomeno è stata possibile solo con l'avvento della meccanica quantistica.
 
-dove $n_i$ e $n_f$ sono i numeri quantici iniziale e finale. Questo porta alla formazione di righe spettrali ben definite, ciascuna corrispondente a una transizione specifica.
+% Nei modelli atomici classici, come quello di Rutherford, gli elettroni orbitano attorno al nucleo sotto l'azione della forza coulombiana. Tuttavia, secondo l'elettrodinamica classica, un elettrone accelerato dovrebbe emettere radiazione continuamente, perdendo energia e spiraleggiando verso il nucleo. Questo non è ciò che si osserva: gli atomi sono stabili e la radiazione emessa è composta da righe discrete.
 
-La meccanica quantistica fornisce una descrizione più accurata tramite l'equazione di Schrödinger. Per l'atomo di idrogeno, la soluzione dell'equazione di Schrödinger porta a livelli energetici quantizzati identici a quelli previsti da Bohr, ma con una giustificazione teorica più solida. Gli stati elettronici sono descritti da funzioni d'onda $\psi_{n,l,m}$, caratterizzate da numeri quantici principali ($n$), angolari ($l$) e magnetici ($m$).
+% La svolta avviene con il modello di Bohr (1913), che introduce la quantizzazione delle orbite elettroniche. Bohr postulò che l'elettrone può occupare solo certe orbite stazionarie, caratterizzate da un momento angolare quantizzato:
 
-La probabilità di una transizione tra due stati è determinata dalla regola d'oro di Fermi e dalle regole di selezione, che impongono vincoli sui cambiamenti dei numeri quantici durante una transizione. Ad esempio, per le transizioni dipolari elettriche, il numero quantico angolare deve cambiare di $\Delta l = \pm 1$.
+% \[
+% 	L_n = n\hbar
+% \]
 
-Ogni elemento chimico ha una struttura elettronica unica, determinata dalla configurazione degli elettroni nei vari livelli quantici. Quando un atomo viene eccitato (ad esempio tramite collisioni o assorbimento di fotoni), uno o più elettroni possono essere promossi a livelli energetici superiori. Il ritorno agli stati fondamentali avviene tramite salti quantici, con emissione di fotoni di energia ben definita. Questo processo genera lo spettro d'emissione caratteristico dell'elemento.
+% dove $n$ è un numero intero positivo (numero quantico principale) e $\hbar$ è la costante di Planck ridotta. In queste orbite, l'elettrone non emette radiazione. L'energia associata a ciascun livello è data da:
 
-Nel caso dell'idrogeno, le transizioni tra livelli energetici danno origine alle serie spettrali (Balmer, Lyman, Paschen, ecc.), ciascuna corrispondente a transizioni verso uno specifico livello finale. Ad esempio, la serie di Balmer corrisponde a transizioni verso $n_f = 2$ e produce righe visibili.
+% \[
+% 	E_n = -\frac{m_e e^4}{8\varepsilon_0^2 h^2} \frac{1}{n^2}
+% \]
 
-Negli atomi polielettronici, la struttura degli spettri è più complessa a causa delle interazioni tra elettroni (effetti di schermatura, accoppiamento spin-orbita, ecc.), ma il principio di base rimane invariato: solo certe transizioni sono permesse e ciascuna corrisponde a una riga spettrale.
+% dove $m_e$ è la massa dell'elettrone, $e$ la carica elementare, $\varepsilon_0$ la permittività del vuoto e $h$ la costante di Planck.
 
-La discrezione degli spettri d'emissione è dunque una conseguenza diretta della quantizzazione dei livelli energetici negli atomi e della natura quantistica delle transizioni elettroniche. Ogni salto quantico produce un fotone di energia ben definita, osservabile come una riga nello spettro. Questo fenomeno è alla base di molte tecniche spettroscopiche e ha permesso di identificare la composizione chimica di stelle e galassie, oltre a fornire una conferma sperimentale fondamentale della meccanica quantistica.
+% La radiazione viene emessa (o assorbita) solo quando l'elettrone compie un salto quantico tra due livelli energetici. La frequenza della radiazione emessa è determinata dalla differenza di energia tra i livelli:
 
-In sintesi, gli spettri d'emissione discreti sono il risultato dei salti quantici degli elettroni tra livelli energetici quantizzati. La posizione e l'intensità delle righe spettrali dipendono dalla struttura elettronica dell'atomo e dalle regole di selezione imposte dalla meccanica quantistica. Questo quadro teorico spiega in modo completo le osservazioni sperimentali e costituisce uno dei pilastri della fisica moderna.
+% \[
+% 	h\nu = E_{n_i} - E_{n_f}
+% \]
+
+% dove $n_i$ e $n_f$ sono i numeri quantici iniziale e finale. Questo porta alla formazione di righe spettrali ben definite, ciascuna corrispondente a una transizione specifica.
+
+% La meccanica quantistica fornisce una descrizione più accurata tramite l'equazione di Schrödinger. Per l'atomo di idrogeno, la soluzione dell'equazione di Schrödinger porta a livelli energetici quantizzati identici a quelli previsti da Bohr, ma con una giustificazione teorica più solida. Gli stati elettronici sono descritti da funzioni d'onda $\psi_{n,l,m}$, caratterizzate da numeri quantici principali ($n$), angolari ($l$) e magnetici ($m$).
+
+% La probabilità di una transizione tra due stati è determinata dalla regola d'oro di Fermi e dalle regole di selezione, che impongono vincoli sui cambiamenti dei numeri quantici durante una transizione. Ad esempio, per le transizioni dipolari elettriche, il numero quantico angolare deve cambiare di $\Delta l = \pm 1$.
+
+% Ogni elemento chimico ha una struttura elettronica unica, determinata dalla configurazione degli elettroni nei vari livelli quantici. Quando un atomo viene eccitato (ad esempio tramite collisioni o assorbimento di fotoni), uno o più elettroni possono essere promossi a livelli energetici superiori. Il ritorno agli stati fondamentali avviene tramite salti quantici, con emissione di fotoni di energia ben definita. Questo processo genera lo spettro d'emissione caratteristico dell'elemento.
+
+% Nel caso dell'idrogeno, le transizioni tra livelli energetici danno origine alle serie spettrali (Balmer, Lyman, Paschen, ecc.), ciascuna corrispondente a transizioni verso uno specifico livello finale. Ad esempio, la serie di Balmer corrisponde a transizioni verso $n_f = 2$ e produce righe visibili.
+
+% Negli atomi polielettronici, la struttura degli spettri è più complessa a causa delle interazioni tra elettroni (effetti di schermatura, accoppiamento spin-orbita, ecc.), ma il principio di base rimane invariato: solo certe transizioni sono permesse e ciascuna corrisponde a una riga spettrale.
+
+% La discrezione degli spettri d'emissione è dunque una conseguenza diretta della quantizzazione dei livelli energetici negli atomi e della natura quantistica delle transizioni elettroniche. Ogni salto quantico produce un fotone di energia ben definita, osservabile come una riga nello spettro. Questo fenomeno è alla base di molte tecniche spettroscopiche e ha permesso di identificare la composizione chimica di stelle e galassie, oltre a fornire una conferma sperimentale fondamentale della meccanica quantistica.
+
+% In sintesi, gli spettri d'emissione discreti sono il risultato dei salti quantici degli elettroni tra livelli energetici quantizzati. La posizione e l'intensità delle righe spettrali dipendono dalla struttura elettronica dell'atomo e dalle regole di selezione imposte dalla meccanica quantistica. Questo quadro teorico spiega in modo completo le osservazioni sperimentali e costituisce uno dei pilastri della fisica moderna.
+
+
+\subsection*{Effetto Isotopico}\index{Artefatti pre-qm ! Effetto isotropico}
+Se si osserva lo spettro d'emissione di una miscela di idrogeno a base di deuterio e trizio, risulta che le linee spetrali seguono sì la legge appena definita, ma invece di vedere delle linee singole si osservavano linee accoppiate invece che isolate. Questo fatto è una diretta conseguenza dei calcoli appena fatti: risulta infatti che la massa ridotta dell trizio differisce di una parte su 4'000 da quella del deuterio, e quindi, per il principio di sovrapposizione, i due isotopi sono da considerarsi gas diversi, quindi con due diversi spettri d'emissione.
+
+\subsection*{Principio di Corrispondenza}\index{Artefatti pre-qm ! Principio di corrispondenza}
+Ora rimane solo la verifica che questi nuovi principi appena introdotti siano in accordo anche con le misurazioni classiche: è necessario che su larga scala le previsioni della meccanica quantistica risulti in accordo con le misurazioni classiche.\\
+Il problema si pone quando si hanno energie molto più grandi della scala delle energie di legame. Vediamo qual'è la differenza d'energia di due livelli adiacenti con $n$ molto grande, partendo dall'energia di un'onda elettromagnetica:
+\[
+	E_n - E_{n-1} = \h \l\nu_{n \rightarrow n-1}\r = -R\h c\sim \frac{2R\h c}{n^3}
+\]
+da cui si può derivare anche che la frequenza del fotono emesso nella transizione è:
+\[
+	\nu_{n \rightarrow n+1}^2 \sim \frac{2|E_n|^3}{\pi^2 m e^4}
+\]
+che tra l'altro coincide con la frequenza di rivoluzione dell'orbita dell'elettrone.\\
+Questi risultati suggeriscono che, per $n$ molto grandi, l'energia del salto di livello diventa trascurabile, e la frequenza dei fotoni emessi rimane pressoché costante \\\\
+
+Da evidenziare il fatto che l'unità di misura di $\h$ è $J\cdots$, Joule per secondo.

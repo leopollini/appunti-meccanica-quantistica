@@ -30,9 +30,15 @@
 \usepackage{multicol}
 
 \usepackage{imakeidx}
+\usepackage{cancel}
 
 \usepackage{pgfplots} 
 \pgfplotsset{compat=1.17}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Clear all default header and footer fields
+\renewcommand{\headrulewidth}{0pt} % Optional: adds a horizontal line under the header
 
 % \setlength{\parindent}{0pt}
 % \setlength{\parskip}{1em}
@@ -51,9 +57,11 @@
 \newcommand{\K}{\mathbb{K}}
 \renewcommand{\L}{\mathcal{L}}
 \newcommand{\M}{\mathcal{M}}
+\newcommand{\Id}{\hat Id}
 \newcommand{\A}{\hat A}
 \newcommand{\B}{\hat B}
 \newcommand{\U}{\hat{U}}
+\newcommand{\V}{\hat{V}}
 \newcommand{\N}{\hat{N}}
 \renewcommand{\S}{\hat{S}}
 \newcommand{\J}{\vect{J}}
@@ -72,6 +80,7 @@
 \newcommand{\hhalf}{\frac{\hslash}{2}}
 \newcommand{\thhalf}{$\hslash$/2}
 \newcommand{\hh}{\frac{\hslash}{\sqrt{2}}}
+\newcommand{\h}{\hslash}
 \newcommand{\sqrthalf}{\frac{1}{\sqrt{2}}}
 \newcommand{\var}{\Delta}
 \newcommand{\ket}{\rangle}
@@ -99,7 +108,7 @@
 \newcommand{\RLap}{\Box}
 \newcommand{\scal}{\cdot}
 \newcommand{\rint}{\int_{\R}}
-\newcommand{\rnint}[1][n]{\int_{\R^n}}
+\newcommand{\rnint}[1][n]{\int_{\R^#1}}
 \newcommand{\cint}{\int_{\C}}
 \newcommand{\cnint}{\int_{\C^n}}
 \newcommand{\kint}{\int_{\K}}
@@ -140,6 +149,8 @@
 \newcommand{\sfabs}[1]{||#1||^2}
 \newcommand{\scalket}[3]{\braket{#1}{#2}\Ket{#3}}
 \newcommand{\crossToScalket}[3]{\braket{#2}{#3}\Ket{#1}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\comm}[2]{\left[#1, #2\right]}
 
 % Other shortcurs
 \newcommand{\vphi}{\varphi}

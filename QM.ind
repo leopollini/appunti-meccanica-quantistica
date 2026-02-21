@@ -1,20 +1,34 @@
 \begin{theindex}
 
-  \item degenerazione, 43
-  \item Degenerazione accidentale, 43
-  \item Densità di stati, 33
+  \item Artefatti pre-qm 
+    \subitem  Effetto fotoelettrico, 6
+    \subitem  Effetto isotropico, 7
+    \subitem  Principio di corrispondenza, 7
+    \subitem  Radiazione di Corpo Nero, 5
+    \subitem  Spettri atomici, 6
+
+  \indexspace
+
+  \item Buca di Potenziale 
+    \subitem  Infinita 1D, 10
+
+  \indexspace
+
+  \item degenerazione, 45
+  \item Degenerazione accidentale, 45
+  \item Densità di stati, 35
 
   \indexspace
 
   \item Equazione di Schrödinger, 8
   \item Equazioni di Hamilton, 1
+  \item Evoluzione degli Stati Stazionari, 10
 
   \indexspace
 
-  \item Fermi Golden Rule, 34
-  \item Funzione d'onda, 9
-  \item Funzione di correlazione, 32
-  \item funzione di Green, 11
+  \item Fermi Golden Rule, 36
+  \item Funzione di correlazione, 34
+  \item Funzione di Green, 11
 
   \indexspace
 
@@ -24,44 +38,45 @@
 
   \indexspace
 
-  \item Layer Repulsion, 28
-  \item legge di disperzione, 8
-  \item Loss Term, 27
+  \item Layer Repulsion, 30
+  \item Loss Term, 29
+  \item Lunghezza d'onda di De Broglie, 8
 
   \indexspace
 
-  \item Matrice Densità, 38
+  \item Matrice Densità, 40
+  \item Matter Waves, 8
 
   \indexspace
 
-  \item notazione di Dirac, 12
+  \item notazione di Dirac, 13
   \item notazione di Dirac 
-    \subitem  Proiettori, 12
+    \subitem  Proiettori, 13
 
   \indexspace
 
   \item Onde elettromagnetiche, 2
-  \item Operatore di Dyson, 29
+  \item Operatore di Dyson, 31
   \item operatore Hamiltoniano, 9
-  \item Operatori separabili, 37
-  \item Operatori Unitariamente Equivalenti, 36
+  \item Operatori separabili, 39
+  \item Operatori Unitariamente Equivalenti, 38
 
   \indexspace
 
   \item Parentesi di Poisson, 1
-  \item Problema dei due corpi, 2
+  \item Particella libera, 11
 
   \indexspace
 
-  \item Raggio di Bohr, 44
-  \item Relazione di dispersione, 8
+  \item Raggio di Bohr, 46
+  \item Rappresentazione di Heisenberg, 21
 
   \indexspace
 
-  \item spin degli Elettroni, 13
+  \item spin degli Elettroni, 14
   \item Stati Classici, 1
-  \item Stati puri, 38
-  \item Sviluppo di Dyson, 29
+  \item Stati puri, 40
+  \item Sviluppo di Dyson, 31
 
   \indexspace
 
@@ -75,6 +90,10 @@
   \indexspace
 
   \item Varianza, 4
-  \item Velocità di Grupo, 8
+  \item Velocità di Gruppo, 8
+
+  \indexspace
+
+  \item Wave Packet Spreading, 12
 
 \end{theindex}

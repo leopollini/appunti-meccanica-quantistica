@@ -83,7 +83,7 @@ Invece il risultato ottenuto fu che il fascio di elettroni di divideva in due fa
         
         % Detector
         \draw[fill=yellow!20] (2,-1.3) rectangle (2.4,1.3);
-        \node at (2.7,0) {Rivelatore};
+        \node at (2.7,0) {\ \ \ \ \ \ \ \ Rivelatore};
     \end{tikzpicture}
     \caption{Schema dell'apparato di Stern-Gerlach. Il flusso di elettroni viene deviato dal campo magnetico secondo lo spin.}
 \end{figure}
@@ -93,7 +93,7 @@ Una possibile base per questo spazio è:
 \[
     |+\ket = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \ \ \ \ |-\ket = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
 \]
-Al chè si ha la rappresentazione, per esempio, dell'operatore di Stern e Gerlak $\SG z$:
+Al chè si ha la rappresentazione, per esempio, dell'operatore di Stern e Gerlach $\SG z$:
 \[
     \hat S_z = \frac{\hslash}{2} |+\ket \bra +| - \frac{\hslash}{2} |-\ket \bra -| = \frac{\hslash}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \frac{\hslash}{2} \sigma_z
 \]
@@ -101,7 +101,7 @@ Al chè si ha la rappresentazione, per esempio, dell'operatore di Stern e Gerlak
 \subsection*{Misurazione degli Osservabili}
 Dato uno stato generico $|\vphi \ket$ e un operatore osservabile $\hat A$ con autostati $|\psi_j \ket$ (si nota che un ossservabile per essere tale deve essere un operatore hermitiano, cosicchè gli autovalori risultino reali e gli autostati ortogonali) e autovalori $a_j$, quel che accade durante una misurazione è che lo stato $|\vphi \ket$ collassa in uno degli autostati $|\psi_j \ket$ con probabilità $p_j = |\bra \psi_j | \vphi \ket|^2$. Nel caso di un apparato di misura discreto, il risultato della misura è il valore dell'autovettore associato all'autostato in cui $\vphi$ è collassato.
 
-\subsubsection*{Esempio: esperimento di Stern e Gerlak}
+\subsubsection*{Esempio: esperimento di Stern e Gerlach}
 Si considerino lo stato $|\psi\ket$ e l'opereatore $\hat S_z$ descritto sopra. Risulta:
 \begin{equation*}
     \hat S_z |\psi\ket = \frac{\hslash}{2} |+_z\ket \bra +_z| \psi\ket - \frac{\hslash}{2} |-_z\ket \bra -_z| \psi\ket
@@ -112,7 +112,7 @@ Ora si prenda l'operatore $\hat S_x$. Questo ha una nuova base di autostati $B_x
     \hat S_x = \frac{\hslash}{2} |+_x\ket \bra +_x| - \frac{\hslash}{2} |-_x\ket \bra -_x|
 \]
 E bisogna valutare il significato di $|+_x\ket$ e $|-_x\ket$ nella base $B_z$.\\
-Dall'esperimento di Stern e Gerlak fatto usando $\hat S_z$ e $\hat S_x$ si sa che se si misura $S_x$ su uno stato $|+_z\ket$ si ottiene con probabilità 1/2 sia $|+_x\ket$ che $|-_x\ket$. Quindi si può scrivere:
+Dall'esperimento di Stern e Gerlach fatto usando $\hat S_z$ e $\hat S_x$ si sa che se si misura $S_x$ su uno stato $|+_z\ket$ si ottiene con probabilità 1/2 sia $|+_x\ket$ che $|-_x\ket$. Quindi si può scrivere:
 \begin{align*}
     |+_x\ket = \frac{1}{\sqrt 2} (|+_z\ket + e^{i\theta}|-_z\ket) \\
     |-_x\ket = \sqrthalf (|+_z\ket + e^{i\tau}|-_z\ket)
