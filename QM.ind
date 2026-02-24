@@ -14,9 +14,9 @@
 
   \indexspace
 
-  \item degenerazione, 45
-  \item Degenerazione accidentale, 45
-  \item Densità di stati, 35
+  \item degenerazione, 49
+  \item Degenerazione accidentale, 49
+  \item Densità di stati, 39
 
   \indexspace
 
@@ -26,8 +26,8 @@
 
   \indexspace
 
-  \item Fermi Golden Rule, 36
-  \item Funzione di correlazione, 34
+  \item Fermi Golden Rule, 40
+  \item Funzione di correlazione, 38
   \item Funzione di Green, 11
 
   \indexspace
@@ -38,13 +38,14 @@
 
   \indexspace
 
-  \item Layer Repulsion, 30
-  \item Loss Term, 29
+  \item Ladder operator, 28
+  \item Layer Repulsion, 34
+  \item Loss Term, 33
   \item Lunghezza d'onda di De Broglie, 8
 
   \indexspace
 
-  \item Matrice Densità, 40
+  \item Matrice Densità, 44
   \item Matter Waves, 8
 
   \indexspace
@@ -56,30 +57,34 @@
   \indexspace
 
   \item Onde elettromagnetiche, 2
-  \item Operatore di Dyson, 31
+  \item Operatore di Dyson, 35
   \item operatore Hamiltoniano, 9
-  \item Operatori separabili, 39
-  \item Operatori Unitariamente Equivalenti, 38
+  \item Operatori separabili, 43
+  \item Operatori Unitariamente Equivalenti, 42
 
   \indexspace
 
   \item Parentesi di Poisson, 1
   \item Particella libera, 11
+  \item Precessione di spin, 31
 
   \indexspace
 
-  \item Raggio di Bohr, 46
-  \item Rappresentazione di Heisenberg, 21
+  \item Raggio di Bohr, 50
+  \item Rappresentazione di Heisenberg, 22
 
   \indexspace
 
   \item spin degli Elettroni, 14
   \item Stati Classici, 1
-  \item Stati puri, 40
-  \item Sviluppo di Dyson, 31
+  \item Stati puri, 44
+  \item Sviluppo di Dyson, 35
 
   \indexspace
 
+  \item Teorema di Ehrenfest 
+    \subitem  version prof, 23
+    \subitem  version Wiki, 24
   \item Teorema di Noether, 1
   \item Trasformata di Forurer 
     \subitem  Delta di Dirac, 4

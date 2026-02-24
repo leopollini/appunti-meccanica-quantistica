@@ -1,18 +1,18 @@
 \subsection*{Spettro Continuo}
 Negli spazi di Hilbert a infinite dimensioni, è possibile che la base sia continua invece che discreta. In questo caso, gli autovalori dell'operatore non sono numerabili e l'espansione di uno stato in termini di autostati diventa un'integrale:
 \[
-    |\psi\ket = \int \, \bra \xi | \psi \ket |\xi \ket d\xi
+    |\psi\ket = \int \ \ketbra{\xi}{\psi} \Ket \xi d\xi = \int \ \bra \xi | \psi \ket |\xi \ket d\xi
 \]
-dove $\bra \xi | \psi \ket$ è il proiettore con variazione continua.
-Risulta che
+dove $\ketbra{\xi}{\psi}$ è il proiettore con variazione continua.
+Ovviamente si pone:
 \[
-    \bra \xi | \xi' \ket = c_0\delta(\xi - \xi')
+    \bra \xi | \xi' \ket = \delta(\xi - \xi')
 \]
 Inoltre un autovettore in uno spazio di questo tipo ha questo aspetto:
 \[
-    \hat X |\xi\ket = \xi |\xi\ket
+    \hat X |\xi\ket = x |\xi\ket
 \]
-E l'espansione dell'identità diventa
+E per finire l'espansione dell'identità diventa:
 \[
     \hat Id = \int |\xi\ket \bra \xi | d\xi
 \]
@@ -22,9 +22,10 @@ Consideriamo gli operatori posizione, che funzionano in questo modo:
 
 \begin{align*}
     |\vec x\ket = |x,y,z\ket \\
-    \hat{X}_j |\vec x\ket = \vec x |\vec x\ket \\
-    \hat{Y} |\vec x\ket = \vec y |\vec x\ket \\
-    \hat{Z} |\vec x\ket = \vec z |\vec x\ket
+    \hat{X} |\vec x\ket = x |\vec x\ket \\
+    \hat{Y} |\vec x\ket = y |\vec x\ket \\
+    \hat{Z} |\vec x\ket = z |\vec x\ket \\
+    \vec{\hat{X}} |\vec x\ket = \vec x |\vec x\ket
 \end{align*}
 
 \subsubsection*{Altro esempio: operatore di traslazione}
@@ -98,7 +99,7 @@ Proviamo ad espandere $\tau(\vec{dx})|\psi\ket$:
 Ma ricordando la definizione di $\tau$ risulta che:
 \begin{gather*}
     \tau(\vec{dx})\Ket \psi = \l \cancel {\hat {Id}} - i\frac{\hat p}{\h} \cdot \vec{dx}\r\Ket \psi = \left[\cancel {\hat {Id}} - \rnint \vec{dx} \cdot \hat \Grad d^nx \right] \Ket \psi \\
-    \Bra {\vec x} \hat p \Ket \psi = \Bra {\vec x} -i\h\hat\Grad\Ket\psi = -i\h\hat\Grad \braket{\vec x}{\psi}
+    \Bra {\vec x} \hat p \Ket \psi = \Bra {\vec x} \l -i\h\hat\Grad \r \Ket\psi = -i\h\hat\Grad \braket{\vec x}{\psi}
 \end{gather*}
 
 Quest'ultima equazione esprime l'azione dell'operatore momento ($\hat p$) quando lo stato è espresso nella base delle posizioni: in particolare ne è il gradiente!
@@ -128,7 +129,7 @@ Assemblando quanto trovato fin'ora risulta:
     = \rnint \braketxp \braket {\vec p}{\psi} d^np = \\
     = \frac{1}{(2 \pi \hslash)^{n/2}} \rnint e^{\frac{i}{\hslash} \vec p \cdot \vec x} \psi(\vec p) d^np
 \end{gather*}
-Che coincide con la definizione della trasformata di Fourier! E anche: siccome invertire i termini del prodotto scalare coincide col fare il complesso coniugato risulta anche:
+Che coincide con la definizione della trasformata di Fourier! E anche: siccome invertire i termini del prodotto scalare coincide col fare il complesso coniugato risulta: ???
 
 Assemblando quanto trovato fin'ora risulta:
 \begin{gather*}

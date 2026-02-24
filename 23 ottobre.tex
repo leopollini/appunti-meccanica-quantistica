@@ -69,7 +69,7 @@ Ora, dimostrato che l'hamiltoniana è proprio l'operatore che serve per ricostru
 Detto quetso non abbiamo mai ipotizzato che $\H$ potesse cambiare nel tempo: infatti, in questa forma, la definizione è valida solo se l'hamiltoniana è indipendente dal tempo.
 
 \subsubsection*{Stati nella Base delle Energie}
-Inoltre accade che se si sceglie come base per lo spazio di Hilbert gli autostati dell'hamiltoniano $\{\Ket{\vphi_j}, j \in J\}$, oltre a molte altre comodità che salteranno fuoir più avanti, l'operatore di evoluzione temporale risulta diagonale, in quanto è definito come somme di potenze di $\H$, che conservando tutti la stessa base:
+Inoltre accade che se si sceglie come base per lo spazio di Hilbert gli autostati dell'hamiltoniano $\{\Ket{\vphi_j}, j \in J\}$, oltre a molte altre comodità che salteranno fuoir più avanti, l'operatore di evoluzione temporale risulta diagonale, in quanto è definito come somme di potenze di $\H$, che conservano tutte la stessa base:
 \[
     \hat U(t, t_0) = \sum_j e^{-\frac{i}{\hbar} a_j (t - t_0)} |\vphi_j \ket \bra \vphi_j |
 \]
@@ -91,21 +91,21 @@ Quest'equazione riassume tutta la dinamica quantistica, che è molto comodo, inf
     c_j(t) &= c_j(t_0) e^{-\frac{i}{\hbar} a_j (t - t_0)} \\
     |c_j(t)|^2 &= |c_j(t_0)|^2|e^{-\frac{i}{\hbar} a_j (t - t_0)}|^2 = |c_j(t_0)|^2
 \end{align*}
-ovvero le probabilità di trovare il sistema in uno stato autostato dell'hamiltoniano sono costanti nel tempo!
+ovvero le probabilità di trovare il sistema in uno stato autostato dell'hamiltoniano sono costanti nel tempo! In sostanza abbiamo mostrato che la meccanica quantistica rispetta la conservazione dell'energia.
 \subsection*{Valori medi degli osservabili nel tempo}
 Dato uno stato $|\psi, t\ket$ che evolve nel tempo secondo l'operatore di evoluzione temporale, si può calcolare il valore medio di un osservabile $\hat A$ nel tempo $t$ come:
 \begin{align*}
-    \bra \hat A(t) \ket_ \psi &= \bra \psi, t | \hat A | \psi, t \ket \\
+    \bra \hat A \ket_{\psi(t)} &= \bra \psi, t | \hat A | \psi, t \ket \\
     &= \bra \psi, t_0 | \hat U^\dag(t, t_0) \hat A \hat U(t, t_0) | \psi, t_0 \ket \\
-    &= \bra \psi, t_0 | e^{\frac{i}{\hbar} a_j (t - t_0)} \hat A e^{-\frac{i}{\hbar} a_j (t - t_0)} | \psi, t_0 \ket
+    &= \bra \psi, t_0 | e^{\frac{i}{\hbar} \H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \H (t - t_0)} | \psi, t_0 \ket
 \end{align*}
 Ora si possono analizzare due casi:
 \begin{itemize}
     \item $\hat A$ è costante del moto ($[\hat A, \hat H] = 0$). Banalmente risulta che:
     \[
-        \bra \hat A(t)\ket_\psi = \bra \psi, t_0 | \U^\dag \hat A | \U \psi, t_0 \ket = \bra \psi, t_0 | \hat A | \psi, t_0 \ket
+        \bra \hat A\ket_\psi = \bra \psi, t_0 | \U^\dag \hat A | \U \psi, t_0 \ket = \bra \psi, t_0 | \hat A | \psi, t_0 \ket
     \]
-    in quanto si possono semplificare i due esponenziali, scambiando di posto $\A$ e $\U$:
+    in quanto si possono semplificare i due esponenziali, scambiando di posto $\A$ e $\U$ ($\U$ è unitario):
     \[\comm{\A}{\H} = 0 \implies \comm{\A}{\H^n} = 0 \implies \comm{\A}{\U} = 0\]
     \item $\hat A$ non commuta con l'hamiltoniano. In questo caso si può inserire l'identità tra gli esponenziali e l'operatore:
     \[
@@ -113,16 +113,15 @@ Ora si possono analizzare due casi:
         = \sum_{i,j} \bra \psi, t_0|\psi_i\ket e^{\frac{i}{\hbar} (a_j - a_i) (t - t_0)} \bra \psi_i | \hat A | \vphi_j\ket \bra \vphi_j | \psi, t_0\ket = \]\[
         = \sum_{i,j} c_i^* c_j e^{\frac{i}{\hbar} (a_j - a_i) (t - t_0)} A_{ij}
     \]
-    dove $A_{ij}$ è la matrice dell'operatore $\hat A$ nella base degli autostati dell'hamiltoniano. Non è un conto semplice, quindi ci si limita ad analizzare un paio di casi specifici:
+    dove $A_{ij}$ è la matrice dell'operatore $\hat A$ nella base degli autostati dell'hamiltoniano, e gli $a_{i,j}$ sono gli autovalori dell'hamiltoniano. Generalmente non è un conto semplice, quindi ci si limita ad analizzare un paio di casi specifici:
 
-    \textit{Si consideri uno stato del tipo $| \psi \ket = |\psi_0\ket$. Risulta facilmente che $\bra A(t)\ket_\psi = \bra A(t_0)\ket_\psi$.}
+    \textit{Si consideri uno stato del tipo $| \psi \ket = |\vphi_0\ket$ (autostato dell'hamiltoniano). Risulta facilmente che $\bra A\ket_{\psi(t)} = \bra A\ket_{\vphi(0)}$.}
 
-    \textit{Si consideri ora uno stato del tipo $| \psi \ket = \frac{1}{\sqrt{2}}|\psi_0\ket + \frac{1}{\sqrt{2}}|\psi_1\ket$. Stavolta risulta: (esercizioo) che differisce dalla precedente per un termine di interferenza. (si chiama $\omega_{ij}$ la differenza di energie degli autostati (gli autovalori) diviso $\hslash$)}
+    \textit{Si consideri ora uno stato del tipo $| \psi \ket = \frac{1}{\sqrt{2}}|\psi_0\ket + \frac{1}{\sqrt{2}}|\psi_1\ket$. Stavolta risulta (esercizioo) che differisce dalla precedente per un termine di interferenza. (si chiama $\omega_{ij}$ la differenza di energie degli autostati (gli autovalori) diviso $\hslash$)}
 \end{itemize}
 Questi esempi mettono in luce il fatto che se uno stato di partenza è una sovrapposizione di autostati, allora l'evoluzione nel tempo dipende solo dagli autostati considerati, e non dagli autostati che non erano considerati.
 
-
-
+\newpage
 
 \section{Rappresentazioni alternative}
 La rappresentazione di Schrödinger è quella che abbiamo usato fin'ora, in cui gli stati evolvono nel tempo secondo l'equazione di Schrödinger e gli operatori sono costanti nel tempo. (\textit{Schrödinger picture}).
@@ -144,13 +143,11 @@ Da cui l'equazione di Heisenberg:
 \[
     i \hbar \deriv[t]{} \hat A_H(t) = \left[ \hat H, \hat A_H(t) \right]
 \]
-(ricavabile per esercizio).
 
-\subsection*{Rappresentazione di Heisenberg: un esempio}
-Si consideri l'operatore posizione e l'operatore momento di una particella libera in 1D:
+\subsection*{Proprietà di commutazione}
+Si consideri l'operatore posizione e l'operatore momento di una particella libera in 1D. Allora:
 \begin{align*}
-    \left[ \hat x, \hat p \right] &= i \hbar \\
-    \hat H &= \frac{\hat p^2}{2m}
+    \left[ \hat x, \hat p \right] &= i \hbar
 \end{align*}
 Ora si cerca
 \[
@@ -164,11 +161,12 @@ E in generale
 \[
     \left[ \hat x, \hat p^n \right] = n i \hbar \hat p^{n-1}
 \]
-(si può dimostrare per induzione come esercizio). Questa operatzione è molto simile alla derivata, infatti si può scrivere:
+(si può dimostrare per induzione come esercizio). Questa operatzione è molto simile alla derivata, infatti risulta:
 \[
     \left[ \hat x, f(\hat p) \right] = i \hbar \deriv[\hat p]{} f(\hat p)
 \]
-E lo stesso vale scambiando $\hat p$ con $\hat x$. Non necessita dimostrazione il fatto che
-\[
-    \left[\hat x, f(\hat p)\right] = i\hbar \deriv[\hat p]{} f(\hat p);\ \ \left[\hat p, f(\hat x)\right] = -i\hbar \deriv[\hat x]{} f(\hat x)
-\]
+E lo stesso vale scambiando $\hat p$ con $\hat x$. E quindi
+\begin{align*}
+    \left[\hat x, f(\hat p)\right] &= i\hbar \deriv[\hat p]{} f(\hat p) \\
+    \left[\hat p, f(\hat x)\right] &= -i\hbar \deriv[\hat x]{} f(\hat x)
+\end{align*}

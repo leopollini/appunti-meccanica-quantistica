@@ -14,15 +14,17 @@ dove $u(\nu,T)$ è la densità di energia per unità di volume e frequenza, $k_B
 
 Questa formula, nota come legge di Rayleigh-Jeans, funzionava bene per basse frequenze ma falliva clamorosamente alle alte frequenze, predicendo una energia infinita (la cosiddetta "catastrofe ultravioletta").
 
+\usetikzlibrary{math}
+
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=0.8]
 	\draw[->] (0,0) -- (6,0) node[right] {$\nu$};
 	\draw[->] (0,0) -- (0,4) node[above] {$u(\nu,T)$};
-	\draw[thick, blue] (0,0) to[out=80,in=180] (2,3) to[out=0,in=180] (4,1) to[out=0,in=180] (6,0.5);
-	\draw[thick, red, dashed] (0,0) to[out=45,in=180] (2,1.5) to[out=0,in=180] (4,3) to[out=0,in=180] (6,5);
-	\node at (5,4) {Rayleigh-Jeans};
-	\node at (5,2) {Planck};
+	\draw[thick, blue] plot[domain=0.01:5, samples=30] (\x, {\x^3/(exp(\x)-1)});
+    \draw[domain=0:2,smooth,variable=\x,red,thick,dashed] plot (\x,{(\x)*(\x)});
+	\node at (4,4) {Rayleigh-Jeans}; 
+	\node at (5,1.5) {Planck};
 \end{tikzpicture}
 \caption{Confronto tra la legge di Rayleigh-Jeans (tratteggiata) e la legge di Planck}
 \end{figure}
@@ -34,7 +36,7 @@ Max Planck risolse questo "paradosso" introducendo una ipotesi rivoluzionaria: l
 	E = h\nu
 \]
 
-dove $h$ è la costante di Planck. Questo portò alla corretta formula per la radiazione di corpo nero:
+dove $h$ è la costante di Planck. A partire da questo è possibile arrivare alla legge di Planck per la distribuzione densità di energia luminosa in per frequenza:
 
 \[
 	u(\nu,T) = \frac{8\pi h\nu^3}{c^3}\frac{1}{e^{h\nu/k_BT}-1}
@@ -43,15 +45,15 @@ dove $h$ è la costante di Planck. Questo portò alla corretta formula per la ra
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=0.8]
-	\draw[->] (0,0) -- (6,0) node[right] {$\lambda$};
-	\draw[->] (0,0) -- (0,4) node[above] {$u(\lambda,T)$};
-	\draw[thick, blue] (0,0) to[out=70,in=180] (2,3);
-	\draw[thick, red] (0,0) to[out=60,in=180] (2.5,2);
-	\draw[thick, green] (0,0) to[out=50,in=180] (3,1.5);
-	\node[blue] at (4,3) {$T_1$};
-	\node[red] at (4,2) {$T_2$};
-	\node[green] at (4,1.5) {$T_3$};
-	\node at (3,3.5) {$T_1 > T_2 > T_3$};
+	\draw[->] (0,0) -- (6,0) node[right] {$\nu$};
+	\draw[->] (0,0) -- (0,4) node[above] {$u(\nu,T)$};
+	\draw[thick, red] plot[domain=0.01:5, samples=20] (\x, {\x^3/(exp(\x/1.3)-1)});
+	\draw[thick, blue] plot[domain=0.01:5, samples=20] (\x, {\x^3/(exp(\x/1.1)-1)});
+	\draw[thick, green] plot[domain=0.01:5, samples=20] (\x, {\x^3/(exp(\x)-1)});
+	\node at (3.5,3.5) {$T_1 > T_2 > T_3$};
+	\node[red] at (5.2,3) {$T_1$};
+	\node[blue] at (5.2,1.6) {$T_2$};
+	\node[green] at (5.2,1.05) {$T_3$};
 \end{tikzpicture}
 \caption{Spettro del corpo nero a diverse temperature}
 \end{figure}
@@ -161,4 +163,4 @@ da cui si può derivare anche che la frequenza del fotono emesso nella transizio
 che tra l'altro coincide con la frequenza di rivoluzione dell'orbita dell'elettrone.\\
 Questi risultati suggeriscono che, per $n$ molto grandi, l'energia del salto di livello diventa trascurabile, e la frequenza dei fotoni emessi rimane pressoché costante \\\\
 
-Da evidenziare il fatto che l'unità di misura di $\h$ è $J\cdots$, Joule per secondo.
+Da evidenziare il fatto che l'unità di misura di $\h$ è $Js$, Joule per secondo.

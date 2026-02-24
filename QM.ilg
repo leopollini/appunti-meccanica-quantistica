@@ -1,6 +1,6 @@
-This is makeindex, version 2.17 [TeX Live 2025/dev] (kpathsea + Thai support).
-Scanning input file QM.idx....done (46 entries accepted, 0 rejected).
-Sorting entries....done (252 comparisons).
-Generating output file QM.ind....done (99 lines written, 0 warnings).
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning input file QM.idx....done (50 entries accepted, 0 rejected).
+Sorting entries....done (298 comparisons).
+Generating output file QM.ind....done (104 lines written, 0 warnings).
 Output written in QM.ind.
 Transcript written in QM.ilg.

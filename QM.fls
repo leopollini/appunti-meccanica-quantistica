@@ -16,13 +16,13 @@ INPUT definitions.tex
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
-INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/locale/it/babel-it.ini
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
+INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
 INPUT /usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
@@ -73,15 +73,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
-INPUT /usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -411,6 +405,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ./content/introduzione/artefatti pre-qm.tex
 INPUT ./content/introduzione/artefatti pre-qm.tex
 INPUT content/introduzione/artefatti pre-qm.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymath.code.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex
+INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex
 INPUT ./content/dualismo onda-particella.tex
 INPUT ./content/dualismo onda-particella.tex
 INPUT content/dualismo onda-particella.tex
@@ -446,6 +444,24 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/esint/esint10.tfm
 INPUT ./30 ottobre.tex
 INPUT ./30 ottobre.tex
 INPUT 30 ottobre.tex
+INPUT ./10 novembre.tex
+INPUT ./10 novembre.tex
+INPUT 10 novembre.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasyb10.tfm
+INPUT ./image.png
+INPUT ./image.png
+INPUT ./image.png
+INPUT ./image.png
+INPUT ./image.png
+INPUT ./11 novembre.tex
+INPUT ./11 novembre.tex
+INPUT 11 novembre.tex
 INPUT ./13 novembre.tex
 INPUT ./13 novembre.tex
 INPUT 13 novembre.tex
@@ -470,13 +486,6 @@ INPUT 2 dicembre.tex
 INPUT ./4 dicembre.tex
 INPUT ./4 dicembre.tex
 INPUT 4 dicembre.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/wasy/wasyb10.tfm
 INPUT ./QM.ind
 INPUT ./QM.ind
 INPUT QM.ind
@@ -486,7 +495,6 @@ INPUT ./QM.out
 INPUT /home/leonardo/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

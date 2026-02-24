@@ -1,13 +1,112 @@
-\section{Nuovi operatori}
-\subsection*{Approfondimento sull'operatore momento angolare} 
+\section{Teoria generale del momento angolare}
+In meccanica quantistica il vettore momento angolare è definito in modo simil classico come:
+\[
+	\hat{\vec L} = \hvec r \times \hvec p
+\]
+dove $\hvec r$ è l'operatore posizione rispetto a un'origine fissata. Siccome $\hvec L$ storicamente indica il momento angolare intrinseco. Siccome le seguenti affermazioni sono valide anche per l'operatore $\hvec S$ di spin (momento magnetico) si userà semplicemente $\hvec J$ per indicare un momento generico.\\
 
-\begin{enumerate}
-    \item $[J_x, J_y] = i\hbar J_z$
-    \item $[J_y, J_z] = i\hbar J_x$
-    \item $[J_z, J_x] = i\hbar J_y$
-    \item $[J^2, J_x] = [J^2, J_y] = [J^2, J_z] = 0$
-    \item $[J_z, J_{\pm}] = \pm\hbar J_{\pm}$
-    \item $[J_+, J_-] = 2\hbar J_z$
-    \item $J_{\pm} = J_x \pm iJ_y$
-    \item $[J^2, J_{\pm}] = 0$
-\end{enumerate}
+Questo nuovo operatore rispetta le seguenti proprietà:
+\begin{itemize}
+	\item $[\hat{J}_x, \hat{J}_y] = i\hbar \hat{J}_z$
+	\item $[\hat{J}_y, \hat{J}_z] = i\hbar \hat{J}_x$
+	\item $[\hat{J}_z, \hat{J}_x] = i\hbar \hat{J}_y$
+\end{itemize}
+Oppure, in un'unica formula con il simbolo di Levi-Civita:
+\[
+	\comm{\hat J_\alpha}{\hat J_\beta} = i\h\varepsilon_{\aleph\beta\gamma}\hat J_\gamma
+\]
+
+Queste informazioni sono sufficienti per formulare anche questi altri fatti:
+\begin{itemize}
+	\item $[\hat{J}^2, \hat{J}_x] = [\hat{J}^2, \hat{J}_y] = [\hat{J}^2, \hat{J}_z] = 0$
+	\item $\hat{J}_{\pm} = \hat{J}_x \pm i\hat{J}_y$
+	\item $[\hat{J}_z, \hat{J}_{\pm}] = \pm\hbar \hat{J}_{\pm}$
+	\item $[\hat{J}_+, \hat{J}_-] = 2\hbar \hat{J}_z$
+	\item $[\hat{J}^2, \hat{J}_{\pm}] = 0$
+	\item $\hat J^2 = \hat J_z^2 + \half \l \hat J_+ \hat J_- - \hat J_-\hat J_+ \r$
+	\item $\hat J_-\hat J_+ = \hat J^2 - \hat J_z^2 - \h \hat J_z$
+\end{itemize}
+Gli operatori $\hat J_\pm$ definiti nel secondo punto sono i \textit{ladder operators}\index{Ladder operator}, che risultano molto comodi in certi tipi di formulazioni.
+
+A questo punto si può iniziare a ragionare sullo spettro e su una possibile base per questi operatori; dal fatto che $[\hat{J}^2, \hat{J}_z]$ si deve avere che esiste una base che diagonalizza sia $\hat{J}^2$ che $\hat{J}_z$, i cui autostati saranno chiamati
+\[
+	\Ket {j, m}
+\]
+Al ché possiamo dire che:
+\begin{align*}
+	\hat J^2\Ket {j, m} = \h^2j(j+1)\Ket {j, m} \\
+	\hat J_z\Ket {j, m} = \h m\Ket {j, m}
+\end{align*}
+con $j, m \in \R$. È importante notare che il legame tra $j$ e $m$ dentro il ket e quelli fuori non è matematico (per ora): quelli dentro sono solo dei tag. Ora ricaviamo questi parametri:
+\[
+	\lavg[j,m]{\hat J^2_i}= \vabs{\hat J_i^2 \Ket {j, m}} \geq 0 \ \  \implies \ \  j \geq 0
+\]
+Non si perdono informazioni scivendo $\lambda$ come $j(j+1)$, allora:
+\[
+	\lavg[j,m]{\hat J_+ \hat J_-} = \lavg[j,m]{\hat J^2 - \hat J_z  + \h \hat J_z} = \h^2\left[ j(j+1) - m^2 + m \right] = \h^2 \left[ (j+\half)^2 - (m-\half)^2 \right]
+\]
+Ma si ha anche che $\hat J_+^\dag = \hat J_-$, quindi $\hat J_+\hat J_-$ è autoaggiunto, e il suo valor medio deve essere positivo:
+\[
+	\h^2 \left[ (j+\half)^2 - (m-\half)^2 \right] \geq 0 \ \ \implies \ \ (j+\half)^2 \geq (m-\half)^2
+\]
+allora $\abs{m} \leq \abs{j} = j$. \\
+Ora, sapendo che $\hat J_\pm$ commuta con $\hat J^2$, si ricava che:
+\[
+	\hat J^2 \l\hat J_\pm \Ket {j, m}\r = \hat J_\pm \l\hat J^2 \Ket {j, m}\r = \h^2j(j+1) \hat J_\pm\Ket {j, m}
+\]
+ovvero $\hat J_\pm\Ket {j, m}$ è ancora un autovetore di $\hat J^2$ (e anche di $\hat J_z$). Si procede con:
+\[
+	\hat J_z \hat J_- \Ket {j, m} = \l \comm{\hat J_z}{\hat J_-} + \hat J_- \hat J_z \r\Ket {j, m} = \]\[
+	= \h m \hat J_- \Ket {j, m} - \h \hat J_-\Ket {j, m} = \h (m - 1) \hat J_- \Ket {j, m}
+\]
+che mostra che $\hat J_-$ può "abbassare" l'autovalore di $\Ket {j, m}$ rispetto a $\hat J_z$. Similmente per $\hat J_+$ che risulta che lo "alza". Quindi potremmo scrivere:
+\[
+	\hat J_\pm \Ket {j, m} = c_\pm \Ket {j, m \pm 1}
+\]
+con $c_\pm$ valori da trovare. Risulta $c_\pm = \h \sqrt{j(j+1) - m(m\pm1)}$.
+
+Ora, sulla base dell'ultima affermazione, risulta che è quasi sempre possibile alzare e abbassare a piacere le $m$, ottenendo una costruzione per infiniti stati! Questo è assurdo, quindi è necessario che le $m$ passino sia da $j$ che da $-j$ (cosicché rispettivamente $\hat J_+$ e $\hat J_-$ annullino lo stato), il ché è possibile solo se $j$ è semintero, e m altrettanto. \\
+E siccome tutte queste sono operazioni lineari su spazi (fissato $j$) a dimensione finita, gli operatori $\hat J^2$ e $\hat J_z$ possono essere ricondotti a delle matrici.
+
+\subsubsection*{Esempio: j = 1/2}
+Siccome siamo nella base dei loro autovalori, le matrici associate a $\hat J^2$ e $\hat J_z$ saranno diagonali. Allora se:
+\[
+	\hat J^2 \Ket {\half, \pm\half} = \h^2\half(\half+1)\Ket {\half, \pm\half} = \frac{3}{4}\h^2\Ket {\half, \pm\half} \]\[
+	\hat J_z \Ket {\half, \pm\half} = \pm\half\h \Ket {\half, \pm\half}
+\]
+deve risultare:
+\[
+	\hat J^2 = \frac{3}{4}\h^2 \begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix}, \ \ \  
+	\hat J_z = \frac{1}{2}\h \begin{pmatrix}
+		1 & 0 \\
+		0 & -1
+	\end{pmatrix}
+\]
+
+\subsubsection*{Esempio: j = 1}
+\[
+	\hat J^2 \Ket {1, m} = 2\h^2\Ket {1, m}, \ \ m = -1, 0, 1
+\]
+\begin{align*}
+	&\hat J_z \Ket {1, -1} = -\h \Ket {1, -1} \\
+	&\hat J_z \Ket {1, 0} = 0 \\
+	&\hat J_z \Ket {1, 1} = \h \Ket {1, 1}
+\end{align*}
+Allora:
+\[
+	\hat J^2 = 2\h^2 \begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}, \ \ \  
+	\hat J_z = \h \begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & -1
+	\end{pmatrix}
+\]
+
+È importante notare che siccome lo spazio è isotropo, la scelta di $\hat J_z$ piuttosto che $\hat J_x$ o $\hat J_y$ è arbitratia: quel che importa è la relazione tra $\hat J_z$, $\hat J_x$ e $\hat J_y$ (si riveda il capitolo sull'operatore di Stern e Gerlach).

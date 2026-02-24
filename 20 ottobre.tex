@@ -1,7 +1,7 @@
 \section{Stati, Autostati, Osservabili e Indeterminazione}
 È arrivato il momento di introdurre la \textbf{notazione di Dirac} \index{notazione di Dirac}.
 
-Siccome si tratta solo di un formalismo non è data una definizione formale. Semplicemente, approfittando del fatto che gli stati formano uno spazio vettoriale si stabilisce un modo per indicare i "vettori" di questo spazio, che saranno gli stati:
+Siccome si tratta solo di un formalismo non è data una definizione matematica. Semplicemente, approfittando del fatto che gli stati formano uno spazio vettoriale si stabilisce un modo per indicare i "vettori" di questo spazio, che saranno gli stati:
 \[
     |\psi \ket
 \]
@@ -9,11 +9,11 @@ Questo oggetto è chiamato un "ket", e risponde alla definizione classica di vet
 \[
     \bra \psi |
 \]
-Siccome è sempre possibile per uno spazio vettoriale generare una base, allora si indica con $|\psi_j\ket$ il vettore generico della base, con $j \in J$ insieme generico, non necessariamente numerabile.
 Sulla base delle affermazioni fatte in precedenza si può dire che è possibile definire un prodotto interno:
 \[
     |\psi\ket \cdot |\xi\ket = \braket \psi \xi = \rnint \xi \psi^*
-\]
+\],
+Inoltre siccome lo spazio è unitario è sempre possibile generare una base, allora si indica con $|\psi_j\ket$ il vettore generico della base, con $j \in J$ insieme generico, non necessariamente numerabile.
 (si ricorda che gli stati sono funzioni $\L^p$) e anche un prodotto esterno:
 \[
     \Ket \psi \times \Ket \xi = \ketbra \psi \xi
@@ -112,7 +112,7 @@ Ora si prenda l'operatore $\hat S_x$. Questo ha una nuova base di autostati $B_x
     \hat S_x = \frac{\hslash}{2} |+_x\ket \bra +_x| - \frac{\hslash}{2} |-_x\ket \bra -_x|
 \]
 E bisogna valutare il significato di $|+_x\ket$ e $|-_x\ket$ nella base $B_z$.\\
-Dall'esperimento di Stern e Gerlach fatto usando $\hat S_z$ e $\hat S_x$ si sa che se si misura $S_x$ su uno stato $|+_z\ket$ si ottiene con probabilità 1/2 sia $|+_x\ket$ che $|-_x\ket$. Quindi si può scrivere:
+Dall'esperimento di Stern e Gerlach fatto applicando prima $\hat S_z$ e poi $\hat S_x$ si sa che se si misura $S_x$ su uno stato $|+_z\ket$ si ottiene con probabilità 1/2 sia $|+_x\ket$ che $|-_x\ket$. Quindi si può scrivere:
 \begin{align*}
     |+_x\ket = \frac{1}{\sqrt 2} (|+_z\ket + e^{i\theta}|-_z\ket) \\
     |-_x\ket = \sqrthalf (|+_z\ket + e^{i\tau}|-_z\ket)

@@ -1,0 +1,68 @@
+\subsubsection*{Ruotare il sistema di riferimento}
+Con una costruzione simile a quelle per l'operatore di avanzamento tempolare e l'operatore di traslazione, risulta la rotazione di un ket nella base del momento angolare è del tipo:
+\[
+    \Ket{\vec r(d\phi)} = e^{-\frac{i}{\h}\hat J_z d\phi} \Ket{\vec r_0}
+\]
+
+Ora, come agiscono gli operatori momento di momento angolare sugli elementi della base delle posizioni in forma polare $\Ket{r, \theta, \phi}$? Vediamo alcuni casi da cui si può evincere il comportamento generale.\\
+Se $d\phi$ è infinitesimo si ha che:
+\[
+    (\Id - \frac{i}{\h}\hat L_z d\phi) \Ket{r, \theta, \phi} = \Ket{r, \theta, \phi + d\phi}
+\]
+\begin{align*}
+    \braket{r, \theta, \phi + d\phi}{\psi} = \Bra{r, \theta, \phi} (\Id - \frac{i}{\h}\hat L_z d\phi) \Ket \psi &= \braket{r, \theta, \phi}{\psi} - \frac{i}{\h}d\phi \Bra{r, \theta, \phi} \hat L_z  \Ket \psi \\
+    &= \braket{r, \theta, \phi}{\psi} + d\phi\deriv[\phi]{} \braket{r, \theta, \phi}{\psi}
+\end{align*}
+Ovvero:
+\[
+    -\frac{i}{\h} d\phi\Bra{r, \theta, \phi} \hat L_z \Ket \psi = d\phi\deriv[\phi]{} \braket{r, \theta, \phi}{\psi}
+\]
+Il ché significa, siccome $\Ket \psi$ è generico, che $\hat L_z \sim -\frac{i}{\h}\deriv[\phi]{}$.
+
+Si possono anche ricavare le rotazioni lungo gli altri assi (che, fissato l'asse $z$, saranno diverse in quanto in coordinate polari $\phi$ è precisamente l'angolo con l'asse $z$). Risulta:
+\[
+    \hat L_x \psi(r, \theta, \phi) = -ih\l \sin \theta \deriv[\theta]{\psi} + \cos\phi\cot\theta \deriv[\phi]{\phi} \r \]\[
+    \hat L_x \psi(r, \theta, \phi) = -ih\l \cos \theta \deriv[\theta]{\psi} - \sin\phi\cot\theta \deriv[\phi]{\phi} \r \]\[
+    \hat L^2 \psi(r, \theta, \phi) = -h^2\left[ \inv{\sin \theta} \deriv[\theta]{}\l \sin\theta \deriv[\theta]{\psi} \r + \inv{\sin^2 \theta} \sderiv[\phi]{\psi} \right]
+\]
+Inoltre si ha un'ultima comoda equivalenza:
+\[
+    \Lap \psi = \inv{r} \sderiv[r]{\psi} - \inv{\h^2 r^2} \hat L^2 \psi
+\]
+
+\subsection*{Base dei momenti}
+Se si specializzano le espressioni precedenti nel caso in cui $\Ket \psi = \Ket {l,m}$ allora è possibile definire gli autostati nella base dei momenti:
+\[
+    \Y_{lm}(r,\theta,\phi) = \braket{r,\theta,\phi}{l,m}
+\]
+
+Quindi risulta:
+\[
+    \Bra{r, \theta, \phi} \hat L_z  \Ket {l, m} = \h m \braket{r,\theta,\phi}{l,m} = \h m \Y_{lm}
+\]
+Per gli stessi ragionamenti di prima si ha anche:
+\[
+    i\h \deriv[\psi]{\Y_{lm}} = \h m \Y_{lm} \ \ \implies \ \ \Y_{lm}(\phi) = Ce^{im\phi}
+\]
+Tuttavia compare una nuova restrizione: siccome lo spazio è invariante per rotazioni di $2\pi$ si può avere \textbf{soltanto $\boldsymbol{l}$ interi}, altrimenti si avrebbero inversioni del sistema di riferimento.
+
+Se poi si utilizza anche il risultato per $\hat L^2$ trovato prima si ottiene che $\Y_{lm}$ dipende soltanto da $\theta$ e $\psi$. L'equazione differenziale completa è:
+\[
+    -\h^2\left[ \inv{\sin \theta} \deriv[\theta]{}\l \sin\theta \deriv[\theta]{\psi} \r + \inv{\sin^2 \theta} \sderiv[\phi]{\psi} \right] = \h^2 l (l+1) \Y_{lm}
+\]
+e alcune soluzioni sono (normalizzate sull'integrale di superficie sferico):
+\begin{gather*}
+    \Y_{00} = \inv{\sqrt{4\pi}} \\
+    \Y_{10} = \sqrt{\frac{3}{4\pi}}\cos\theta \\
+    \Y_{1\pm1} = \sqrt{\frac{3}{8\pi}}\sin\theta e^{\pm i\phi} \\
+    \cdots
+\end{gather*}
+che risulta in un sistema ortonormale completo. In generale:
+\[
+    \Y_{lm} = \frac{(-1)^{l+m}}{2^ll!}\sqrt{\frac{2l+1}{4\pi}}\frac{(l-m)!}{(l+m)!}e^{im\phi}\l \sin\theta \r^m \nderiv[(\cos\theta)]{}{l+m}\l \sin\theta \r^{2l}
+\]
+\subsubsection*{Un esempio}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.2\textwidth]{image.png}
+\end{figure}
