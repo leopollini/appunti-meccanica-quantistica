@@ -1,17 +1,27 @@
 \subsection*{Applicazione della teoria di Dyson}
-Si parte da una Hamiltoniana $\H_0: \H_0\Ket n = E_n \Ket n$, a cui si aggiunge una perturbazione dipendente dal tempo $V(t)$. Nella rappresentazione di Interazione lo stato è
+Si parte da una Hamiltoniana $\H_0$, a cui si aggiunge una perturbazione dipendente dal tempo $V(t)$. Nella rappresentazione di Interazione lo stato è
 \[
-	\Ket{\psi(t)} = \U(t)\Ket {\psi(0)} = e^{\frac{i}{\hslash} \H_0 (t-t_0)} \Ket{\psi(t)} \]\[
-	\Ket{\psi_I(t)} = \U_I(t)\Ket {\psi(0)} = e^{\frac{i}{\hslash} \H_0 (t-t_0)} \Ket{\psi(t)}
+	\Ket{\psi(t)} = \U(t)\Ket {\psi(0)} = e^{\frac{i}{\hslash} \H_0 t} \Ket{\psi(0)} = e^{-\frac{i}{\hslash} \H_0 t} \Ket{\psi_I(t)}
 \]
 e le proiezioni sugli autostati di $\H(t)$ dipendono dal tempo:
-\begin{align*}
-	C_n(t) = \Bra{n} \Ket{\psi_I(t)} = \Bra{n} e^{\frac{i}{\hslash} \H_0 (t-t_0)} \Ket{\psi_I(t)} = \\
-	= e^{\frac{i}{\hslash} E_n (t-t_0)} \Bra{n} \left[ \Ket{\psi_I(0)} + (sviluppo di Dyson) \right]
-\end{align*}
+\begin{gather*}
+	C_n(t) = \braket{n} {\psi(t)} = e^{-\frac{i}{\hslash} \H_0 t} \braket{n} {\psi_I(t)} = \\
+	= e^{-\frac{i}{\hslash} E_n t} \Bra{n} \left[ \Ket{\psi_I(0)} + \cdots (\text{sviluppo di Dyson}) \right]
+\end{gather*}
+In questa espansione possiamo introdurre direttamente il termine $\Bra n$ per aver un risultato più specifico, inoltre dichiariamo $\Ket {\psi{(0)}} = \Ket {\psi_I(0)} = \Ket m$ e $n \neq m$:
+\[
+	C_n(t) = e^{-\frac{i}{\hslash} E_n t} \left[ \cancel{\braket{n}{m}} + \frac{1}{i\h} \tint \braketin{n}{\V_I(t')}{m} dt' + (\frac{1}{i\h})^2 \tint \tint[t'] \braketin{n}{\V_I(t')\V_I(t'')}{m} dt'' dt' + \cdots \right]
+\]
+ora, ricordando la definizione di operatore in rappresentazione d'interazione possiamo espandere in maniera più comoda gli integrali:
+\[
+	\tint \braketin{n}{\V_I(t')}{m} dt' = \tint \braketin{n}{e^{\frac{i}{\hslash} \H_0 t}\V(t') e^{-\frac{i}{\hslash} \H_0 t'}}{m} dt' = \tint e^{\frac{i}{\hslash} \omega_{nm} t'} \braketin{n}{\V(t')}{m} dt'
+\]
+dove $\omega_{nm} = E_m - E_n$ è la differenza tra le energie dei livelli $m$ e $n$. E similmente si ottiene (inserendo una completezza tra i due $\V_I$):
+\[
+	\tint \tint[t'] \braketin{n}{\V_I(t')\V_I(t'')}{m} dt'' dt' = \sum_{k} \tint e^{\frac{i}{\hslash} \omega_{nk} t'} \tint[t'] e^{\frac{i}{\hslash} \omega_{km} t''} \braketin{n}{\V(t')\V(t'')}{m} dt'' dt'
+\]
 
-
-
+All'atto pratico quello che queste espressioni calcolano non è altro che una misura di "quanto la perturbazione tende a far saltare tra gli stati". Il primo ordine misura solo i salti diretti, il secondo ordine misura tutti i salti con due passaggi, e così via! Sommando tutto si ha la probabilità che in un qualsiasi modo lo stato $\Ket m$ sia passato allo stato $\Ket n$ a causa della perturbazione.
 \subsection*{Esercizio: potenziale costante}
 Si consideri una perturbazione costante nel tempo $V(t) = V$ per $t \geq 0$ e nulla per $t < 0$. Chiamiamo $f$ una funzione step che rente continua la discontinuità in $t=0$, per cui $V(t) = V f(t)$. \\
 La probabilità di passare da uno stato $i$ a uno stato $n$, al primo ordine, è

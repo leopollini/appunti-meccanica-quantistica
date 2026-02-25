@@ -2,28 +2,32 @@
 Per stimare il comportamento di $H_\varepsilon$  si può procedere nel seguente modo: si definiscono $\delta_n^+$ e $\delta_n^-$ come le differenze tra l'autovalore $E_n$ e l'autovalore più vicino, rispettivamente maggiore e minore di $E_n$, riferiti agli stati imperturbati, e $\Delta_n = \min(\delta_n^+, \delta_n^-)$. Quindi risulta che $|E_n - E_m| \geq \Delta_n$ per ogni $m \neq n$.
 Si può quindi maggiorare il termine al secondo ordine:
 \[
-    |E_n^{(2)}| \leq \sum_{m \neq n} \frac{|V_{n,m}|^2}{|E_n^{(0)} - E_m^{(0)}|} \leq \frac{1}{\Delta_n} \sum_{m \neq n} |V_{n,m}|^2
+	|E_n^{(2)}| = \sum_{m \neq n} \frac{|V_{n,m}|^2}{|E_n^{(0)} - E_m^{(0)}|} \leq \frac{1}{\Delta_n} \sum_{m \neq n} |V_{n,m}|^2
 \]
-Questa espressione è rappresentabile come (si raccolgano i prodotti esterni e si completi per esercizio):
+Questa espressione è equivalente a:
 \[
-    |E_n^{(2)}| \leq \frac{1}{\Delta_n} \left( \bra u_n^{(0)}| V^2 |u_n^{(0)}\ket - |\bra u_n^{(0)}| V |u_n^{(0)}\ket|^2 \right) = \]\[
-    = \frac{1}{\Delta_n} \left( \bra u_n^{(0)}| V^2 |u_n^{(0)}\ket - (E_n^{(1)})^2 \right) = \frac{\Delta^2(V_n)}{\Delta_n}
+	\inv{\Delta_n} \sum_{m \neq n} |V_{nm}|^2 = \inv{\Delta_n} \sum_{m \neq n} \Bra {u_n^{(0)}} \V \Ket {u_k^{(0)}}\Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}} = \]\[
+	= \inv{\Delta_n} \Bra {u_n^{(0)}} \V \l \sum_k \ketbrabra{u_k^{(0)}} - \ketbrabra{u_n^{(0)}} \r \V \Ket {u_n^{(0)}} = \]\[
+	 \inv{\Delta_n} \left( \bra u_n^{(0)}| \V^2 |u_n^{(0)}\ket - |\bra u_n^{(0)}| \V |u_n^{(0)}\ket|^2 \right) = \frac{\Delta^2(V)}{\Delta_n}
 \]
-per la definizione di varianza.
-
+in quanto il lato sinistro della parentesi di mezzo è l'identità, e per la definizione di varianza; allora risulta:
+\[
+	|E_n^{(2)}| \leq \frac{\Delta^2(V_n)}{\Delta_n}
+\]
+Il vantaggio è che questa formula permette di stimare di quanto al più può essere la correzione sull'energia dello stato n-esimo, che altrimenti sarebbe una serie di molte, possibilmente anche infinite, interazioni.
 
 \subsection*{Problema dei due stati}
 Consideriamo un sistema quantistico con due stati energetici distinti, separati da una differenza di energia $\Delta > 0$. Indichiamo con $\Ket{+}$ e $\Ket{-}$ gli autostati corrispondenti agli autovalori $E_-$ ed $E_+ = E_- + \Delta$ rispettivamente. Con questa ipotesi l'Hamiltoniana del sistema può essere scritta come: \(\H = E_- \ketbra{-}{-} + E_+ \ketbra{+}{+}\). Introduciamo una perturbazione del tipo
 \[
-    V = (\ketbra{-}{+} + \ketbra{+}{-})
+	\V = (\ketbra{-}{+} + \ketbra{+}{-})
 \]
 \subsubsection*{Soluzione esatta}
 L'Hamiltoniana totale del sistema perturbato è esprimibile in maniera analitica come segue:
 \[
-    \H_\varepsilon = \H + \varepsilon V = \begin{pmatrix}
-    E_- & \varepsilon \\
-    \varepsilon & E_+
-    \end{pmatrix}
+	\H_\varepsilon = \H + \varepsilon \V = \begin{pmatrix}
+	E_- & \varepsilon \\
+	\varepsilon & E_+
+	\end{pmatrix}
 \]
 Gli autovalori di questa matrice sono $\frac{E_-+E_+}{2} \pm \sqrt{\left(\frac{E_+-E_-}{2}\right)^2 + \varepsilon^2}$. Al ché (calcoli per esercizio):
 \begin{align*}
@@ -32,12 +36,12 @@ E_-^\varepsilon &= E_- - \frac{\varepsilon^2}{\Delta} + \cdots
 \end{align*}
 Questo mette in luce il fatto gli autostati sono soggetti a una repulsione, nel momento in cui viene introdotta la perturbazione. È possibile dimostrare che questo fatto è valido per ogni numero di stati, e viene chiamato \textbf{Layer Repulsion}\index{Layer Repulsion}.
 
-\subsubsection{Soluzione approssimata tramite perturbation theory}
-Si calcolano gli $E_\pm^{(1)}$ e gli $E_\pm^{(2)}$ alla perturbazione $\varepsilon V$:
+\subsubsection*{Soluzione approssimata tramite perturbation theory}
+Si calcolano gli $E_\pm^{(1)}$ e gli $E_\pm^{(2)}$ alla perturbazione $\varepsilon \V$:
 \[
-E_+^{(1)} = \Bra{+} \varepsilon V \Ket{+} = 0 \ ,\quad E_-^{(1)} = \Bra{-} \varepsilon V \Ket{-} = 0
+E_+^{(1)} = \Bra{+} \varepsilon \V \Ket{+} = 0 \ ,\quad E_-^{(1)} = \Bra{-} \varepsilon \V \Ket{-} = 0
 \]
 \[
-E_+^{(2)} = \frac{\bra - | \varepsilon V | + \ket \bra + | \varepsilon V | - \ket}{E_+ - E_-} = \frac{\varepsilon^2}{\Delta} \ ,\quad E_-^{(2)} = \frac{\bra + | \varepsilon V | - \ket \bra - | \varepsilon V | + \ket}{E_- - E_+} = -\frac{\varepsilon^2}{\Delta}
+E_+^{(2)} = \frac{\bra - | \varepsilon \V | + \ket \bra + | \varepsilon \V | - \ket}{E_+ - E_-} = \frac{\varepsilon^2}{\Delta} \ ,\quad E_-^{(2)} = \frac{\bra + | \varepsilon \V | - \ket \bra - | \varepsilon \V | + \ket}{E_- - E_+} = -\frac{\varepsilon^2}{\Delta}
 \]
 Che coincidono, al secondo ordine, con la soluzione esatta.

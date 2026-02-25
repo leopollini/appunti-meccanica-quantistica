@@ -1,91 +1,112 @@
-\section{Interferometria Neutronica}
-In questo esperimento si invia un fascio di neutroni attraverso un beam splitter che li divide in due fasci, uno libero e l'altro passante attraverso un solenoide. I due fasci vengono poi ricombinati e si osserva il pattern di interferenza risultante. L'obiettivo è la verifica dell'andamento degli spinori (dove una rotazione di 2$\pi$ equivale a un cambiamento di segno). L'hamiltoniana risulta essere
+\subsection*{Interferometria Neutronica}
+In questo esperimento si invia un fascio di neutroni attraverso un beam splitter che li divide in due fasci, uno libero e l'altro passante attraverso un solenoide. I due fasci vengono poi ricombinati e si osserva il pattern di interferenza risultante. L'obiettivo è la verifica dell'andamento degli spinori (dove una rotazione di 2$\pi$ equivale a un cambiamento di segno). L'hamiltoniana per il primo fascio è l'identità, per il secondo è:
 \[
 \H = \omega \SG z;\ \ \omega = \frac{eB}{m_n C}g_n
 \]
 dove $g_n$ è un fattore di correzione.
 
-Lo stato di partenza è $\Ket +$, e lo stato dei fasci risulta essere
+Lo stato di partenza è $\Ket +$, e lo stato dei fasci risulta essere:
 \[
 \Ket {\psi_1(t)} = \Ket {\psi_1(0)} = e^{i\delta}\Ket +\]\[
 \Ket {\psi_2(t)} = e^{-i \frac{\omega t}{2}} \Ket + \]\[
 \Ket {\psi_s(t)} = \half (\Ket {\psi_1} + \Ket {\psi_1}) = \half \left( e^{i\delta} + e^{-i \frac{\omega t}{2}} \right) \Ket + + \half \left( e^{i\delta} + e^{i \frac{\omega t}{2}} \right) \Ket -
 \]
-$\delta$ è una differenza di fase indotta dal beam splitter. E risulta (calcoli per esercizio):
+$\delta$ è una differenza di fase indotta dal beam splitter e $t$ è il tempo di attraversamento del solenoide. E risulta (calcoli per esercizio):
 \[
-    P_+ = |\braket{+}{\psi_s(t)}|^2 = \half\left(1 - \cos\left( \frac{\omega t}{2} + \delta \right)\right)
+	P_+ = |\braket{+}{\psi_s(t)}|^2 = \half\left(1 - \cos\left( \frac{\omega t}{2} + \delta \right)\right)
 \]
 
-% \Ket{\psi(t)} = \frac{1}{\sqrt{2}}\left( \Ket{+} + e^{\frac{-i}{\hslash}\omega t \SG z}\Ket{+} \right) = \frac{1}{\sqrt{2}}\left( \Ket{+} + \left( \cos(\omega t) \Id - i\sin(\omega t) \SG z \right)\Ket{+} \right)
+In sostanza abbiamo mostrato che questa configurazione può far "ruotare" la funzione d'onda di un fascio di neutroni, ee boh ecco non so a che cosa porti di interessante.
+	
+\newpage
 
-\section{Perturbation Theory}
-Cose dal quaderno, modalità di perturbation theory.
+\section{Perturbation Theory}\index{Perturbation Theory}
+Esistono diverse categorie di perturbation theory, ognuna funzionale a una certa categoria di problemi. L'obiettivo generale è quello di accogliere nel sistema una perturbazione (potenziale) a piacere, e stimare l'evoluzione del sistema a seguito dell'introduzione della perturbazione. Si tratta di stime analitiche (stile espansione di Taylor), che quindi sono molto più efficaci quando la perturbazione è trascurabile oltre un certo ordine di potenza.\\
+Le categorie di Perturbation Theory che analizzeremo sono le seguenti:
 
-Sia l'hamiltoniana quindi indipendente dal tempo, a spettro discreto, non degenere (con autostati di moltemplicità 1). Si supponga di alterare l'hamiltoniana $\H$ con un termine di potenziale piccolo $\varepsilon V$. Quel che risulta è che gli autovalori e autostati della nuova hamiltoniana $\H_\varepsilon = \H + \varepsilon V$ si discostano di poco da quelli di $\H$, e in ogni caso in maniera analitica. Si esprime la correzione al primo termine per i nuovi autovalori e i nuovi autostati:
+\begin{enumerate}
+	\item Indipendente dal tempo con spettro non degenere;
+	\item Indipendente dal tempo con spettro degenere;
+	\item Dipendente dal tempo;
+	\item Metodo variazionale;
+	\item Metodo semiclassico (WKB).
+\end{enumerate}
+È chiaro che le teorie perturbative sono essenziali solo quando non è possibile calcolare gli autostati esatti dell'hamiltoniana perturbata.
+
+\subsection{Perturbazione indipendente dal tempo con spettro non degenere}
+Con spettro non degenere s'intende che gli autovalori dell'hamiltoniana hanno molteplicità algebrica 1. Si supponga di alterare l'hamiltoniana $\H$ con un termine di potenziale piccolo $\varepsilon \V$ (che può dipendere dalla posizione, dal momento, ma non dal tempo). Quel che risulta è che gli autovalori e autostati della nuova hamiltoniana $\H^\varepsilon = \H + \varepsilon \V$ si discostano di poco da quelli di $\H$, e in ogni caso in maniera analitica. Si esprime la correzione al primo termine per i nuovi autovalori e i nuovi autostati:
 \[
 E_n^\varepsilon = E_n^{(0)} + \varepsilon E_n^{(1)} + \varepsilon^2 E_n^{(2)} + \ldots \]\[
-\Ket u_n^\varepsilon = \Ket u_n^{(0)} + \varepsilon \Ket u_n^{(1)} + \varepsilon^2 \Ket u_n^{(2)} + \ldots
+\Ket u_n^\varepsilon = \Ket {u_n^{(0)}} + \varepsilon \Ket {u_n^{(1)}} + \varepsilon^2 \Ket {u_n^{(2)}} + \ldots
 \]
 E quindi
 \[
-    \H_\varepsilon \Ket u_n^\varepsilon = E_n^\varepsilon \Ket u_n^\varepsilon
+	\H^\varepsilon \Ket u_n^\varepsilon = E_n^\varepsilon \Ket u_n^\varepsilon
 \]
-Se ci si accontenta dell'espansione all'ordine lineare risulta:
+Se ci si limita all'espansione all'ordine lineare risulta:
+
 \[
-    (\H + \varepsilon V)(\Ket u_n^{(0)} + \varepsilon \Ket u_n^{(1)}) = (E_n^{(0)} + \varepsilon E_n^{(1)})(\Ket u_n^{(0)} + \varepsilon \Ket u_n^{(1)}) = E_n^{(0)} \Ket u_n^{(0)} + \varepsilon \left( E_n^{(0)} \Ket u_n^{(1)} + E_n^{(1)} \Ket u_n^{(0)} \right)
+	(\H + \varepsilon \V)(\Ket {u_n^{(0)}} + \varepsilon \Ket {u_n^{(1)}}) = (E_n^{(0)} + \varepsilon E_n^{(1)})(\Ket {u_n^{(0)}} + \varepsilon \Ket {u_n^{(1)}}) \]\[
+	\H\Ket {u_n^{(0)}} + \varepsilon \l \H \Ket {u_n^{(1)}} + \V \Ket {u_n^{(0)}} \r + \cancel{\varepsilon^2 \V \Ket {u_n^{(1)}}} = E_n^{(0)} \Ket {u_n^{(0)}} + \varepsilon \left( E_n^{(0)} \Ket {u_n^{(1)}} + E_n^{(1)} \Ket {u_n^{(0)}} \right) + \cancel{\varepsilon^2E_n^{(1)} \Ket {u_n^{(1)}}}
 \]
-Oppure, rimuovendo anche i termini di ordine zero e dividendo per $\varepsilon$:
+Ovvero, dividendo per $\varepsilon$:
 \[
-    \H \Ket u_n^{(1)} + V \Ket u_n^{(0)} = E_n^{(0)} \Ket u_n^{(1)} + E_n^{(1)} \Ket u_n^{(0)}\]\[
-    E_n^{(1)} = \bra u_n^{(0)}| V |u_n^{(0)}\ket
+	\H \Ket {u_n^{(1)}} + \V \Ket {u_n^{(0)}} = E_n^{(0)} \Ket {u_n^{(1)}} + E_n^{(1)} \Ket {u_n^{(0)}}
 \]
-che è un ottimo punto di partenza per calcolare la prima correzione degli autovalori.
-Ora si può imporre che la proiezione del primo stato variato sullo stato invariato sia 1: $\bra u_n^{(0)}|u_n^\varepsilon\ket = 1$, cosicché si ottiene che gli stati successivi al primo sono ortogonali al primo: $\bra u_n^{(0)}|u_n^{(1)}\ket = 0$ (verificare espandendo l'espressione precedente).
+Ora se si applica il ket $\Ket {u_n^{(0)}}$ risulta, semplificando i termini identici:
+\[
+	\cancel{\Bra {u_n^{(0)}}\H \Ket {u_n^{(1)}}} + \Bra {u_n^{(0)}} \V \Ket {u_n^{(0)}} = \cancel{E_n^{(0)} \braket {u_n^{(0)}}{u_n^{(1)}}} + E_n^{(1)} \braket {u_n^{(0)}}{u_n^{(0)}} \]\[
+	E_n^{(1)} = \Bra{u_n^{(0)}} \V \Ket{u_n^{(0)}}
+\]
+E il primo ordine è già sistemato. Questa tecnica funziona anche se $\varepsilon$ non è trascurabile agli ordini successivi in quanto se le espressioni introdotte sono valide allora la definizione di partenza (dell'espansione degli stati variati) di partenza non è contraddetta.
 
 Si può procedere in maniera ricorsiva per ottenere gli stati variati di ordine successivo, a partire dal secondo:
 \[
-    \H \Ket u_n^{(2)} + V \Ket u_n^{(1)} = E_n^{(0)} \Ket {u_n^{(2)}} + E_n^{(1)} \Ket {u_n^{(1)}} + E_n^{(2)} \Ket {u_n^{(0)}}
+	\H \Ket {u_n^{(2)}} + \V \Ket {u_n^{(1)}} = E_n^{(0)} \Ket {u_n^{(2)}} + E_n^{(1)} \Ket {u_n^{(1)}} + E_n^{(2)} \Ket {u_n^{(0)}}
+\]
+Ora si applica di nuovo $\bra u_n^{(0)}|$:
+\[
+	\cancel{\bra u_n^{(0)}| \H \Ket {u_n^{(2)}}} + \Bra {u_n^{(0)}} \V \Ket {u_n^{(1)}} = \cancel{E_n^{(0)} \bra u_n^{(0)}| u_n^{(2)}\ket} + E_n^{(1)} \bra u_n^{(0)}| u_n^{(1)}\ket + E_n^{(2)} \bra u_n^{(0)}| u_n^{(0)}\ket
+\]
+Per dare un senso a quest'ultima equazione occorre fare un'ulteriore ipotesi sull'espansione di $\Ket {u_n^\varepsilon}$. Occorre supporre che $\braket{u_n^{(0)}}{u_n^\varepsilon} = 1$, così da avere gratuitamente che $\braket{u_n^{(0)}}{u_n^{(k)}} = 0$ per $k \geq 1$; infatti ora si ha:
+\[
+	E_n^{(1)} \bra u_n^{(0)}| u_n^{(1)}\ket = 0 \ \ \implies \ \ E_n^{(2)} = \Bra{u_n^{(0)}} \V \Ket{u_n^{(1)}}
 \]
 
-E di nuovo, completando il prodotto scalare a sinistra con $\bra u_n^{(0)}|$ si ottiene:
+Risula che questa procedura è ripetibile a piacere, quindi per ogni $i \geq 1$:
 \[
-    \bra u_n^{(0)}| V |u_n^{(1)}\ket = E_n^{(0)} \bra u_n^{(0)}| u_n^{(2)}\ket + E_n^{(1)} \bra u_n^{(0)}| u_n^{(1)}\ket + E_n^{(2)} \bra u_n^{(0)}| u_n^{(0)}\ket = E_n^{(2)}
+	E_n^{(i)} = \Bra{u_n^{(0)}} \V \Ket{u_n^{(i - 1)}}
+\]
+A questo punto è necessario calcolare i $\Ket{u_n^{(i)}}$. Siano allora $n, k$ diversi tra loro. Recuperando la stessa equazione di prima applicando $\Bra {u_k^{(0)}}$ invece che  $\Bra {u_n^{(0)}}$ risulta:
+\[
+	\Bra {u_k^{(0)}} \H \Ket u_n^{(1)} + \Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}} = E_n^{(0)} \braket {u_k^{(0)}} {u_n^{(1)}} + \cancel{E_n^{(1)} \braket {u_k^{(0)}} {u_n^{(0)}}}
+\]
+Eliminato il termine nullo alla fine si ha che $\Bra {u_k^{(0)}} \H \Ket u_n^{(1)} = E_k^{(0)} \braket {u_k^{(0)}} {u_n^{(1)}}$, allora:
+\[
+	\braket {u_k^{(0)}} {u_n^{(1)}} = \frac{\Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}}}{E_k^{(0)} - E_n^{(0)}}
+\]
+Ma sapendo che i $\Ket{u_k^{(0)}}$ formano un sistema ortonormale comlpeto (e $\Ket{u_n^{(0)}} \perp \Ket{u_n^{(1)}}$), risulta che $\Ket{u_n^{(1)}}$ può essere espresso come somma su tutti i $k\neq n$ di:
+\[
+	\Ket {u_n^{(1)}} = \sum_{k \neq n} \frac{\Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}}}{E_k^{(0)} - E_n^{(0)}} \Ket {u_k^{(0)}}
+\]
+Questo risultato è il motivo per cui l'hamiltoniana di partenza non deve essere degenere: se infatti si avessero due autostati con stesso autovalore risulterebbe uno 0 al denominatore di quest'equazione.
+
+È tipico utilizzare la notazione in cui $V_{kn} = \Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}}$ sono gli elementi di matrice del potenziale, e $\Delta_{kn} = E_k^{(0)} - E_n^{(0)}$ i salti energetici tra gli stati imperturbati, cosicché:
+\[
+	\Ket {u_n^{(1)}} = \sum_{k \neq n} \frac{V_{kn}}{\Delta_{kn}}\Ket {u_k^{(0)}}\ , \ \ E_n^{(2)} = \sum_{k \neq n} \frac{\sabs{V_{kn}}}{\Delta_{kn}}
 \]
 
-Ora si moltiplichi questo risultato per $\bra u_m^{(0)}|$ con $m \neq n$:
-\[
-    \bra u_m^{(0)}| \H \Ket {u_n^{(2)}} + \Bra {u_m^{(0)}} V \Ket u_n^{(1)} = E_n^{(0)} \bra u_m^{(0)}| u_n^{(2)}\ket + E_n^{(1)} \bra u_m^{(0)}| u_n^{(1)}\ket + E_n^{(2)} \bra u_m^{(0)}| u_n^{(0)}\ket
-\]
-E sapendo che $\H \Ket {u_m^{(0)}} = E_m^{(0)} \Ket {u_m^{(0)}}$ e che $\bra u_m^{(0)}| u_n^{(0)}\ket = 0$ si ottiene:
-\[
-    (E_m^{(0)} - E_n^{(0)}) \bra u_m^{(0)}| u_n^{(1)}\ket = - \Bra {u_m^{(0)}} V \Ket u_n^{(0)}
-\]
-
-E quindi abbiamo ottenuto la proiezione della prima correzione dello stato $n$ sullo stato generico della base degli stati invariati:
-\[
-    \bra u_m^{(0)}| u_n^{(1)}\ket = \sum_{m \neq n} \frac{|\Bra {u_m^{(0)}} V \Ket u_n^{(0)}|^2}{E_n^{(0)} - E_m^{(0)}} \ \implies\ \Ket {u_n^{(1)}} = \sum_{m \neq n} \frac{|\Bra {u_m^{(0)}} V \Ket u_n^{(0)}|^2}{E_n^{(0)} - E_m^{(0)}} \Ket {u_m^{(0)}}
-\]
-Al ché è come se $\Bra {u_m^{(0)}} V \Ket u_n^{(0)}$ fosse una matrice degli elementi di perturbazione tra gli stati $m$ ed $n$.
-Gli elementi di questa matrice rappresentano, osservando la natura del prodotto scalare, la sovrapposizione tra lo i due stati considerati, ovvero l'influenza dello stato $m$ sullo stato $n$ attraverso la perturbazione $V$, pensando con la differenza di energia dei livelli.
-
-Quel che otteniamo è, all'atto pratico, una quantificazione dell'influenza di una perturbazione esterna sugli stati.
-
-Ora possiamo assemblare la ricetta per esprimere $E_n^{(2)}$:
-\[
-    E_n^{(2)} = \bra u_n^{(0)}| V |u_n^{(1)}\ket = \bra u_n^{(0)}| V |\left(\sum_{m \neq n} \frac{|\Bra {u_m^{(0)}} V \Ket u_n^{(0)}|^2}{E_n^{(0)} - E_m^{(0)}}\right) \Ket {u_n^{(0)}} = \sum_{m \neq n} \frac{|\Bra {u_m^{(0)}} V \Ket u_n^{(0)}|^2}{E_n^{(0)} - E_m^{(0)}}
-\]
--
 Risulta poi che $\Ket {u_n^{(2)}}$ può essere espresso come:
 \[
-    \Ket {u_n^{(2)}} = \sum_{m \neq n} \frac{\Bra {u_m^{(0)}} V \Ket {u_n^{(1)}}}{E_n^{(0)} - E_m^{(0)}} \Ket {u_m^{(0)}} = \sum_{m \neq n} \left( \sum_{k \neq n} \frac{\Bra {u_k^{(0)}} V \Ket {u_n^{(0)}} \Bra {u_m^{(0)}} V \Ket {u_k^{(0)}}}{(E_n^{(0)} - E_k^{(0)})(E_n^{(0)} - E_m^{(0)})} \right) \Ket {u_m^{(0)}}
+	\Ket {u_n^{(2)}} = \sum_{m \neq n} \frac{\Bra {u_m^{(0)}} \V \Ket {u_n^{(1)}}}{E_n^{(0)} - E_m^{(0)}} \Ket {u_m^{(0)}} = \sum_{m \neq n} \left( \sum_{k \neq n} \frac{\Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}} \Bra {u_m^{(0)}} \V \Ket {u_k^{(0)}}}{(E_n^{(0)} - E_k^{(0)})(E_n^{(0)} - E_m^{(0)})} \right) \Ket {u_m^{(0)}}
 \]
 
 Quanto vale la norma di $\Ket {u_n^\epsilon}$?
 \[
-    ||\Ket {u_n^\epsilon}||^2 = \braket {u_n^\epsilon}{u_n^\epsilon} = \left( \Bra {u_n^{(0)}} + \varepsilon \Bra {u_n^{(1)}} \right) \left( \Ket {u_n^{(0)}} + \varepsilon \Ket {u_n^{(1)}} \right) = 1 + \varepsilon^2 \braket {u_n^{(1)}}{u_n^{(1)}}
+	||\Ket {u_n^\epsilon}||^2 = \braket {u_n^\epsilon}{u_n^\epsilon} = \left( \Bra {u_n^{(0)}} + \varepsilon \Bra {u_n^{(1)}} \right) \left( \Ket {u_n^{(0)}} + \varepsilon \Ket {u_n^{(1)}} \right) = 1 + \varepsilon^2 \braket {u_n^{(1)}}{u_n^{(1)}}
 \]
 Che va necessariamente normalizzato in questo modo:
 \[
-    \Ket {\tilde{u}_n^\epsilon} = \frac{\Ket {u_n^\epsilon}}{||\Ket {u_n^\epsilon}||} = \left( 1 + \varepsilon^2 \braket {u_n^{(1)}}{u_n^{(1)}} \right)^{-\half} \left( \Ket {u_n^\epsilon} \right) \simeq \left( 1 - \half \varepsilon^2 \braket {u_n^{(1)}}{u_n^{(1)}} \right) \left( \Ket {u_n^\epsilon} \right)
+	\Ket {\tilde{u}_n^\epsilon} = \frac{\Ket {u_n^\epsilon}}{||\Ket {u_n^\epsilon}||} = \left( 1 + \varepsilon^2 \braket {u_n^{(1)}}{u_n^{(1)}} \right)^{-\half} \Ket {u_n^\epsilon} \simeq \left( 1 - \half \varepsilon^2 \braket {u_n^{(1)}}{u_n^{(1)}} \right) \left( \Ket {u_n^\epsilon} \right)
 \]
-Il termine di correzione alla norma è chiamato \textbf{Loss Term} \index{Loss Term}.
+Il termine di correzione alla norma è chiamato \textbf{Loss Term}\index{Loss Term}.

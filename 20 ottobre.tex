@@ -88,7 +88,7 @@ Invece il risultato ottenuto fu che il fascio di elettroni di divideva in due fa
     \caption{Schema dell'apparato di Stern-Gerlach. Il flusso di elettroni viene deviato dal campo magnetico secondo lo spin.}
 \end{figure}
 
-In particolare, misurando il momento magnetico associato alla deviazione, risulta che gli elettroni possono avere momento magnetico di $\pm$ \thhalf; queste quantità sono gli autovalori dei due stati in cui si trovano gli elettroni dei due fasci uscenti dall'apparato. Che cosa succede se proviamo a generare uno spazio degli stati a partire da questi risultati?
+In particolare, misurando il momento magnetico associato alla deviazione, risulta che gli elettroni possono avere momento magnetico di $\pm$ \thhalf. Che cosa succede se proviamo a generare uno spazio degli stati a partire da questi risultati?
 Una possibile base per questo spazio è:
 \[
     |+\ket = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \ \ \ \ |-\ket = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
@@ -100,6 +100,13 @@ Al chè si ha la rappresentazione, per esempio, dell'operatore di Stern e Gerlac
 
 \subsection*{Misurazione degli Osservabili}
 Dato uno stato generico $|\vphi \ket$ e un operatore osservabile $\hat A$ con autostati $|\psi_j \ket$ (si nota che un ossservabile per essere tale deve essere un operatore hermitiano, cosicchè gli autovalori risultino reali e gli autostati ortogonali) e autovalori $a_j$, quel che accade durante una misurazione è che lo stato $|\vphi \ket$ collassa in uno degli autostati $|\psi_j \ket$ con probabilità $p_j = |\bra \psi_j | \vphi \ket|^2$. Nel caso di un apparato di misura discreto, il risultato della misura è il valore dell'autovettore associato all'autostato in cui $\vphi$ è collassato.
+
+Riassumendo, gli assiomi della misurazione, posto lo stato del sistema rappresentato da un Ket in uno spazio di Hilbert, e un operatore hermitiano:
+\begin{enumerate}
+    \item La misurazione di un osservabile consiste nel "leggere" uno degli autovalori possibili dell'osservabile;
+    \item A seguito della misurazione, lo stato è permanentemente e irrevocabilmente modificato, e diventa l'autostato associato all'autovalore misurato;
+    \item La probabilità di misurare un autovalore piuttosto che un altro è il modulo quadro della proiezione dello stato sull'autostao associato.
+\end{enumerate}
 
 \subsubsection*{Esempio: esperimento di Stern e Gerlach}
 Si considerino lo stato $|\psi\ket$ e l'opereatore $\hat S_z$ descritto sopra. Risulta:
@@ -143,5 +150,6 @@ E, per completezza si aggiunge $\hat S_z$:
 
 \subsubsection*{Osservabili compatibili}
 Dati due osservabili hermitiani che commutano ($[\hat A, \hat B] = 0$), esiste una base di autostati comune, in cui se uno è diagonale allora anche l'altro e diagonale.
-
-
+\begin{proof}
+    Mostrare che se $\Ket {a_j}$ è autostato di $A$ allora lo è anche di $B$.
+\end{proof}

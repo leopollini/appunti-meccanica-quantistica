@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.2.5)  23 FEB 2026 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.2.5)  25 FEB 2026 09:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -687,7 +687,7 @@ Package csquotes Info: Redefining alias 'default' -> 'italian'.
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count383
-) (./QM.aux)
+) (%OUTDIR%/QM.aux)
 \openout1 = `QM.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -754,7 +754,7 @@ italian.ldf    on input line 11.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 11.
-(./QM.out) (./QM.out)
+(%OUTDIR%/QM.out) (%OUTDIR%/QM.out)
 \@outlinefile=\write5
 \openout5 = `QM.out'.
 
@@ -801,12 +801,12 @@ File: uesint.fd
 \tikz@math@dimen=\dimen309
 \tikz@math@toks=\toks54
 ) [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 162--165
+Underfull \hbox (badness 10000) in paragraph at lines 160--163
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--165
+Underfull \hbox (badness 10000) in paragraph at lines 160--163
 
  []
 
@@ -845,62 +845,57 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
 (Font)              Font shape `U/wasy/m/n' tried instead on input line 47.
 
 [30]
-<image.png, id=280, 171.64125pt x 193.72375pt>
+<image.png, id=287, 171.64125pt x 193.72375pt>
 File: image.png Graphic file (type png)
 <use image.png>
 Package pdftex.def Info: image.png  used on input line 67.
 (pdftex.def)             Requested size: 88.71434pt x 100.12799pt.
-) (./11 novembre.tex) [31 <./image.png>] (./13 novembre.tex [32]) (./14 novembre.tex [33]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 35.
-
-) [34] (./18 novembre.tex
-Overfull \hbox (14.62344pt too wide) in paragraph at lines 32--34
+) (./11 novembre.tex) (./13 novembre.tex [31 <./image.png>] [32]) (./14 novembre.tex [33]) [34] (./17 novembre.tex) [35] (./18 novembre.tex
+Overfull \hbox (14.62344pt too wide) in paragraph at lines 36--38
 \OT1/cmr/m/n/10 definendo quin-di un ope-ra-to-re di evo-lu-zio-ne nel-l'in-te-ra-zio-ne tra-mi-te il T-prodotto espo-nen-zia-le (\OT1/cmr/bx/n/10 operatore
  []
 
-[35] [36]) [37] (./20 novembre.tex [38]) [39] (./21 novembre.tex [40]) [41] (./27 novembre.tex [42]) [43] (./2 dicembre.tex
+[36] [37]) [38] (./20 novembre.tex [39]) [40] (./21 novembre.tex [41]) [42] (./27 novembre.tex [43]) [44] (./2 dicembre.tex
 Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
 
-[44]
+[45]
 Underfull \hbox (badness 10000) in paragraph at lines 58--61
 
  []
 
-) [45] (./4 dicembre.tex [46]
+) [46] (./4 dicembre.tex [47]
 Overfull \hbox (96.05522pt too wide) in paragraph at lines 123--125
 []\OT1/cmr/m/n/10 Vab^^Re ora ab-bia-mo le ar-mo-ni-che sfe-ri-che $\OML/cmm/m/it/10 Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^R; ^^^\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 C[]e[]P[]\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )$ con $\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 cos^^R\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 1)[]([] \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )[][]\OML/cmm/m/it/10 P[]\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 ^^R\OT1/cmr/m/n/10 )$ 
  []
 
-[47] [48] [49]) [50]
+[48] [49] [50]) [51]
 runsystem(makeindex QM.idx)...executed safely (allowed).
 
- (./QM.ind) [51
+ (%OUTDIR%/QM.ind) [52
 
-] (./QM.aux)
+] (%OUTDIR%/QM.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `QM.out' has not changed.
-(rerunfilecheck)             Checksum: F210B5F2679037DD9023DBAA0776BF97;2442.
+(rerunfilecheck)             Checksum: 3F58740BB65E26BA52464B301CBFB981;2921.
  ) 
 Here is how much of TeX's memory you used:
- 36176 strings out of 469503
- 820889 string characters out of 5469597
- 1401325 words of memory out of 5000000
- 64023 multiletter control sequences out of 15000+600000
+ 36202 strings out of 469503
+ 821306 string characters out of 5469597
+ 1402255 words of memory out of 5000000
+ 64032 multiletter control sequences out of 15000+600000
  642841 words of font info for 103 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,19n,97p,992b,2033s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/leonardo/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on QM.pdf (51 pages, 566511 bytes).
+Output written on %OUTDIR%/QM.pdf (52 pages, 577449 bytes).
 PDF statistics:
- 562 PDF objects out of 1000 (max. 8388607)
- 443 compressed objects within 5 object streams
- 158 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 583 PDF objects out of 1000 (max. 8388607)
+ 463 compressed objects within 5 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 

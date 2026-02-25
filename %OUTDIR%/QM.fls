@@ -4,7 +4,7 @@ INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT /home/leonardo/Desktop/LaTeX/QM/QM.tex
-OUTPUT QM.log
+OUTPUT %OUTDIR%/QM.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -314,21 +314,21 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmark
 INPUT /usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-OUTPUT QM.idx
+OUTPUT %OUTDIR%/QM.idx
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./QM.aux
-INPUT ./QM.aux
-INPUT QM.aux
-OUTPUT QM.aux
-INPUT ./QM.out
-INPUT ./QM.out
-INPUT QM.out
-INPUT QM.out
-OUTPUT QM.pdf
-INPUT ./QM.out
-INPUT ./QM.out
-OUTPUT QM.out
+INPUT %OUTDIR%/QM.aux
+INPUT %OUTDIR%/QM.aux
+INPUT %OUTDIR%/QM.aux
+OUTPUT %OUTDIR%/QM.aux
+INPUT %OUTDIR%/QM.out
+INPUT %OUTDIR%/QM.out
+INPUT %OUTDIR%/QM.out
+INPUT %OUTDIR%/QM.out
+OUTPUT %OUTDIR%/QM.pdf
+INPUT %OUTDIR%/QM.out
+INPUT %OUTDIR%/QM.out
+OUTPUT %OUTDIR%/QM.out
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -468,6 +468,9 @@ INPUT 13 novembre.tex
 INPUT ./14 novembre.tex
 INPUT ./14 novembre.tex
 INPUT 14 novembre.tex
+INPUT ./17 novembre.tex
+INPUT ./17 novembre.tex
+INPUT 17 novembre.tex
 INPUT ./18 novembre.tex
 INPUT ./18 novembre.tex
 INPUT 18 novembre.tex
@@ -486,12 +489,12 @@ INPUT 2 dicembre.tex
 INPUT ./4 dicembre.tex
 INPUT ./4 dicembre.tex
 INPUT 4 dicembre.tex
-INPUT ./QM.ind
-INPUT ./QM.ind
-INPUT QM.ind
-INPUT QM.aux
-INPUT ./QM.out
-INPUT ./QM.out
+INPUT %OUTDIR%/QM.ind
+INPUT %OUTDIR%/QM.ind
+INPUT %OUTDIR%/QM.ind
+INPUT %OUTDIR%/QM.aux
+INPUT %OUTDIR%/QM.out
+INPUT %OUTDIR%/QM.out
 INPUT /home/leonardo/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb

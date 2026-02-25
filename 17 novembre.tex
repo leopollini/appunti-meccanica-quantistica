@@ -1,0 +1,37 @@
+\subsection{Perturbazione indipendente dal tempo con spettro degenere}
+Come si procede se nello spettro dell'hamiltoniana si hanno degli autovalori a cui sono associati autostati diversi? È necessario procedere a una scomposizione del sottospazio $D$ (supposto di dimensione $g$), al fine di evitare il problema evidenziato nel capitolo precedente. La situazione è la seguente:
+\[
+	\H = \H_0 + \V \]\[
+	\H_0\Ket {u_i^{(0)}} = E_D^{(0)}\Ket {u_i^{(0)}}, \ i = 1, 2, \cdots g
+\]
+Se uno è fortunano, potrebbe essere che la matrice della perturbazione ($V_{ij} = \Bra {u_i^{(0)}} \V \Ket {u_j^{(0)}}$) è diagonale: In tal caso si ha banalmente che:
+\[
+	\H\Ket {u_i^{(0)}} = \l E_i^{(0)} + V_i \r \Ket {u_i^{(0)}}
+\]
+
+La tecnica che segue consiste nel trovare una nuova base per il sottospazio degenere $D$ che renda diagonale la sottomatrice della perturbazione ristretta a $D$. Chiamiamo questa nuova base $\Ket {\nu_i^{(0)}}$ con $\nu = 1, 2, \cdots g$. Risulterà:
+\[
+	\braketin{\nu_i^{(0)}}{V}{\nu_j^{(0)}} = v \delta_{ij} \]\[
+	\l \H_0 + \V \r \Ket {\nu_i^{\varepsilon}} = E_i \Ket {\nu_i^{\varepsilon}}
+\]
+con la solita espansione alla Taylor per $\Ket {\nu_i^{\varepsilon}}$. E ciò che riporta agli stati originari sono le seguenti equivalenze:
+\[
+	E_i = E_i^{(0)} + v_i + \sum_{k \notin D} \frac{\sabs{V_{kn}}}{\Delta_{kn}} + \cdots \]\[
+	\Ket {u_i} = \Ket {\nu_i^{(0)}} + \sum_{k \notin D} \frac{\Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}}}{E_k^{(0)} - E_n^{(0)}} \Ket {u_k^{(0)}} + \cdots
+\]
+in sostanza questa tecnica "rompe" la degenerazione, cosicché gli ordini successivi possono essere ottenuti con la solita tecnica, evitando di passare per il sottospazio degenere.
+% Poche domande grazie
+
+\subsection*{Contenuto aggiuntivo: Hamiltoniane a più dimensioni}
+Se l'hamiltoniana è nella forma:
+\[
+	\H(x,y,z) = \H_x(x) + \H_y(y) + \H_z(z)
+\]
+allora risulta facilmente (esercizio) che la funzione d'onda risultante è separabile, e che l'energia di un livello è data dalla somma delle energie nei diversi domini:
+\[
+	\psi(x,y,z) = \psi_x(x) \psi_y(y) + \psi_z(z)\]\[
+	E = E_x E_y + E_z
+\]
+
+\subsubsection*{Esercizio}
+Provare a calcolare gli autostati per la buca di potenziale 2D quadrata di lato $a$. Poi aggiungere un potenziale $\V = \varepsilon\frac{\hat x\hat y}{a^2}$ e trovare i nuovi autostati per il ground state e per il primo stato eccitato.

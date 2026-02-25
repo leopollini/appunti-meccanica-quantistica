@@ -1,84 +1,91 @@
-\subsection*{Variazioni dipendenti dal tempo}
-In questo caso si suppone che gli stati rimangano gli stessi con lo scorrere del tempo, e la variazione opera cambiando le densità di probabilità dei livelli.
+\subsection{Perturbazioni dipendenti dal tempo}
+In questo caso si suppone che gli stati rimangano gli stessi con lo scorrere del tempo, e la variazione opera cambiando le densità di probabilità dei livelli.\\
+È evidente che la tecnica usata nel capitolo precedente non è sufficiente, in quanto sarebbe necessario calcolare una base di autostati variati per ogni istante di tempo.\\
+Siccome le tecniche necessarie sono più complesse, conviene limitarsi alla stima di quanto la perturbazione influisce su un livello "spostandolo" verso gli altri. In sostanza si stima la proiezione dello stato perturbato evoluto su tutti gli altri stati.
 
 \subsection*{Rappresentazione di interazione}
-Si parte dallo stato generico $\Ket{\psi(t)}$ che segue l'andamento determinato dall'Hamiltoniana totale $\H(t) = \H_0 + V(t)$, con $\H_0$ l'hamiltoniana non perturbata e $V(t)$ la perturbazione dipendente dal tempo. Chiaramente lo stato evolve nel modo determinato dall'operatore di evoluzione temporale:
+Si parte dallo stato generico $\Ket{\psi(t)}$ che segue l'andamento determinato dall'Hamiltoniana totale $\H(t) = \H_0 + \V(t)$, con $\H_0$ l'hamiltoniana non perturbata e $\V(t)$ la perturbazione dipendente dal tempo. Chiaramente lo stato evolve nel modo determinato dall'operatore di evoluzione temporale:
 \[
-    \Ket{\psi(t)} = U(t,t_0) \Ket{\psi(t_0)} = e^{-\frac{i}{\hslash} \H_0 (t-t_0)}\Ket{\psi_I(t)} 
+    \Ket{\psi(t)} = U(t) \Ket{\psi(0)} = e^{-\frac{i}{\hslash} \H_0 t} e^{-\frac{i}{\hslash} \V(t) t} \Ket{\psi(0)} = e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)}
 \]
 dove si è definito lo stato nell'interazione come:
-\[    \Ket{\psi_I(t)} = e^{\frac{i}{\hslash} \H_0 (t-t_0)} \Ket{\psi(t)} \]
-Inserendo questa definizione nell'equazione di Schrödinger si ottiene, sapendo che $\Ket {\psi_I(t_0)} = \Ket {\psi(0)}$:
+\[    \Ket{\psi_I(t)} = e^{\frac{i}{\hslash} \H_0 t} \Ket{\psi(t)} \]
+Inserendo questa definizione nell'equazione di Schrödinger si ottiene, sapendo che $\Ket {\psi_I(0)} = \Ket {\psi(0)}$:
 \[
-    i \hslash \tderiv{} \left( e^{-\frac{i}{\hslash} \H_0 (t-t_0)}\Ket{\psi_I(t)} \right) = \H(t) e^{-\frac{i}{\hslash} \H_0 (t-t_0)}\Ket{\psi_I(t)} \]\[
-    i \hslash \tderiv{} \Ket{\psi_I(t)} = V_I(t) \Ket{\psi_I(t)}
+    i \hslash \tderiv{} \left( e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)} \right) = \H(t) e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)} \]\[
+    i \hslash \tderiv{} \Ket{\psi_I(t)} = \V_I(t) \Ket{\psi_I(t)}
 \]
-con $V_I(t) = e^{\frac{i}{\hslash} \H_0 (t-t_0)} V(t) e^{-\frac{i}{\hslash} \H_0 (t-t_0)}$. Questa fattorizzazione è utile in quanto risulta molto più semplice dell'evoluzione temporale fatta direttamente con l'Hamiltoniana perturbata.
+con $\V_I(t) = e^{\frac{i}{\hslash} \H_0 t} \V(t) e^{-\frac{i}{\hslash} \H_0 t}$. Questa fattorizzazione Schrödinger-like è utile in quanto risulta molto più semplice dell'evoluzione temporale fatta direttamente con l'Hamiltoniana perturbata.
 
 \subsubsection*{Sviluppo di Dyson}
-A questo punto si può procedere come segue:
+A questo punto si può integrare l'ultima equazione e procedere come segue:
 \[
-    \left[ \Ket {\psi_I(t)} - \Ket {\psi_I(0)} \right] = \frac{1}{i \hslash} \int_0^t V_I(t') \Ket {\psi_I(t')} dt' \]\[
-    \Ket {\psi_I(t)} = \Ket {\psi_I(0)} + \frac{1}{i \hslash} \int_0^t V_I(t') \Ket {\psi_I(t')} dt'
+    \left[ \Ket {\psi_I(t)} - \Ket {\psi_I(0)} \right] = \frac{1}{i \hslash} \int_0^t \V_I(t') \Ket {\psi_I(t')} dt'
 \]
-in questo modo si rappresenta l'evoluzione dello stato d'interazione in termini dello stato iniziale più un'integrale, espandibile nel seguente modo, in maniera ricorsiva:
+in questo modo si rappresenta l'evoluzione dello stato d'interazione in termini dello stato iniziale più un'integrale, che a sua volta può essere espanso nello stesso modo in modo ricorsivo:
 \[
-    \Ket {\psi_I(t)} = \Ket {\psi_I(0)} + \frac{1}{i \hslash} \int_0^t V_I(t') \Ket {\psi_I(0)} dt' + \left( \frac{1}{i \hslash} \right)^2 \int_0^t dt' \int_0^{t'} dt'' V_I(t') V_I(t'') \Ket {\psi_I(0)} + \ldots
+    \Ket {\psi_I(t)} = \Ket {\psi_I(0)} + \frac{1}{i \hslash} \int_0^t \V_I(t') \left[ \Ket {\psi_I(0)} + \frac{1}{i \hslash} \int_0^t \V_I(t'') \Ket {\psi_I(t'')} dt'' \right] dt' =
+\]
+\[
+    = \Ket {\psi_I(0)} + \frac{1}{i \hslash} \int_0^t \V_I(t') \Ket {\psi_I(0)} dt' + \left( \frac{1}{i \hslash} \right)^2 \int_0^t dt' \int_0^{t'} dt'' \V_I(t') \V_I(t'') \Ket {\psi_I(0)} + \ldots
 \]
 Questa espansione prende il nome di \textbf{sviluppo di Dyson}\index{Sviluppo di Dyson}.
 Per linearità si può comodamente scrivere:
 \[
-    \Ket {\psi_I(t)} = \left[ \hat {Id} + \frac{1}{i \hslash} \int_0^t V_I(t') dt' + \left( \frac{1}{i \hslash} \right)^2 \int_0^t dt' \int_0^{t'} dt'' V_I(t') V_I(t'') + \ldots \right] \Ket {\psi_I(0)}
+    \Ket {\psi_I(t)} = \left[ \hat {Id} + \frac{1}{i \hslash} \int_0^t \V_I(t') dt' + \left( \frac{1}{i \hslash} \right)^2 \int_0^t dt' \int_0^{t'} dt'' \V_I(t') \V_I(t'') + \ldots \right] \Ket {\psi_I(0)}
 \]
 definendo quindi un operatore di evoluzione nell'interazione tramite il T-prodotto esponenziale (\textbf{operatore di Dyson}\index{Operatore di Dyson}), che in simboli si scrive
 \[
-    \U_I(t) = T - \exp \{ -\frac{i}{\hslash} \int_0^t V_I(t') dt' \}
+    \U_I(t) = \text{T} - \exp \{ -\frac{i}{\hslash} \int_0^t \V_I(t') dt' \}
 \]
 
-È importante notare che non si tratta di uno sviluppo di Taylor, in quanto i termini non sono semplicemente potenze successive di un operatore, ma contengono integrali temporali ordinati. Tuttavia se $[V_I(t'), V_I(t'')] = 0$ per ogni $t', t''$, comparirebbe un termine fattoriale al denominatore, e allora l'operatore di Dyson si riduce a una semplice esponenziale.
+È importante notare che non si tratta di uno sviluppo di Taylor, in quanto i termini non sono semplicemente potenze successive di un operatore, ma contengono integrali temporali ordinati (infati la notazione $\text{T} - \exp$ sta per \textit{Time ordered product}). Tuttavia se $[\V_I(t'), \V_I(t'')] = 0$ per ogni $t', t''$, comparirebbe un termine fattoriale al denominatore, e allora l'operatore di Dyson si riduce a una semplice esponenziale.
 
 \subsection*{Evoluzione temporale degli operatori}
 Un operatore evolve nel tempo secondo la solita legge:
 \[
-    \hat A_I(t) = U^\dagger(t,t_0) \hat A_0 U(t,t_0) = e^{\frac{i}{\hslash} \H (t-t_0)} \hat A_0 e^{-\frac{i}{\hslash} \H (t-t_0)}
+    \hat A_I(t) = U^\dagger(t) \hat A_0 U(t) = e^{\frac{i}{\hslash} \H_0 t} \hat A_0 e^{-\frac{i}{\hslash} \H_0 t}
 \]
-E la sua media temporale è
+dove $\A_0$ è l'operatore in rappresentazione di Schrödinger, non dipendente da tempo; la media temporale è:
 \[
-    \avg[t]{\hat A} = \Bra{\psi(t)} \hat A_0 \ket{\psi(t)} = \Bra{\psi_I(t)} \hat A_I(t) \ket{\psi_I(t)}
+    \avg[t]{\hat A} = \Bra{\psi(t)} \hat A_0 \Ket{\psi(t)} = \Bra{\psi_I(t)} \hat A_I(t) \Ket{\psi_I(t)}
 \]
 Si calcoli per esercizio l'equazione di Heisenberg per lo stato $A_I(t)$ (soluzione: \( \frac{i}{\hslash} \tderiv{} \hat A_I(t) = [\hat A_I(t), \H_0] \), ovvero l'equazione di Heisenberg senza termine di perturbazione).
 
 
 
 \subsubsection*{Evoluzione delle componenti di uno stato}
-Si consideri uno stato generico $\Ket{\psi(t)}$. La sua rappresentazione d'interazione $\Ket{\psi_I(t)}$ può essere espressa nella base degli autostati di $\H_0$, espreimendo l'evoluzione temporale delle componenti:
+Si consideri uno stato generico $\Ket{\psi(t)}$. La sua rappresentazione d'interazione $\Ket{\psi_I(t)}$ può essere espressa nella base degli autostati di $\H_0$, espreimendo l'evoluzione temporale delle componenti (nella base di $\H_0$):
 \[
-    \Ket{\psi_I(t)} = \sum_n c_n(t) \Ket{u_n^{(0)}}\ ,\ \ C_n(t) = \Bra{u_n^{(0)}} \Ket{\psi_I(t)}
+    \Ket{\psi_I(t)} = \sum_n C_n(t) \Ket{u_n}\ ,\ \ C_n(t) = \braket{u_n}{\psi_I(t)}
 \]
 allora l'equazione di Schrödinger nell'interazione diventa:
 \[
-    i \hslash \tderiv{} \sum_n C_n(t) \Ket{u_n^{(0)}} = V_I(t) \sum_n C_n(t) \Ket{u_n^{(0)}}
+    i \hslash \tderiv{} \sum_n C_n(t) \Ket{u_n} = \V_I(t) \sum_n C_n(t) \Ket{u_n}
 \]
-Moltiplicando a sinistra per $\Bra{u_m^{(0)}}$ si ottiene:
+Applicando $\Bra{u_m}$ si ottiene:
 \[
-    i \hslash \tderiv{} C_m(t) = \sum_n V_{m,n}(t) C_n(t)
+    i \hslash \tderiv{} C_m(t) = \sum_n V_{mn}(t) C_n(t)
 \]
-con $V_{m,n}(t) = \Bra{u_m^{(0)}}| V_I(t) |u_n^{(0)}\ket$ (secondo la rappresentazione per cui i $V_{m,n}(t)$ sono gli elementi di matrice della perturbazione nell'interazione).
+con $V_{mn}(t) = \Bra{u_m} \V_I(t) \Ket {u_n}$ (secondo la rappresentazione per cui i $V_{mn}(t)$ sono gli elementi di matrice della perturbazione nell'interazione). Ora:
+\[
+    \Bra{u_m} \V_I(t) \Ket {u_n} = \Bra{u_m} e^{\frac{i}{\hslash} \H_0 t} \V e^{-\frac{i}{\hslash} \H_0 t} \Ket {u_n} =  ^{\frac{i}{\hslash} (E_m - E_n) t}\Bra{u_m} \V \Ket {u_n}
+\]
 E quindi:
 \[
-    i\hslash \tderiv {C_n(t)} = \sum_m V_{n,m}(t) C_m(t) e^{i \omega_{n,m} t}
+    i\hslash \tderiv {C_m(t)} = \sum_m V_{mn}(t) C_n(t) e^{i \omega_{nm} t}
 \]
-che è un sistema di equazioni differenziali lineari!
+con $\omega_{nm} = E_m-E_n$; questo è un sistema di equazioni differenziali lineari ordinarie!
 
 
 Riscriviamo ora i $C_n(t)$ in termini dello stato imperturbato:
 \[
-    C_n(t) = \braket{n}{\psi_I(t)} = \braket{n}{e^{\frac{i}{\hslash}\H_0 t}\U(t)\psi(t)}
+    C_n(t) = \braket{n}{\psi(t)} = \braketin{n}{-e^{\frac{i}{\hslash}\H_0 t}e^{\frac{i}{\hslash} \H_0 t}}{\psi(t)} = e^{-\frac{i}{\hslash} E_n t} \braketin{n}{e^{\frac{i}{\hslash} \H_0 t}}{\psi(t)} =\]\[
+    = e^{-\frac{i}{\hslash} E_n t} \braket{n}{\psi_I(t)} = e^{-\frac{i}{\hslash} E_n t} C_n^I(t)
 \]
-Leoleo
 
-\subsection*{Oscillazioni di Rabi}
-Le oscillazioni di Rabi descrivono la dinamica coerente di popolazione in un sistema a due livelli \(\{\Ket{g},\Ket{e}\}\) soggetto a un campo di guida armonico. Con detuning \(\Delta=\omega-\omega_0\) (differenza tra frequenza del campo \(\omega\) e la transizione libera \(\omega_0\)) e ampiezza di accoppiamento caratterizzata dalla Rabi-frequency \(\Omega\) (proporzionale all'intensità del campo e alla matrice di dipolo), nell'approssimazione dell'onda rotante (RWA) l'Hamiltoniana efficace è
+\subsection*{Oscillazioni di Rabi}\index{Rabi Oscillations}
+Le oscillazioni di Rabi descrivono la dinamica coerente di "popolazione" in un sistema a due livelli \(\{\Ket{g},\Ket{e}\}\) soggetto a un campo di guida armonico. Con detuning \(\Delta=\omega-\omega_0\) (differenza tra frequenza del campo \(\omega\) e la transizione libera \(\omega_0\)) e ampiezza di accoppiamento caratterizzata dalla Rabi-frequency \(\Omega\) (proporzionale all'intensità del campo e alla matrice di dipolo), nell'approssimazione dell'onda rotante (RWA) l'Hamiltoniana efficace è
 \[
     H_{\rm eff} = -\frac{\hbar}{2}\big(\Delta\sigma_z + \Omega\sigma_x\big).
 \]
@@ -100,13 +107,13 @@ Si parte da un Hamiltoniana $H_0$ che ammette base formata da due stati:
 \]
 e un potenziale perturbativo
 \[
-    V(t) = \gamma e^{i\omega t}\ketbra{0}{1} + \gamma^* e^{-i\omega t}\ketbra{1}{0}
+    \V(t) = \gamma e^{i\Omega t}\ketbra{0}{1} + \gamma^* e^{-i\Omega t}\ketbra{1}{0}
 \]
 che è rappresentabile come
 \[
-V(t)=\begin{pmatrix}
-0 & \gamma e^{i\omega t}\\
-\gamma^* e^{-i\omega t} & 0
+\V(t)=\begin{pmatrix}
+0 & \gamma e^{i\Omega t}\\
+\gamma^* e^{-i\Omega t} & 0
 \end{pmatrix}
 \]
 quindi, dato uno stato generico $\Ket \psi = C_0\Ket 0 + C_1 \Ket 1$, l'equazione di Schrödinger è:
@@ -116,8 +123,8 @@ quindi, dato uno stato generico $\Ket \psi = C_0\Ket 0 + C_1 \Ket 1$, l'equazion
     C_0\\ C_1
     \end{pmatrix}
     = \begin{pmatrix}
-    0 & \gamma e^{i(\omega + \omega_{01}) t}\\
-    \gamma^* e^{-i(\omega + \omega_{01}) t} & 0
+    0 & \gamma e^{i(\Omega + \omega_{01}) t}\\
+    \gamma^* e^{-i(\Omega + \omega_{01}) t} & 0
     \end{pmatrix}
     \begin{pmatrix}
     C_0\\ C_1
@@ -126,21 +133,21 @@ quindi, dato uno stato generico $\Ket \psi = C_0\Ket 0 + C_1 \Ket 1$, l'equazion
 Partiamo ponendo $\Ket {\psi_0} = \Ket 1$. Il sistema di equazioni differenziali è risolvibile, e risulta:
 \[
 \begin{cases}
-    i\hslash \dot C_0 =  \gamma e^{i(\omega + \omega_{01}) t} C_1 \\
-    i\hslash \dot C_1 =  \gamma^* e^{-i(\omega + \omega_{01}) t} C_0 \\
+    i\hslash \dot C_0 =  \gamma e^{i(\Omega + \omega_{01}) t} C_1 \\
+    i\hslash \dot C_1 =  \gamma^* e^{-i(\Omega + \omega_{01}) t} C_0 \\
 \end{cases}
 \]
 al chè (si completico i calcoli per esercizio):
 \[
-    C_0(t) = i\left[e^{i(\omega - \omega_{21})t} \left(A\sin(\Omega t) + B\sin (\Omega t)\right)\right]
+    C_0(t) = i\left[e^{i(\Omega - \omega_{21})t} \left(A\sin(\Omega t) + B\sin (\Omega t)\right)\right]
 \]
-E risulta che $B = 1$ e $A = \frac{-1(\omega - \omega_{21})}{2\Omega}$. Si calcola la probailità che uno stato $\Ket {\psi(t)} = \Ket 0$ rimanga nello stato 0:
+E risulta che $B = 1$ e $A = \frac{-1(\Omega - \omega_{21})}{2\Omega}$. Si calcola la probailità che uno stato $\Ket {\psi(t)} = \Ket 0$ rimanga nello stato 0:
 \[
-    |C_0(t)|^2 = \cos^2(\Omega t) ^ \frac{(\omega - \omega_{21})^2}{4\Omega^2}\sin^2(\Omega t)
+    |C_0(t)|^2 = \cos^2(\Omega t) ^ \frac{(\Omega - \omega_{21})^2}{4\Omega^2}\sin^2(\Omega t)
 \]
 e la probabilità di transizione è quindi 
 
 \[
-    |C_1(t)|^1 = 1 - |C_=(t)|^2 = \sin^2{\Omega t}\left(\frac{4\Omega - (\omega - \omega_{21})^2}{4\Omega^2}\right)
+    |C_1(t)|^1 = 1 - |C_0(t)|^2 = \sin^2(\Omega t)\left(\frac{4\Omega - (\Omega - \omega_{21})^2}{4\Omega^2}\right)
 \]
-ovvero una probailità che oscilla periodicamente nel tempo. In condizione di risonanza ($\omega = \omega_{21}$) capita che $|C_1(t)$ può essere 1, ovvero i livelli energetici vengono periodicamente "svuotati". In questo modo si hanno fenomeni interessanti quali il funzionamento dei laser.
+ovvero una probailità che oscilla periodicamente nel tempo. In condizione di risonanza ($\Omega = \omega_{21}$) capita che $|C_1(t)$ può essere 1, ovvero i livelli energetici vengono periodicamente "svuotati". In questo modo si hanno fenomeni interessanti quali il funzionamento dei laser.
