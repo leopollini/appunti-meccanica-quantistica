@@ -1,10 +1,10 @@
 \subsubsection*{Ruotare il sistema di riferimento}
-Con una costruzione simile a quelle per l'operatore di avanzamento tempolare e l'operatore di traslazione, risulta la rotazione di un ket nella base del momento angolare è del tipo:
+Con una costruzione simile a quelle per l'operatore di avanzamento tempolare e l'operatore di traslazione, risulta la rotazione tre dimensionale di un ket nella base del momento angolare è del tipo:
 \[
     \Ket{\vec r(d\phi)} = e^{-\frac{i}{\h}\hat J_z d\phi} \Ket{\vec r_0}
 \]
 
-Ora, come agiscono gli operatori momento di momento angolare sugli elementi della base delle posizioni in forma polare $\Ket{r, \theta, \phi}$? Vediamo alcuni casi da cui si può evincere il comportamento generale.\\
+Ora, come agiscono gli operatori di momento angolare sugli elementi della base delle posizioni in forma polare $\Ket{r, \theta, \phi}$? Vediamo alcuni casi da cui si può evincere il comportamento generale.\\
 Se $d\phi$ è infinitesimo si ha che:
 \[
     (\Id - \frac{i}{\h}\hat L_z d\phi) \Ket{r, \theta, \phi} = \Ket{r, \theta, \phi + d\phi}
@@ -17,7 +17,8 @@ Ovvero:
 \[
     -\frac{i}{\h} d\phi\Bra{r, \theta, \phi} \hat L_z \Ket \psi = d\phi\deriv[\phi]{} \braket{r, \theta, \phi}{\psi}
 \]
-Il ché significa, siccome $\Ket \psi$ è generico, che $\hat L_z \sim -\frac{i}{\h}\deriv[\phi]{}$.
+% questa dimostrazione potrebbe essere più approfondita...
+Il ché significa, siccome $\Ket \psi$ è generico, che $\hat L_z$ si comporta come $-\frac{i}{\h}\deriv[\phi]{}$.
 
 Si possono anche ricavare le rotazioni lungo gli altri assi (che, fissato l'asse $z$, saranno diverse in quanto in coordinate polari $\phi$ è precisamente l'angolo con l'asse $z$). Risulta:
 \[
@@ -42,15 +43,15 @@ Quindi risulta:
 \]
 Per gli stessi ragionamenti di prima si ha anche:
 \[
-    i\h \deriv[\psi]{\Y_{lm}} = \h m \Y_{lm} \ \ \implies \ \ \Y_{lm}(\phi) = Ce^{im\phi}
+    i\h \deriv[\phi]{\Y_{lm}} = \h m \Y_{lm} \ \ \implies \ \ \Y_{lm}(\phi) = Ce^{im\phi}
 \]
-Tuttavia compare una nuova restrizione: siccome lo spazio è invariante per rotazioni di $2\pi$ si può avere \textbf{soltanto $\boldsymbol{l}$ interi}, altrimenti si avrebbero inversioni del sistema di riferimento.
+Tuttavia compare una nuova restrizione: siccome lo spazio è invariante per rotazioni di $2\pi$ si può avere \textbf{soltanto} $\boldsymbol{m}$ \textbf{interi}, altrimenti si avrebbero inversioni del sistema di riferimento.
 
-Se poi si utilizza anche il risultato per $\hat L^2$ trovato prima si ottiene che $\Y_{lm}$ dipende soltanto da $\theta$ e $\psi$. L'equazione differenziale completa è:
+Se poi si utilizza anche il risultato per $\hat L^2$ trovato prima si ottiene che $\Y_{lm}$ dipende soltanto da $\theta$ e $\phi$. L'equazione differenziale completa è:
 \[
     -\h^2\left[ \inv{\sin \theta} \deriv[\theta]{}\l \sin\theta \deriv[\theta]{\psi} \r + \inv{\sin^2 \theta} \sderiv[\phi]{\psi} \right] = \h^2 l (l+1) \Y_{lm}
 \]
-e alcune soluzioni sono (normalizzate sull'integrale di superficie sferico):
+e alcune soluzioni del sistema contenente queste due equazioni differenziali sono (normalizzate sull'integrale di superficie sferico):
 \begin{gather*}
     \Y_{00} = \inv{\sqrt{4\pi}} \\
     \Y_{10} = \sqrt{\frac{3}{4\pi}}\cos\theta \\

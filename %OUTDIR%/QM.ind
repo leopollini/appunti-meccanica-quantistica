@@ -1,5 +1,6 @@
 \begin{theindex}
 
+  \item Ampiezza di correlazione, 42
   \item Artefatti pre-qm 
     \subitem  Effetto fotoelettrico, 6
     \subitem  Effetto isotropico, 7
@@ -14,9 +15,9 @@
 
   \indexspace
 
-  \item degenerazione, 50
-  \item Degenerazione accidentale, 50
-  \item Densità di stati, 40
+  \item degenerazione, 53
+  \item Degenerazione accidentale, 53
+  \item Densità di stati, 42
 
   \indexspace
 
@@ -26,8 +27,7 @@
 
   \indexspace
 
-  \item Fermi Golden Rule, 41
-  \item Funzione di correlazione, 40
+  \item Fermi Golden Rule, 44
   \item Funzione di Green, 11
 
   \indexspace
@@ -38,14 +38,14 @@
 
   \indexspace
 
-  \item Ladder operator, 28
-  \item Layer Repulsion, 34
-  \item Loss Term, 33
+  \item Ladder operator, 29
+  \item Layer Repulsion, 36
+  \item Loss Term, 35
   \item Lunghezza d'onda di De Broglie, 8
 
   \indexspace
 
-  \item Matrice Densità, 45
+  \item Matrice Densità, 48
   \item Matter Waves, 8
 
   \indexspace
@@ -57,36 +57,37 @@
   \indexspace
 
   \item Onde elettromagnetiche, 2
-  \item Operatore di Dyson, 36
+  \item Operatore di Dyson, 39
   \item operatore Hamiltoniano, 9
-  \item Operatori separabili, 44
-  \item Operatori Unitariamente Equivalenti, 43
+  \item Operatori separabili, 47
+  \item Operatori Unitariamente Equivalenti, 46
 
   \indexspace
 
   \item Parentesi di Poisson, 1
   \item Particella libera, 11
-  \item Perturbation Theory, 32
-  \item Precessione di spin, 31
+  \item Perturbation Theory, 34
+  \item Precessione di spin, 32
 
   \indexspace
 
-  \item Rabi Oscillations, 37
-  \item Raggio di Bohr, 51
-  \item Rappresentazione di Heisenberg, 22
+  \item Rabi Oscillations, 40
+  \item Raggio di Bohr, 54
+  \item Rappresentazione di Heisenberg, 23
+    \subitem eq. di Heisenberg, 23
 
   \indexspace
 
   \item spin degli Elettroni, 14
   \item Stati Classici, 1
-  \item Stati puri, 45
-  \item Sviluppo di Dyson, 36
+  \item Stati puri, 48
+  \item Sviluppo di Dyson, 38
 
   \indexspace
 
   \item Teorema di Ehrenfest 
-    \subitem  version prof, 23
-    \subitem  version Wiki, 24
+    \subitem  version prof, 24
+    \subitem  version Wiki, 25
   \item Teorema di Noether, 1
   \item Trasformata di Forurer 
     \subitem  Delta di Dirac, 4

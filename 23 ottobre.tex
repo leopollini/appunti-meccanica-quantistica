@@ -9,44 +9,44 @@ Per esempio, se si pone $f(\A) = e^{\A}$ risulta:
     f(\A) = \sum_{n=0}^{\infty} \frac{\A^n}{n!} = \hat{Id} + \A + \frac{\A^2}{2} + \cdots
 \]
 \subsection*{Operatore Evoluzione Temporale}
-Si indica con $\hat U(t,t_0)$ l'operatore di evoluzione temporale, che "fa avanzare" uno stato in un altro stato di un tempo $t-t_0$:
+Si indica con $\U(t,t_0)$ l'operatore di evoluzione temporale, che "fa avanzare" uno stato in un altro stato di un tempo $t-t_0$:
 \[  
-    |\psi,t\ket = \hat U(t,t_0) |\psi,t_0\ket
+    |\psi,t\ket = \U(t,t_0) |\psi,t_0\ket
 \]
 L'operatore di evoluzione temporale deve rispettare alcune proprietà, come l'operatore di traslazione:
 \begin{itemize}
     \item Deve essere lineare
     \item Deve essere unitario, per preservare la norma degli stati:
     \[
-        \hat U^\dag (t,t_0) \hat U(t,t_0) = \hat{Id}
+        \U^\dag (t,t_0) \U(t,t_0) = \hat{Id}
     \]
     \item Deve rispettare la proprietà di composizione:
     \[
-        \hat U(t_2,t_0) = \hat U(t_2,t_1) \hat U(t_1,t_0)
+        \U(t_2,t_0) = \U(t_2,t_1) \U(t_1,t_0)
     \]
     \item Deve essere continuo rispetto al tempo:
     \[
-        \lim_{t \to t_0} \hat U(t,t_0) = \hat{Id}
+        \lim_{t \to t_0} \U(t,t_0) = \hat{Id}
     \]
 \end{itemize}
 Si consideri ora l'operatore infinitesimo di evoluzione temporale:
 \[
-    \hat U(t_0 + dt, t_0) = \hat{Id} - \frac i \hbar \hat H dt
+    \U(t_0 + dt, t_0) = \hat{Id} - \frac i \h \hat H dt
 \]
-dove $\hat H$ è un operatore \textbf{indipendente dal tempo}, ed hermitiano così da garantire l'unitarietà di $\hat U$, la cui unità di misura è il Joule. \\
+dove $\hat H$ è un operatore \textbf{indipendente dal tempo}, ed hermitiano così da garantire l'unitarietà di $\U$, la cui unità di misura è il Joule. \\
 Ora espandiamo questo caso particolare:
 \begin{gather*}
-    \hat U(t + dt, t) \hat U(t, t_0) = \hat U(t + dt, t_0) \\
-    (\hat{Id} - i / \hbar \hat H dt) \hat U(t, t_0) = \hat U(t + dt, t_0) \\
-    \hat U(t + dt, t_0) - \hat U(t, t_0) = \frac{i}{\hbar} \hat H \hat U(t, t_0) dt
+    \U(t + dt, t) \U(t, t_0) = \U(t + dt, t_0) \\
+    (\hat{Id} - i / \h \hat H dt) \U(t, t_0) = \U(t + dt, t_0) \\
+    \U(t + dt, t_0) - \U(t, t_0) = -\frac{i}{\h} \hat H \U(t, t_0) dt
 \end{gather*}
-Che è molto simiele alla definizione di derivata; tuttavia siccome si tratta di operatori è necessario definire il comportamento della derivata in questo caso:
+Che è molto simile alla definizione di derivata; tuttavia siccome si tratta di operatori è necessario definirne il comportamento:
 \[
-    \deriv[t]{} \hat U(t, t_0) = \lim_{dt \to 0} \frac{\hat U(t + dt, t_0) - \hat U(t, t_0)}{dt} = -\frac{i}{\hbar} \hat H \hat U(t, t_0)
+    \deriv[t]{} \U(t, t_0) = \lim_{dt \to 0} \frac{\U(t + dt, t_0) - \U(t, t_0)}{dt} = -\frac{i}{\h} \hat H \U(t, t_0)
 \]
 che, posto $\hat H$ l'hamiltoniana solita, corrisponde alla dichicarazione dell'equazione di Schrödinger, infatti:
 \begin{gather*}
-    i \h \deriv[t]{} \hat U(t, t_0) |\psi\ket = \hat H \hat U(t, t_0) |\psi\ket \\
+    i \h \deriv[t]{} \U(t, t_0) |\psi\ket = \hat H \U(t, t_0) |\psi\ket \\
     i \h \deriv[t]{} \Ket {\psi(t)} = \hat H \Ket {\psi(t)}
 \end{gather*}
 
@@ -61,9 +61,9 @@ Se poi si ha che $\V$ è un potenziale locale (ovvero che dipende solo dalla pos
 
 Ora, dimostrato che l'hamiltoniana è proprio l'operatore che serve per ricostruire l'operatore di evoluzione temporale per tempi finiti, si può procedere come per le traslazioni spaziali, ripetendo a cascata $N$ volte l'operatore infinitesimo:
 \begin{align*}
-    \hat U(t, t_0) &= \lim_{N \to \infty} \left[ \hat U\left(t_0 + \frac{t - t_0}{N}, t_0\right) \right]^N \\
-    &= \lim_{N \to \infty} \left[ \hat{Id} - \frac{i}{\hbar} \hat H \frac{t - t_0}{N} \right]^N \\
-    &= e^{-\frac{i}{\hbar} \hat H (t - t_0)}
+    \U(t, t_0) &= \lim_{N \to \infty} \left[ \U\left(t_0 + \frac{t - t_0}{N}, t_0\right) \right]^N \\
+    &= \lim_{N \to \infty} \left[ \hat{Id} - \frac{i}{\h} \hat H \frac{t - t_0}{N} \right]^N \\
+    &= e^{-\frac{i}{\h} \hat H (t - t_0)}
 \end{align*}
 
 Detto quetso non abbiamo mai ipotizzato che $\H$ potesse cambiare nel tempo: infatti, in questa forma, la definizione è valida solo se l'hamiltoniana è indipendente dal tempo.
@@ -71,47 +71,48 @@ Detto quetso non abbiamo mai ipotizzato che $\H$ potesse cambiare nel tempo: inf
 \subsubsection*{Stati nella Base delle Energie}
 Inoltre accade che se si sceglie come base per lo spazio di Hilbert gli autostati dell'hamiltoniano $\{\Ket{\vphi_j}, j \in J\}$, oltre a molte altre comodità che salteranno fuoir più avanti, l'operatore di evoluzione temporale risulta diagonale, in quanto è definito come somme di potenze di $\H$, che conservano tutte la stessa base:
 \[
-    \hat U(t, t_0) = \sum_j e^{-\frac{i}{\hbar} a_j (t - t_0)} |\vphi_j \ket \bra \vphi_j |
+    \U(t, t_0) = \sum_j e^{-\frac{i}{\h} a_j (t - t_0)} |\vphi_j \ket \bra \vphi_j |
 \]
 e l'espressione dello stato $\psi$ in un tempo $t$ risulta:
 \[
-    |\psi, t\ket = \hat U(t, t_0) |\psi, t_0\ket = \sum_j e^{-\frac{i}{\hbar} a_j (t - t_0)} |\vphi_j \ket \bra \vphi_j | \psi, t_0\ket
+    |\psi, t\ket = \U(t, t_0) |\psi, t_0\ket = \sum_j e^{-\frac{i}{\h} a_j (t - t_0)} |\vphi_j \ket \bra \vphi_j | \psi, t_0\ket
 \]
 ma siccome gli stati $|\vphi_j \ket$ sono autostati dell'hamiltoniano, si ha che:
 \begin{equation*}
     \hat H |\vphi_j \ket = a_j |\vphi_j \ket
-    \implies |\vphi_j, t\ket = e^{-\frac{i}{\hbar} a_j (t - t_0)} |\vphi_j, t_0\ket
+    \implies |\vphi_j, t\ket = e^{-\frac{i}{\h} a_j (t - t_0)} |\vphi_j, t_0\ket
 \end{equation*}
+Questo si può verificare facilmente espandendo la serie infinita e applicando le $\H$ che ne saltano fuori.\\
 Al chè:
 \[
-    |\psi, t\ket = \sum_j c_j e^{-\frac{i}{\hbar} a_j (t - t_0)} |\vphi_j \ket
+    |\psi, t\ket = \sum_j c_j e^{-\frac{i}{\h} a_j (t - t_0)} |\vphi_j \ket
 \]
 Quest'equazione riassume tutta la dinamica quantistica, che è molto comodo, infatti:
 \begin{align*}
-    c_j(t) &= c_j(t_0) e^{-\frac{i}{\hbar} a_j (t - t_0)} \\
-    |c_j(t)|^2 &= |c_j(t_0)|^2|e^{-\frac{i}{\hbar} a_j (t - t_0)}|^2 = |c_j(t_0)|^2
+    c_j(t) &= c_j(t_0) e^{-\frac{i}{\h} a_j (t - t_0)} \\
+    |c_j(t)|^2 &= |c_j(t_0)|^2|e^{-\frac{i}{\h} a_j (t - t_0)}|^2 = |c_j(t_0)|^2
 \end{align*}
 ovvero le probabilità di trovare il sistema in uno stato autostato dell'hamiltoniano sono costanti nel tempo! In sostanza abbiamo mostrato che la meccanica quantistica rispetta la conservazione dell'energia.
 \subsection*{Valori medi degli osservabili nel tempo}
 Dato uno stato $|\psi, t\ket$ che evolve nel tempo secondo l'operatore di evoluzione temporale, si può calcolare il valore medio di un osservabile $\hat A$ nel tempo $t$ come:
 \begin{align*}
     \bra \hat A \ket_{\psi(t)} &= \bra \psi, t | \hat A | \psi, t \ket \\
-    &= \bra \psi, t_0 | \hat U^\dag(t, t_0) \hat A \hat U(t, t_0) | \psi, t_0 \ket \\
-    &= \bra \psi, t_0 | e^{\frac{i}{\hbar} \H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \H (t - t_0)} | \psi, t_0 \ket
+    &= \bra \psi, t_0 | \U^\dag(t, t_0) \hat A \U(t, t_0) | \psi, t_0 \ket \\
+    &= \bra \psi, t_0 | e^{\frac{i}{\h} \H (t - t_0)} \hat A e^{-\frac{i}{\h} \H (t - t_0)} | \psi, t_0 \ket
 \end{align*}
 Ora si possono analizzare due casi:
 \begin{itemize}
-    \item $\hat A$ è costante del moto ($[\hat A, \hat H] = 0$). Banalmente risulta che:
+    \item $\hat A$ è costante del moto ($\comm{\hat A}{\hat H} = 0$). Banalmente risulta che:
     \[
-        \bra \hat A\ket_\psi = \bra \psi, t_0 | \U^\dag \hat A | \U \psi, t_0 \ket = \bra \psi, t_0 | \hat A | \psi, t_0 \ket
+        \bra \hat A\ket_\psi = \bra \psi, t_0 | \U^\dag \hat A \U | \psi, t_0 \ket = \bra \psi, t_0 | \hat A | \psi, t_0 \ket
     \]
     in quanto si possono semplificare i due esponenziali, scambiando di posto $\A$ e $\U$ ($\U$ è unitario):
     \[\comm{\A}{\H} = 0 \implies \comm{\A}{\H^n} = 0 \implies \comm{\A}{\U} = 0\]
     \item $\hat A$ non commuta con l'hamiltoniano. In questo caso si può inserire l'identità tra gli esponenziali e l'operatore:
     \[
         \bra \hat A(t) \ket_\psi = \bra \psi, t_0 | \hat A | \psi, t_0 \ket = \]\[
-        = \sum_{i,j} \bra \psi, t_0|\psi_i\ket e^{\frac{i}{\hbar} (a_j - a_i) (t - t_0)} \bra \psi_i | \hat A | \vphi_j\ket \bra \vphi_j | \psi, t_0\ket = \]\[
-        = \sum_{i,j} c_i^* c_j e^{\frac{i}{\hbar} (a_j - a_i) (t - t_0)} A_{ij}
+        = \sum_{i,j} \bra \psi, t_0|\psi_i\ket e^{\frac{i}{\h} (a_j - a_i) (t - t_0)} \bra \psi_i | \hat A | \vphi_j\ket \bra \vphi_j | \psi, t_0\ket = \]\[
+        = \sum_{i,j} c_i^* c_j e^{\frac{i}{\h} (a_j - a_i) (t - t_0)} A_{ij}
     \]
     dove $A_{ij}$ è la matrice dell'operatore $\hat A$ nella base degli autostati dell'hamiltoniano, e gli $a_{i,j}$ sono gli autovalori dell'hamiltoniano. Generalmente non è un conto semplice, quindi ci si limita ad analizzare un paio di casi specifici:
 
@@ -126,47 +127,49 @@ Questi esempi mettono in luce il fatto che se uno stato di partenza è una sovra
 \section{Rappresentazioni alternative}
 La rappresentazione di Schrödinger è quella che abbiamo usato fin'ora, in cui gli stati evolvono nel tempo secondo l'equazione di Schrödinger e gli operatori sono costanti nel tempo. (\textit{Schrödinger picture}).
 
-È possibile introdurre anche un'altra rappresentazione, detta \textit{Heisenberg picture}\index{Rappresentazione di Heisenberg}, in cui sono gli operatori a evolvere nel tempo e gli stati sono costanti. \\
+È possibile introdurre anche un'altra rappresentazione, detta \textbf{Heisenberg picture}\index{Rappresentazione di Heisenberg}, in cui sono gli operatori a evolvere nel tempo e gli stati sono costanti. \\
 Si definisce l'operatore di Heisenberg come:
 \begin{align*}
-    \hat A_H(t) &= \hat U^\dag(t, t_0) \hat A \hat U(t, t_0) = \\
-    &= e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \hat H (t - t_0)}
+    \hat A_H(t) &= \U^\dag(t, t_0) \hat A \U(t, t_0) = \\
+    &= e^{\frac{i}{\h} \hat H (t - t_0)} \hat A e^{-\frac{i}{\h} \hat H (t - t_0)}
 \end{align*}
 In cui il pedice $H$ indica che si tratta di un operatore in rappresentazione di Heisenberg. \\
 Si può calcolare la derivata temporale di questo operatore:
 \begin{align*}
-    \deriv[t]{} \hat A_H(t) &= \deriv[t]{} \left( e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \hat H (t - t_0)} \right) \\
-    &= -\frac{i}{\hbar} \hat H e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A e^{-\frac{i}{\hbar} \hat H (t - t_0)} + e^{\frac{i}{\hbar} \hat H (t - t_0)} \hat A \left( -\frac{i}{\hbar} \hat H e^{-\frac{i}{\hbar} \hat H (t - t_0)} \right) \\
-    &= -\frac{i}{\hbar} \left[ \hat H, \hat A_H(t) \right]
+    \deriv[t]{} \hat A_H(t) &= \deriv[t]{} \left( e^{\frac{i}{\h} \hat H (t - t_0)} \hat A e^{-\frac{i}{\h} \hat H (t - t_0)} \right) \\
+    &= \frac{i}{\h} \hat H e^{\frac{i}{\h} \hat H (t - t_0)} \hat A e^{-\frac{i}{\h} \hat H (t - t_0)} - e^{\frac{i}{\h} \hat H (t - t_0)} \hat A \left( -\frac{i}{\h} \hat H e^{-\frac{i}{\h} \hat H (t - t_0)} \right) \\
+    &= \frac{i}{\h} \comm{\hat H}{\hat A_H(t)}
 \end{align*}
-Da cui l'equazione di Heisenberg:
+Da cui l'equazione di Heisenberg\index{Rappresentazione di Heisenberg!eq. di Heisenberg}:
 \[
-    i \hbar \deriv[t]{} \hat A_H(t) = \left[ \hat H, \hat A_H(t) \right]
+    i \h \deriv[t]{} \hat A_H(t) = \comm{\hat A_H(t)}{\hat H}
 \]
 
 \subsection*{Proprietà di commutazione}
 Si consideri l'operatore posizione e l'operatore momento di una particella libera in 1D. Allora:
 \begin{align*}
-    \left[ \hat x, \hat p \right] &= i \hbar
+    \comm{\hat x}{\hat p} &= i \h
 \end{align*}
 Ora si cerca
 \[
-    \left[ \hat x, \hat p^2 \right] = \hat x \hat p^2 - \hat p^2 \hat x = \hat p \left[\hat x, \hat p \right] + \left[ \hat x, \hat p \right] \hat p = 2 i \hbar \hat p
+    \comm{\hat x}{\hat p^2} = \hat x \hat p^2 - \hat p^2 \hat x = \hat p \comm{\hat x}{\hat p} + \comm{\hat x}{\hat p} \hat p = 2 i \h \hat p
 \]
 Ora
 \[
-    \left[ \hat x, \hat p^3 \right] = \hat x \hat p^3 - \hat p^3 \hat x = \hat p^2 \left[\hat x, \hat p \right] + \left[ \hat x, \hat p \right] \hat p^2 = 3 i \hbar \hat p^2
+    \comm{\hat x}{\hat p^3} = \hat x \hat p^3 - \hat p^3 \hat x = \hat p^2 \comm{\hat x}{\hat p} + \hat p \comm{\hat x}{\hat p} \hat p + \comm{\hat x}{\hat p} \hat p^2 = 3 i \h \hat p^2
 \]
 E in generale
 \[
-    \left[ \hat x, \hat p^n \right] = n i \hbar \hat p^{n-1}
+    \comm{\hat x}{\hat p^n} = n i \h \hat p^{n-1}
 \]
-(si può dimostrare per induzione come esercizio). Questa operatzione è molto simile alla derivata, infatti risulta:
+(si dimostri per induzione come esercizio). Questa operatzione è molto simile alla derivata, infatti risulta:
 \[
-    \left[ \hat x, f(\hat p) \right] = i \hbar \deriv[\hat p]{} f(\hat p)
+    \comm{\hat x}{f(\hat p)} = i \h \deriv[\hat p]{} f(\hat p)
 \]
-E lo stesso vale scambiando $\hat p$ con $\hat x$. E quindi
+in quanto è valito per ogni termine di un'eventuale espansione di Taylor.
+
+Una proprietà simile vale scambiando $\hat p$ con $\hat x$; allora in generale:
 \begin{align*}
-    \left[\hat x, f(\hat p)\right] &= i\hbar \deriv[\hat p]{} f(\hat p) \\
-    \left[\hat p, f(\hat x)\right] &= -i\hbar \deriv[\hat x]{} f(\hat x)
+    \comm{\hat x}{f(\hat p)} &= i\h \deriv[\hat p]{} f(\hat p) \\
+    \comm{\hat p}{f(\hat x)} &= -i\h \deriv[\hat x]{} f(\hat x)
 \end{align*}

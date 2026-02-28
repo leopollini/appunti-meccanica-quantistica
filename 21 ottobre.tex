@@ -35,7 +35,7 @@ Chiamiamo $\tau$ l'operatore che si comporta in questo modo:
 \]
 Al chè si può usare il solito trucco:
 \[
-    \tau (\vec {dx}) \hat{Id} |\psi\ket = \rnint |\vec x + \vec {dx}\ket \bra \vec x + \vec {dx} | \psi\ket d^nx
+    \tau (\vec {dx}) \hat{Id} |\psi\ket = \rnint |\vec x + \vec {dx}\ket \bra \vec x | \psi\ket d^nx
 \]
 Inoltre serve che $\tau$ rispetti altre proprietà:
 \begin{align*}
@@ -90,19 +90,18 @@ All'inizio del prossimo capitolo verrà spiegato il significato di funzione di o
 Proviamo ad espandere $\tau(\vec{dx})|\psi\ket$:
 \begin{gather*}
     \tau(\vec{dx})|\psi\ket = \tau(\vec{dx}) \rnint |\vec x \ket \bra \vec x | \psi\ket d^nx =\\
-    = \rnint |\vec x + \vec{dx} \ket \bra \vec x || \psi\ket d^nx =  \rnint |\vec x \ket \bra \vec x - \vec{dx} | \psi\ket d^nx = \\
+    = \rnint |\vec x + \vec{dx} \ket \bra \vec x | \psi\ket d^nx =  \rnint |\vec x \ket \bra \vec x - \vec{dx} | \psi\ket d^nx = \\
     = \rnint |\vec x \ket \psi(\vec x - \vec{dx}) d^nx = \rnint |\vec x \ket \left[ \psi(\vec x) - \vec{dx} \cdot \Grad \psi(\vec x) \right] d^nx = \\
     = \rnint |\vec x \ket \left[ \bra \vec x | \psi \ket - \vec{dx} \cdot \Grad \bra \vec x | \psi \ket \right] d^nx
-    = \rnint \ketbrabra {\vec x} - |\vec x \ket \bra \vec x |  \vec{dx} \cdot \Grad |\psi\ket d^nx = \\
-    = \left[\hat {Id} - \rnint \vec{dx} \cdot \hat \Grad d^nx \right] \Ket \psi
+    = \rnint \ketbrabra {\vec x} \psi\ket  - |\vec x \ket \bra \vec x |  \vec{dx} \cdot \hat{\Grad} |\psi\ket d^nx = \\
+    = \left[\hat {Id} - \rnint \ketbrabra{\vec x} \vec{dx} \cdot \hat \hat{\Grad} d^nx \right] \Ket \psi
 \end{gather*}
 Ma ricordando la definizione di $\tau$ risulta che:
 \begin{gather*}
-    \tau(\vec{dx})\Ket \psi = \l \cancel {\hat {Id}} - i\frac{\hat p}{\h} \cdot \vec{dx}\r\Ket \psi = \left[\cancel {\hat {Id}} - \rnint \vec{dx} \cdot \hat \Grad d^nx \right] \Ket \psi \\
-    \Bra {\vec x} \hat p \Ket \psi = \Bra {\vec x} \l -i\h\hat\Grad \r \Ket\psi = -i\h\hat\Grad \braket{\vec x}{\psi}
+    \tau(\vec{dx})\Ket \psi = \l \hat {Id} - i\frac{\hat p}{\h} \cdot \vec{dx}\r\Ket \psi = \left[\hat {Id} - \rnint \ketbrabra{\vec x} \vec{dx} \cdot \hat \Grad d^nx \right] \Ket \psi = \Ket \psi - \rnint \vec{dx} \cdot \hat \Grad \psi(x) d^nx \Ket {\vec x} \\
+    \Bra {\vec x} \hat p \Ket \psi = \Bra {\vec x} \l -i\h\hat\Grad \r \Ket\psi = -i\h\Grad \braket{\vec x}{\psi}
 \end{gather*}
-
-Quest'ultima equazione esprime l'azione dell'operatore momento ($\hat p$) quando lo stato è espresso nella base delle posizioni: in particolare ne è il gradiente!
+Confrontando la prima e l'ultima espressione si equazione esprime l'azione dell'operatore momento ($\hat p$) quando lo stato è espresso nella base delle posizioni: in particolare ne è il gradiente!
 
 \subsubsection*{Autofunzioni del momento nella base delle posizioni}
 \begin{gather*}
@@ -127,14 +126,16 @@ Assemblando quanto trovato fin'ora risulta:
 \begin{gather*}
     \bra \vec x | \psi \ket = \psi(\vec x) = \\
     = \rnint \braketxp \braket {\vec p}{\psi} d^np = \\
-    = \frac{1}{(2 \pi \hslash)^{n/2}} \rnint e^{\frac{i}{\hslash} \vec p \cdot \vec x} \psi(\vec p) d^np
+    = \frac{1}{(2 \pi \hslash)^{n/2}} \rnint e^{\frac{i}{\hslash} \vec p \cdot \vec x} \tilde\psi(\vec p) d^np
 \end{gather*}
 Che coincide con la definizione della trasformata di Fourier! E anche: siccome invertire i termini del prodotto scalare coincide col fare il complesso coniugato risulta: ???
 
 Assemblando quanto trovato fin'ora risulta:
 \begin{gather*}
-    \bra \vec p | \psi \ket = \psi(\vec p) = \\
+    \bra \vec p | \psi \ket = \tilde\psi(\vec p) = \\
     = \rnint \braketpx \braket {\vec x}{\psi} d^nx = \\
     = \frac{1}{(2 \pi \hslash)^{n/2}} \rnint e^{-\frac{i}{\hslash} \vec p \cdot \vec x} \psi(\vec x) d^nx
 \end{gather*}
 Ovvero l'antitrasformata!
+
+Il risultato interessante è il fatto che gli operatori $\hat p$ e $\hat x$ non sono compatibili: dato che il passaggio da uno all'altro si fa tramite trasformata di Fourier, il prodotto delle loro varianze deve essere $\sim 1$, ovvero vi è indeterminazione! Attenzione però: questo fatto è solo una conseguenza delle definizioni utilizzate, non un teorema!

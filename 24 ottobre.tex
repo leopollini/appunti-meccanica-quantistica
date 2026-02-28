@@ -1,6 +1,6 @@
 \subsection*{Teorema di Ehrenfest generalizzato}
 
-Partendo dall'equazione di Heisenberg per l'evoluzione temporale degli operatori risulta, per un operatore generico $\hat A$ che dipende esplicitamente dal tempo (s'intende in rappresentazione di Schrödinger in assenda di pedice):
+Partendo dall'equazione di Heisenberg per l'evoluzione temporale degli operatori risulta, per un operatore generico $\hat A$ che dipende esplicitamente dal tempo (s'intende in rappresentazione di Schrödinger in assenza di pedice):
 \begin{align*}
 	i\h\tderiv{}\hat A_H(t) &= \U^\dag \comm{\hat A}{\H} \U =\\
 	= \U^\dag \l \hat A \H - \H \hat A \r &= \U^\dag \hat A \H \U - \U^\dag \H \hat A \U =\\
@@ -12,34 +12,35 @@ Consideriamo il caso di una particella libera, per cui $\H = \frac{\hat P^2}{2m}
 	\item Tutte le componenti di $\hat P$ commutano con $\H$, quindi $\hat P_H$ è costante nel tempo;
 	\item Sulla base di quanto mostrato alla fine del capitolo precedente risulta:
 	\[
-		ih\tderiv{}\hat x_H = \U^\dag \comm{\hat x}{\H}\U = \U^\dag \frac{1}{2m} \comm{\hat x}{\hat p} \U = \U^\dag \frac{i\h}{m} \hat p \U = \frac{i\h}{m} \hat p_H
+		ih\tderiv{}\hat x_H = \U^\dag \comm{\hat x}{\H}\U = \U^\dag \frac{1}{2m} \comm{\hat x}{\hat p^2} \U = \U^\dag \frac{i\h}{m} \hat p \U = \frac{i\h}{m} \hat p_H
 	\]
-	che è altrettanto costante nel tempo, quindi $\hat x_H(t)$ sarà del tipo $\hat X_0 + \hat P_H(0) t$. Ma allora si ha anche, dati due istanti $t_2 > t1$:
+	che è altrettanto costante nel tempo, quindi $\hat x_H(t)$ sarà del tipo $\hat X_0 + \inv m \hat P_H(0) t$; per di più si ha che $\hat x$ e $\hat p$ commutano su assi diversi, quindi lo stesso risultato è valido anche vettorialmente. Ma allora si ha anche, dati due istanti $t_2 > t1$:
 	\[
-		\comm{\hat x(t_2)}{\hat x(t_1)} = \frac{i\h}{m}(t_2 - t_1) \ \ \implies \ \ \Delta \hat x(t_1)\Delta \hat x(t_2) \geq \frac{1}{2}\frac{i\h}{m}
+		\comm{\hat x_H(t_2)}{\hat x_H(t_1)} = \frac{i\h}{m}(t_2 - t_1) \ \ \implies \ \ \Delta \hat x_H(t_1)\Delta \hat x_H(t_2) \geq \frac{1\h}{m}(t_2 - t_1)
 	\]
-	il ché implica un'indeterminazione minima tra $\hat x(t_1)$ e $\hat x(t_2)$ crescente nel tempo! All'atto pratico questo mostra di nuovo che i pacchetti tendono sempre a disperdersi nel tempo.
+	il ché implica un'indeterminazione minima tra $\hat x(t_1)$ e $\hat x(t_2)$ crescente nel tempo! All'atto pratico questo mostra di nuovo che i pacchetti tendono sempre a disperdersi nel tempo, come avevamo mostrato nel caso specifico della gaussiana.
 \end{itemize}
 
-Ora, se consideriamo invece un'hamiltoniana con potenziale $\H = \frac{\hat p^2}{2m} = \V(x)$ risulta che:
+Ora, se consideriamo invece un'hamiltoniana con potenziale $\H = \frac{\hat p^2}{2m} + \V(x)$ risulta che:
 \[
-	u\h \tderiv{}\hat p_H = \U^\dag \comm{\hat p}{H} \U = \U^\dag \comm{hat p}{\V(x)} \U = -i\h \U^\dag \tderiv{\V } \U
+	i\h \tderiv{}\hat p_H = \U^\dag \comm{\hat p}{H} \U = \U^\dag \comm{\hat p}{\V(x)} \U = -i\h \U^\dag \deriv{\V } \U
 \]
 Per l'operatore $\hat x$ risulta la stessa dipendenza lineare da $\hat p$ che si aveva prima, quindi anche
 \[
-	m\stderiv{\hat x} = \tderiv{\hat p} = - \U^\dag \tderiv{\V}\U = - \l \tderiv{\V} \r_H
+	m\stderiv{\hat x_H} = \tderiv{\hat p_H} = - \U^\dag \deriv{\V}\U = - \l \deriv{\V} \r_H
 \]
 Questa formula dovrebbe far immediatamente pensare alla meccanica classica: la forza che agisce su un corpo sommata alla divergenza del potenziale fa 0. \\
-Questo risultato è chiamato dal prof \textbf{Teorema di Ehrenfest} \index{Teorema di Ehrenfest ! version prof}. \\ \\
+Questo risultato è chiamato dal prof \textbf{Teorema di Ehrenfest} \index{Teorema di Ehrenfest ! version prof}.
+\tab
 
-Si consideri un operatore generico $\hat A$. Si vuole calcolare la derivata temporale del valor medio di questo operatore in uno stato $|\psi(t)\ket$ che evolve secondo l'equazione di Schrödinger; per comodità si usa la notazione:
+Si consideri ora un operatore generico $\hat A$. Si vuole calcolare la derivata temporale del valor medio di questo operatore in uno stato $|\psi(t)\ket$ che evolve secondo l'equazione di Schrödinger; per comodità si usa la notazione:
 \[
 	\bra A(t) \ket_\psi = \bra \psi(t) | \hat A | \psi(t) \ket
 \]
 Si calcola la derivata temporale:
 \begin{align*}
 	\deriv[t]{} \bra A(t) \ket_\psi &= \deriv[t]{} \bra \psi(t) | \hat A | \psi(t) \ket \\
-	&= \bra \deriv[t]{} \psi(t) | \hat A | \psi(t) \ket + \bra \psi(t) | \hat A |   \deriv[t]{} \psi(t) \ket + \bra \psi(t) | \deriv[t]{\hat A} | \psi(t) \ket \\
+	&= \deriv[t]{} (\bra  \psi(t) |) \hat A | \psi(t) \ket + \bra \psi(t) | \hat A \deriv[t]{} (|  \psi(t) \ket) + \cancel{\bra \psi(t) | \deriv[t]{\hat A} | \psi(t) \ket} \\
 	&= \left( \frac{i}{\hbar} \hat H \bra\psi(t)| \right) | \hat A | \psi(t) \ket + \bra \psi(t) | \hat A | \left( -\frac{i}{\hbar} \hat H |\psi(t)\ket \right) + \avg[\psi]{\tderiv{\hat A}} \\
 	&= \frac{i}{\hbar} \left( \bra \psi(t) | \hat H \hat A | \psi(t) \ket - \bra \psi(t) | \hat A \hat H | \psi(t) \ket \right) + \avg[\psi]{\tderiv{\hat A}} \\
 	&= -\frac{i}{\hbar} \bra \psi(t) | \left[ \hat H, \hat A \right] | \psi(t) \ket + \avg[\psi]{\tderiv{\hat A}}

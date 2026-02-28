@@ -1,5 +1,5 @@
 \subsection*{Interferometria Neutronica}
-In questo esperimento si invia un fascio di neutroni attraverso un beam splitter che li divide in due fasci, uno libero e l'altro passante attraverso un solenoide. I due fasci vengono poi ricombinati e si osserva il pattern di interferenza risultante. L'obiettivo è la verifica dell'andamento degli spinori (dove una rotazione di 2$\pi$ equivale a un cambiamento di segno). L'hamiltoniana per il primo fascio è l'identità, per il secondo è:
+In questo esperimento si invia un fascio di neutroni (spin $1/2$) attraverso un beam splitter che li divide in due fasci, uno libero e l'altro passante attraverso un solenoide. I due fasci vengono poi ricombinati e si osserva il pattern di interferenza risultante. L'obiettivo è la verifica dell'andamento degli spinori (dove una rotazione di 2$\pi$ equivale a un cambiamento di segno). L'hamiltoniana per il primo fascio è l'identità, per il secondo è:
 \[
 \H = \omega \SG z;\ \ \omega = \frac{eB}{m_n C}g_n
 \]
@@ -37,7 +37,7 @@ Le categorie di Perturbation Theory che analizzeremo sono le seguenti:
 Con spettro non degenere s'intende che gli autovalori dell'hamiltoniana hanno molteplicità algebrica 1. Si supponga di alterare l'hamiltoniana $\H$ con un termine di potenziale piccolo $\varepsilon \V$ (che può dipendere dalla posizione, dal momento, ma non dal tempo). Quel che risulta è che gli autovalori e autostati della nuova hamiltoniana $\H^\varepsilon = \H + \varepsilon \V$ si discostano di poco da quelli di $\H$, e in ogni caso in maniera analitica. Si esprime la correzione al primo termine per i nuovi autovalori e i nuovi autostati:
 \[
 E_n^\varepsilon = E_n^{(0)} + \varepsilon E_n^{(1)} + \varepsilon^2 E_n^{(2)} + \ldots \]\[
-\Ket u_n^\varepsilon = \Ket {u_n^{(0)}} + \varepsilon \Ket {u_n^{(1)}} + \varepsilon^2 \Ket {u_n^{(2)}} + \ldots
+\Ket {u_n^\varepsilon} = \Ket {u_n^{(0)}} + \varepsilon \Ket {u_n^{(1)}} + \varepsilon^2 \Ket {u_n^{(2)}} + \ldots
 \]
 E quindi
 \[
@@ -53,7 +53,7 @@ Ovvero, dividendo per $\varepsilon$:
 \[
 	\H \Ket {u_n^{(1)}} + \V \Ket {u_n^{(0)}} = E_n^{(0)} \Ket {u_n^{(1)}} + E_n^{(1)} \Ket {u_n^{(0)}}
 \]
-Ora se si applica il ket $\Ket {u_n^{(0)}}$ risulta, semplificando i termini identici:
+Ora se si applica il bra $\Bra {u_n^{(0)}}$ risulta, semplificando i termini identici:
 \[
 	\cancel{\Bra {u_n^{(0)}}\H \Ket {u_n^{(1)}}} + \Bra {u_n^{(0)}} \V \Ket {u_n^{(0)}} = \cancel{E_n^{(0)} \braket {u_n^{(0)}}{u_n^{(1)}}} + E_n^{(1)} \braket {u_n^{(0)}}{u_n^{(0)}} \]\[
 	E_n^{(1)} = \Bra{u_n^{(0)}} \V \Ket{u_n^{(0)}}
@@ -91,7 +91,7 @@ Ma sapendo che i $\Ket{u_k^{(0)}}$ formano un sistema ortonormale comlpeto (e $\
 \]
 Questo risultato è il motivo per cui l'hamiltoniana di partenza non deve essere degenere: se infatti si avessero due autostati con stesso autovalore risulterebbe uno 0 al denominatore di quest'equazione.
 
-È tipico utilizzare la notazione in cui $V_{kn} = \Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}}$ sono gli elementi di matrice del potenziale, e $\Delta_{kn} = E_k^{(0)} - E_n^{(0)}$ i salti energetici tra gli stati imperturbati, cosicché:
+È tipico utilizzare la notazione in cui $V_{kn} = \Bra {u_k^{(0)}} \V \Ket {u_n^{(0)}}$ sono gli elementi di matrice del potenziale, e $\Delta_{kn} = E_k^{(0)} - E_n^{(0)}$ i salti energetici tra gli stati imperturbati, cosicchè:
 \[
 	\Ket {u_n^{(1)}} = \sum_{k \neq n} \frac{V_{kn}}{\Delta_{kn}}\Ket {u_k^{(0)}}\ , \ \ E_n^{(2)} = \sum_{k \neq n} \frac{\sabs{V_{kn}}}{\Delta_{kn}}
 \]

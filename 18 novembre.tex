@@ -4,18 +4,25 @@ In questo caso si suppone che gli stati rimangano gli stessi con lo scorrere del
 Siccome le tecniche necessarie sono più complesse, conviene limitarsi alla stima di quanto la perturbazione influisce su un livello "spostandolo" verso gli altri. In sostanza si stima la proiezione dello stato perturbato evoluto su tutti gli altri stati.
 
 \subsection*{Rappresentazione di interazione}
-Si parte dallo stato generico $\Ket{\psi(t)}$ che segue l'andamento determinato dall'Hamiltoniana totale $\H(t) = \H_0 + \V(t)$, con $\H_0$ l'hamiltoniana non perturbata e $\V(t)$ la perturbazione dipendente dal tempo. Chiaramente lo stato evolve nel modo determinato dall'operatore di evoluzione temporale:
+Si parte dallo stato generico $\Ket{\psi(t)}$ che segue l'andamento determinato dall'Hamiltoniana totale $\H(t) = \H_0 + \V(t)$, con $\H_0$ l'hamiltoniana non perturbata e $\V(t)$ la perturbazione dipendente dal tempo. Chiaramente lo stato evolve nel modo determinato da \textit{un} operatore di evoluzione temporale $\U$:
 \[
-    \Ket{\psi(t)} = U(t) \Ket{\psi(0)} = e^{-\frac{i}{\hslash} \H_0 t} e^{-\frac{i}{\hslash} \V(t) t} \Ket{\psi(0)} = e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)}
+    \Ket{\psi(t)} = \U(t) \Ket{\psi(0)}
 \]
-dove si è definito lo stato nell'interazione come:
-\[    \Ket{\psi_I(t)} = e^{\frac{i}{\hslash} \H_0 t} \Ket{\psi(t)} \]
+L'espressione di $\U(t)$ non è nota, poché il potenziale cambia nel tempo. Allora si definisce lo stato in rappresentazione d'intereazione come:
+\[
+    \Ket{\psi_I(t)} = e^{\frac{i}{\hslash} \H_0 t} \Ket{\psi(t)}
+\]
+a cui si assegna un operatore di evoluzione dedicato, $\U_I(t)$, tale che $\U_I(t)\Ket{\psi_I(0)} = \Ket{\psi_I(t)}$.\\
 Inserendo questa definizione nell'equazione di Schrödinger si ottiene, sapendo che $\Ket {\psi_I(0)} = \Ket {\psi(0)}$:
 \[
-    i \hslash \tderiv{} \left( e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)} \right) = \H(t) e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)} \]\[
+    i \hslash \tderiv{} \left( e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)} \right) = \H(t) e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)} = (\H_0 + \V(t)) e^{-\frac{i}{\hslash} \H_0 t}\Ket{\psi_I(t)} \]\[
     i \hslash \tderiv{} \Ket{\psi_I(t)} = \V_I(t) \Ket{\psi_I(t)}
 \]
-con $\V_I(t) = e^{\frac{i}{\hslash} \H_0 t} \V(t) e^{-\frac{i}{\hslash} \H_0 t}$. Questa fattorizzazione Schrödinger-like è utile in quanto risulta molto più semplice dell'evoluzione temporale fatta direttamente con l'Hamiltoniana perturbata.
+moltiplicando a sinistra per $e^{\frac{i}{\hslash} \H_0 t}$, con $\V_I(t) = e^{\frac{i}{\hslash} \H_0 t} \V(t) e^{-\frac{i}{\hslash} \H_0 t}$. Questa fattorizzazione Schrödinger-like è utile in quanto risulta molto più semplice dell'evoluzione temporale fatta direttamente con l'Hamiltoniana perturbata.\\
+Se poi si pone $\U_S = e^{-\frac{i}{\hslash} \H_0 t}$ come evoluzione del sistema trascurando la perturbazione, risulta che:
+\[
+    \U = \U_S \U_I
+\]
 
 \subsubsection*{Sviluppo di Dyson}
 A questo punto si può integrare l'ultima equazione e procedere come segue:
@@ -34,21 +41,22 @@ Per linearità si può comodamente scrivere:
 \[
     \Ket {\psi_I(t)} = \left[ \hat {Id} + \frac{1}{i \hslash} \int_0^t \V_I(t') dt' + \left( \frac{1}{i \hslash} \right)^2 \int_0^t dt' \int_0^{t'} dt'' \V_I(t') \V_I(t'') + \ldots \right] \Ket {\psi_I(0)}
 \]
-definendo quindi un operatore di evoluzione nell'interazione tramite il T-prodotto esponenziale (\textbf{operatore di Dyson}\index{Operatore di Dyson}), che in simboli si scrive
+
+Risulta così definito un operatore di evoluzione nella rappresentazione d'interazione tramite il T-prodotto esponenziale (\textbf{operatore di Dyson}\index{Operatore di Dyson}), che in simboli si scrive:
 \[
     \U_I(t) = \text{T} - \exp \{ -\frac{i}{\hslash} \int_0^t \V_I(t') dt' \}
 \]
 
-È importante notare che non si tratta di uno sviluppo di Taylor, in quanto i termini non sono semplicemente potenze successive di un operatore, ma contengono integrali temporali ordinati (infati la notazione $\text{T} - \exp$ sta per \textit{Time ordered product}). Tuttavia se $[\V_I(t'), \V_I(t'')] = 0$ per ogni $t', t''$, comparirebbe un termine fattoriale al denominatore, e allora l'operatore di Dyson si riduce a una semplice esponenziale.
+È importante notare che non si tratta di uno sviluppo di Taylor, in quanto i termini non sono semplicemente potenze successive di un operatore, ma contengono integrali temporali ordinati (infati la notazione $\text{T} - \exp$ sta per \textit{Time ordered product}). Tuttavia se $[\V_I(t'), \V_I(t'')] = 0$ per ogni $t', t''$, comparirebbe un termine fattoriale al denominatore, e allora l'operatore di Dyson si riduce a una semplice esponenziale. Quetso è anche il motivo per cui questo sviluppo funziona: più si aumentano i livelli di integrazione, meno influenti sono i termini che si trovano; in sostanza questo metodo converge circa come lo sviluppo dell'esponenziale.
 
 \subsection*{Evoluzione temporale degli operatori}
-Un operatore evolve nel tempo secondo la solita legge:
+Un operatore nella rappresentazione d'interazione evolve nel tempo secondo questa legge:
 \[
-    \hat A_I(t) = U^\dagger(t) \hat A_0 U(t) = e^{\frac{i}{\hslash} \H_0 t} \hat A_0 e^{-\frac{i}{\hslash} \H_0 t}
+    \hat A_I(t) = U^\dagger(t) \hat A_S U(t) = e^{\frac{i}{\hslash} \H_0 t} \hat A_S e^{-\frac{i}{\hslash} \H_0 t}
 \]
-dove $\A_0$ è l'operatore in rappresentazione di Schrödinger, non dipendente da tempo; la media temporale è:
+dove $\A_S$ è l'operatore in rappresentazione di Schrödinger, non dipendente da tempo; la media temporale è:
 \[
-    \avg[t]{\hat A} = \Bra{\psi(t)} \hat A_0 \Ket{\psi(t)} = \Bra{\psi_I(t)} \hat A_I(t) \Ket{\psi_I(t)}
+    \avg[t]{\hat A} = \Bra{\psi(t)} \hat A_S \Ket{\psi(t)} = \Bra{\psi_I(t)} \hat A_I(t) \Ket{\psi_I(t)}
 \]
 Si calcoli per esercizio l'equazione di Heisenberg per lo stato $A_I(t)$ (soluzione: \( \frac{i}{\hslash} \tderiv{} \hat A_I(t) = [\hat A_I(t), \H_0] \), ovvero l'equazione di Heisenberg senza termine di perturbazione).
 

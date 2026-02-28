@@ -1,7 +1,7 @@
 \subsection*{Applicazione della teoria di Dyson}
 Si parte da una Hamiltoniana $\H_0$, a cui si aggiunge una perturbazione dipendente dal tempo $V(t)$. Nella rappresentazione di Interazione lo stato è
 \[
-	\Ket{\psi(t)} = \U(t)\Ket {\psi(0)} = e^{\frac{i}{\hslash} \H_0 t} \Ket{\psi(0)} = e^{-\frac{i}{\hslash} \H_0 t} \Ket{\psi_I(t)}
+	\Ket{\psi(t)} = \\U(t)\Ket {\psi(0)} = e^{\frac{i}{\hslash} \H_0 t} \Ket{\psi(0)} = e^{-\frac{i}{\hslash} \H_0 t} \Ket{\psi_I(t)}
 \]
 e le proiezioni sugli autostati di $\H(t)$ dipendono dal tempo:
 \begin{gather*}
@@ -26,8 +26,9 @@ All'atto pratico quello che queste espressioni calcolano non è altro che una mi
 Si consideri una perturbazione costante nel tempo $V(t) = V$ per $t \geq 0$ e nulla per $t < 0$. Chiamiamo $f$ una funzione step che rente continua la discontinuità in $t=0$, per cui $V(t) = V f(t)$. \\
 La probabilità di passare da uno stato $i$ a uno stato $n$, al primo ordine, è
 \[
-	P_{i \to n}(t) = \frac{1}{\hslash^2} \left| \int_0^t \Bra{n} V_I(t') \Ket{i} dt' \right|^2 = \frac{1}{\hslash^2} \left| V_{n,i} \int_0^t e^{i \omega_{n,i} t'} dt' \right|^2 = \]\[
-	= \frac{|V_{n,i}|^2}{\hslash^2} \left| \frac{e^{i \omega_{n,i} t} - 1}{i \omega_{n,i}} \right|^2 = \frac{4 |V_{n,i}|^2}{\hslash^2 \omega_{n,i}^2} \sin^2 \left( \frac{\omega_{n,i} t}{2} \right)
+	\P_{i \to n}(t) = \frac{1}{\hslash^2} \left| \int_0^t \Bra{n} V_I(t') \Ket{i} dt' \right|^2 = \frac{1}{\hslash^2} \left| V_{n,i} \int_0^t e^{i \omega_{n,i} t'} dt' \right|^2 = \]\[
+	= \frac{|V_{n,i}|^2}{\hslash^2} \left| \frac{e^{i \omega_{n,i} t} - 1}{i \omega_{n,i}} \right|^2
+	= \frac{4 |V_{n,i}|^2}{\hslash^2 \omega_{n,i}^2} \sin^2 \left( \frac{\omega_{n,i} t}{2} \right)
 \]
 
 % Inserire nel preambolo: 
@@ -35,9 +36,11 @@ La probabilità di passare da uno stato $i$ a uno stato $n$, al primo ordine, è
 \begin{tikzpicture}
 	\def\V{1} % |V_{n,i}|
 	\def\hbar{1} % \hslash
-	\def\t{10} % tempo t
+	\def\ta{4} % tempo t
+	\def\tb{5} % tempo t
+	\def\tc{6} % tempo t
 	\pgfmathsetmacro{\A}{4*(\V)^2/(\hbar)^2}
-	\pgfmathsetmacro{\yzero}{(\V)^2*(\t)^2/(\hbar)^2} % limite ω->0
+	\pgfmathsetmacro{\yzero}{(\V)^2/(\hbar)^2} % limite ω->0
 	\begin{axis}[
 		domain=-2:2,
 		samples=300,
@@ -46,48 +49,69 @@ La probabilità di passare da uno stato $i$ a uno stato $n$, al primo ordine, è
 		axis lines=middle,
 		enlargelimits=0.12,
 		ymin=0,
-		width=11cm,height=6cm,
+		width=11cm,height=6cm, 	
 		legend cell align=left
 	]
 		% funzione: P(ω) = A * sin^2(ω t /2) / ω^2, usare deg(...) perché pgfmath sin() prende gradi
-		\addplot[blue,thick] { \A * ( (sin(deg(x*\t/2)))^2 / (x^2) ) };
+		\addplot[green,thick,dashed] { \A * ( (sin(deg(x*\ta)))^2 / (x*10)^2 ) };
+		\addplot[blue,thick] { \A * ( (sin(deg(x*\tb)))^2 / (x*10)^2 ) };
+		\addplot[red,thick,dashed] { \A * ( (sin(deg(x*\tc)))^2 / (x*10)^2 ) };
+		\node[green] at (0.5,0.3) {$t_1$};
+		\node[blue] at (0.45,0.6) {$t_2$};
+		\node[red] at (0.3,1.2) {$t_3$};
+		\node at (1.5,0.5) {$t_1<t_2<t_3$};
 		% \addlegendentry{ $P(\omega)=\dfrac{4|V|^2}{\hbar^2}\dfrac{\sin^2(\omega t/2)}{\omega^2}$ }
-		% punto al limite ω->0
-		\addplot[red,only marks,mark=*,mark options={scale=1.2}] coordinates {(0,\yzero)};
 	\end{axis}
 \end{tikzpicture}
 \end{center}
+Ovvero che più sono vicini i livelli più è alta la probabilità di un salto.
 
-Risulta che l'area sottesa alla curva cresce linearmente col tempo, mentre la quantità di stati che ha senso prendere in considerazione è inversamente proporzionale ($\Delta E \sim \hslash 4 \pi/t$). Quindi la probabilità di transizione per unità di tempo, all'ordine lineare, tende a una costante.
-
-Quel che risulta in generale è che questa teoria perturbativa è valida alle stesse condizioni della teoria l'altra, ovvero quanto
+Ora è possibile riscrivere l'ultima espressione in una maniera più utile:
 \[
-	\pi|V_{n,i}| \ll |E_n - E_i|
+	\P_{i \to n}(t) = \frac{|V_{n,i}|^2}{\hslash^2 \l\frac{\omega_{n,i}t}{2}\r^2} \sin^2 \left( \frac{\omega_{n,i} t}{2} \right)t^2
 \]
+Da queste due forme e dal grafico è possibile evincere alcuni fatti interessanti su $\P_{i \to n}(t)$:
+\begin{itemize}
+	\item la varianza è direttamente proporzionale a $t^2$;
+	\item siccome l'integrale del grafico è per la maggior parte contenuto tra i primi due zeri della curva, si può dire che le energie coinvolte nell'approssimazione sono quelle date dagli $\omega_{n,i}$ in $\left[ -\frac{2\pi}{t}, \frac{2\pi}{t} \right]$, ovvero:
+	\[
+		\Delta E \sim \h\frac{4\pi}{t}
+	\]
+	\item siccome per ogni $t$ le funzioni sono normalizzate rispetto a $\omega_{n,i}$, per $t$ molto grandi si tende alla delta di dirac;
+	\item le funzioni possono eccedere il valore $1$ (in particolare al variare di $t$ non sono limitate) nonstante siano delle probailità in quanto si tratta di un'approssimazione al primo ordine.
+\end{itemize}
 
-Risalta anche la relazione di incertezza tempo-energia, ovvero $\Delta E \Delta t \sim \hslash$.
+E quindi si può derivare una forma qualitativa della relazione d'incertezza tempo-energia, ovvero $\Delta E \Delta t \sim \hslash$.
+
+\subsection*{Esercizio: potenziale periodico}
+Se si considera un potenziale sinusoidale e si fanno tutti i conti correttamente (buona fortuna), risulta che al primo ordine si ha un grafico con \textit{due} copie del grafico trovato nell'esercizio precedente, una a destra dello 0 e una a sinistra, speculari, causate dalla comparsa di un termine "risonante" e un termine "antirisonante".
 
 \subsection*{Ampiezza di correlazione e Relazione tempo-energia}
-Ci si può chiedere, quanto differiscono $\Ket {\psi(t)}$ e $\Ket{\psi(0)}$? Come si confrontano? Si definisce la \textbf{funzione di correlazione}\index{Funzione di correlazione} come
+Ci si può chiedere, quanto differiscono $\Ket {\psi(t)}$ e $\Ket{\psi(0)}$? Come si confrontano? Si definisce la Funzione di Correlazione o \textbf{Ampiezza di Correlazione}\index{Ampiezza di correlazione} come
 \[
-	\Co(t) = \braket{\psi(0)}{\psi(t)} = \Bra{\psi(0)} U(t,0) \ket{\psi(0)}
+	\Co(t) = \braket{\psi(0)}{\psi(t)} = \Bra{\psi(0)} \U(t,0) \Ket{\psi(0)}
 \]
 Essa misura la sovrapposizione tra lo stato iniziale e lo stato evoluto. Chiaramente coincide col valor medio dell'operatore di evoluzione temporale nello stato iniziale:
 \[
-	\Co(t) = \avg[0]{U(t,0)}
+	\Co(t) = \avg[\psi_0]{\U(t,0)}
 \]
 
-Se in un sistema ortonormale completo si ha uno stato $\Ket \psi = \sum_n C_n\Ket n$, al chè la funzione di correlazione è esprimibile come:
+Se in un sistema ortonormale completo si ha uno stato $\Ket \psi = \sum_n c_n\Ket n$, al chè la funzione di correlazione è esprimibile come:
 \[
-	\Co(t) = \sum_n |C_n|^2 e^{-\frac{i}{\hslash} E_n t}
+	\Co(t) = \sum_n |c_n|^2 e^{-\frac{i}{\hslash} E_n t}
 \]
 
 Supponiamo ora il caso in cui gli stati sono molto densi, quasi continui ma ancora discreti; ha senso a questo punto definire una \textbf{densità di stati}\index{Densità di stati} $\rho(E)$, tale che $\rho(E) dE$ è il numero di stati con energia compresa tra $E$ e $E + dE$. Allora la funzione di correlazione può essere riscritta come
 \[
-	\Co(t) = \int |C(E)|^2 \rho(E) e^{-\frac{i}{\hslash} E t} dE
+	\Co(t) \simeq \int |C(E)|^2 \rho(E) e^{-\frac{i}{\hslash} E t} dE
 \]
-dove $|C(E)|^2$ è la probabilità di trovare lo stato con energia $E$. Se ci si restringe a una distribuzione comoda di stati, ad esempio una gaussiana centrata in $E_0$ con varianza $\Delta E$, si ottiene:
+dove $|C(E)|^2$ è la probabilità di trovare lo stato con energia $E$. Se ci si restringe a una distribuzione comoda di stati, ad esempio una gaussiana centrata in $E_0$ con varianza $\Delta E$ (successioni regolarizzanti...), si ottiene:
 \[
-	\Co(t) = \int \frac{\rho(E - E_0)}{\sqrt{2 \pi} \Delta E} e^{-\frac{(E - E_0)^2}{2 \Delta E^2}} e^{-\frac{i}{\hslash} E t} dE = \rho(E_0)e^{-\frac{i}{\hslash} E_0 t} e^{-\frac{t^2 \Delta E^2}{2 \hslash^2}}
+	\Co(t) \simeq \int \frac{\rho(E - E_0)}{\sqrt{2 \pi} \Delta E} e^{-\frac{(E - E_0)^2}{2 \Delta E^2}} e^{-\frac{i}{\hslash} E t} dE = \rho(E_0)e^{-\frac{i}{\hslash} E_0 t} e^{-\frac{t^2 \Delta E^2}{2 \hslash^2}}
 \]
-Tenendo conto del secondo esponenziale, si può dedurre che la funzione di correlazione decade su una scala temporale $\Delta t \sim \frac{\hslash}{\Delta E}$, che è proprio la relazione di incertezza tempo-energia!
+E siccome $\Co(t)$ era la proiezione di $\Ket {\psi(t)}$ su $\Ket{\psi(0)}$ quel che risulta è che col passare del tempo questa proiezione si attenua sempre più.
+
+Tenendo conto del secondo esponenziale, si può dedurre anche che questo "decadimento" avviene su una scala temporale $\Delta t \Delta E \sim \h$, che è proprio la relazione di incertezza tempo-energia! Infatti se si aumenta il range di energia quel che accade è che entrano in gioco le interferenze di livelli più lontani, che appunto fanno decadere la correlazione più velocemente.
+\tab
+
+È importante notare che questo risultato non ha nulla a che fare col principio d'indeterminazione di Heisenberg! Si pensi solo al fatto che l'ultimo tratta di operatori, mentre questo di quantità numeriche.
