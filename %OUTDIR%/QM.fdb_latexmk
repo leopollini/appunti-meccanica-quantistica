@@ -1,14 +1,14 @@
 # Fdb version 4
-["makeindex %OUTDIR%/QM.idx"] 1772289177.58722 "%OUTDIR%/QM.idx" "%OUTDIR%/QM.ind" "%OUTDIR%/QM" 1772289331.14347 0
-  "%OUTDIR%/QM.idx" 1772289330.91333 2195 c170d5a18d6ea92d617e291828cddaa3 "pdflatex"
+["makeindex %OUTDIR%/QM.idx"] 1772289177.58722 "%OUTDIR%/QM.idx" "%OUTDIR%/QM.ind" "%OUTDIR%/QM" 1772289545.50159 0
+  "%OUTDIR%/QM.idx" 1772289545.27123 2195 c170d5a18d6ea92d617e291828cddaa3 "pdflatex"
   (generated)
   "%OUTDIR%/QM.ilg"
   "%OUTDIR%/QM.ind"
   (rewritten before read)
-["pdflatex"] 1772289326.51576 "/home/leonardo/Desktop/LaTeX/QM/QM.tex" "QM.pdf" "QM" 1772289331.14373 0
-  "%OUTDIR%/QM.aux" 1772289330.92633 2709 d5aa2b7c1d25708cbc4e437ef97d69c9 "pdflatex"
+["pdflatex"] 1772289540.69395 "/home/leonardo/Desktop/LaTeX/QM/QM.tex" "QM.pdf" "QM" 1772289545.50186 0
+  "%OUTDIR%/QM.aux" 1772289545.28423 2709 d5aa2b7c1d25708cbc4e437ef97d69c9 "pdflatex"
   "%OUTDIR%/QM.ind" 1772289177.61701 2139 db159000eba42c167c4d987d675993fd "makeindex %OUTDIR%/QM.idx"
-  "%OUTDIR%/QM.out" 1772289330.92833 2921 3f58740bb65e26ba52464b301cbfb981 "pdflatex"
+  "%OUTDIR%/QM.out" 1772289545.28623 2921 3f58740bb65e26ba52464b301cbfb981 "pdflatex"
   "/etc/texmf/web2c/texmf.cnf" 1770312000.23489 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/leonardo/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1762855469.64106 11524 70cb4285e27dd10668ffd32cde7cebec ""
   "/home/leonardo/Desktop/LaTeX/QM/QM.tex" 1772041052.7929 2185 22ed430ba9592ec161b651a412a03a4f ""
@@ -285,7 +285,7 @@
   "2 dicembre.tex" 1772014063.5371 3779 a97913cfe75975b92189ab78c9decd5e ""
   "20 novembre.tex" 1772289326.10229 8019 6ce776cb6c9627e52281c950ae8ca705 ""
   "20 ottobre.tex" 1772034896.68431 11967 c26bbe35045789a4d7ffbaebc35a0676 ""
-  "21 novembre.tex" 1763723630.36156 3574 b254bc9ea652acf210d09fed2c150b71 ""
+  "21 novembre.tex" 1772289540.2906 3574 1d225844db3a7d0ad792f13ccf31b7b1 ""
   "21 ottobre.tex" 1772011950.89406 7221 3eefa7181306e13c92875014098157ca ""
   "23 ottobre.tex" 1772040585.79364 10176 333cbe925eccb1687c6e6a2e0137afb5 ""
   "24 ottobre.tex" 1772015058.8248 3740 5c3f09377ba4c86f0836ff3e914b931d ""

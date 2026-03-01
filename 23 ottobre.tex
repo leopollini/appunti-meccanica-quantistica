@@ -44,7 +44,7 @@ Che è molto simile alla definizione di derivata; tuttavia siccome si tratta di 
 \[
     \deriv[t]{} \U(t, t_0) = \lim_{dt \to 0} \frac{\U(t + dt, t_0) - \U(t, t_0)}{dt} = -\frac{i}{\h} \hat H \U(t, t_0)
 \]
-che, posto $\hat H$ l'hamiltoniana solita, corrisponde alla dichicarazione dell'equazione di Schrödinger, infatti:
+che, posto $\hat H$ l'Hamiltoniana solita, corrisponde alla dichicarazione dell'equazione di Schrödinger, infatti:
 \begin{gather*}
     i \h \deriv[t]{} \U(t, t_0) |\psi\ket = \hat H \U(t, t_0) |\psi\ket \\
     i \h \deriv[t]{} \Ket {\psi(t)} = \hat H \Ket {\psi(t)}
@@ -59,14 +59,14 @@ Se poi si ha che $\V$ è un potenziale locale (ovvero che dipende solo dalla pos
     \Bra{\vec x}\V \Ket {\psi(t)} = \rnint \Bra{\vec x}\V \ketbrabra{\vec x'} \Ket {\psi(t)} d^nx'k = \V(\vec x) \psi(\vec x, t)
 \end{gather*}
 
-Ora, dimostrato che l'hamiltoniana è proprio l'operatore che serve per ricostruire l'operatore di evoluzione temporale per tempi finiti, si può procedere come per le traslazioni spaziali, ripetendo a cascata $N$ volte l'operatore infinitesimo:
+Ora, dimostrato che l'Hamiltoniana è proprio l'operatore che serve per ricostruire l'operatore di evoluzione temporale per tempi finiti, si può procedere come per le traslazioni spaziali, ripetendo a cascata $N$ volte l'operatore infinitesimo:
 \begin{align*}
     \U(t, t_0) &= \lim_{N \to \infty} \left[ \U\left(t_0 + \frac{t - t_0}{N}, t_0\right) \right]^N \\
     &= \lim_{N \to \infty} \left[ \hat{Id} - \frac{i}{\h} \hat H \frac{t - t_0}{N} \right]^N \\
     &= e^{-\frac{i}{\h} \hat H (t - t_0)}
 \end{align*}
 
-Detto quetso non abbiamo mai ipotizzato che $\H$ potesse cambiare nel tempo: infatti, in questa forma, la definizione è valida solo se l'hamiltoniana è indipendente dal tempo.
+Detto quetso non abbiamo mai ipotizzato che $\H$ potesse cambiare nel tempo: infatti, in questa forma, la definizione è valida solo se l'Hamiltoniana è indipendente dal tempo.
 
 \subsubsection*{Stati nella Base delle Energie}
 Inoltre accade che se si sceglie come base per lo spazio di Hilbert gli autostati dell'hamiltoniano $\{\Ket{\vphi_j}, j \in J\}$, oltre a molte altre comodità che salteranno fuoir più avanti, l'operatore di evoluzione temporale risulta diagonale, in quanto è definito come somme di potenze di $\H$, che conservano tutte la stessa base:

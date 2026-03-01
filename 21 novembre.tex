@@ -1,49 +1,146 @@
 \subsection*{Fermi Golden Rule} \index{Fermi Golden Rule}
-La formula data dalla regola d'oro di Fermi è tale da permettere di calcolare le probabilità di transizione tra stati quantistici in presenza di una perturbazione dipendente dal tempo. Ovviamente si tratta di un risultato della teoria perturbativa, ed è valido al primo ordine. \\
-Si consideri un sistema con una Hamiltoniana $\H_0$ e autostati $\Ket{n}$, a cui si aggiunge una perturbazione dipendente dal tempo $V(t)$. Si vuole valutare l'interazzione tra un livello iniziale $\Ket \vphi$ e una serie di livelli finali densi $\Ket n$, con densità di stati $\rho(E)$. Allora è possibile ricavare la densità di probabilità di transizione in funzione del tempo come:
+La formula data dalla regola d'oro di Fermi è finalizzata al calcolo delle probabilità di transizione tra stati quantistici in presenza di una perturbazione dipendente dal tempo. Ovviamente si tratta di un risultato della teoria perturbativa, ed è valido al primo ordine. \\
+Si consideri un sistema con una Hamiltoniana $\H_0$ e autostati $\Ket{n}$, a cui si aggiunge una perturbazione dipendente dal tempo della forma $\hat V(t) = \hat V_0 f(t)$, dove $f(t)$ è una funzione liscia che approssima la funzione gradino. Si vuole valutare l'interazzione da un livello iniziale $\Ket i$ in una serie di livelli finali molto densi $\Ket \alpha$ entro un intervallo di energie $\delta E$, con densità di stati $\rho(E)$. Allora è possibile ricavare la densità di probabilità di transizione in funzione del tempo come:
 \[
-	\delta \P(t) = \int |\Bra \alpha e^{-\frac{i}{\hslash} \H_0 t} \Ket i|^2 d\alpha = \]\[
-	\int \rho(E) |\braket E \psi|^2 dE = \int \rho(E) \frac{1}{\hslash^2} |\Bra E \hat V \Ket {\vphi}|^2F(t, \omega_{i}) dE
+	\delta \P(t) = \int |\Bra \alpha e^{-\frac{i}{\h} \H_0 t} \Ket \vphi|^2 d\alpha \simeq \int_{\delta E} \rho(E_j) |\braket j {\psi(t)}|^2 dE_j
 \]
-dove $F(t, \omega) = \dfrac{4 \sin^2(\omega t/2)}{\omega^2}$ e $\omega_i = (E - E_i)/\hslash$. Per tempi lunghi, $F(t, \omega)$ si comporta come una delta di Dirac, e quindi si può approssimare l'integrale come la sua valutazione al valore $E_i$
+E, introducento la perturbazione risulta (trascurando $f(t)$ in quanto è a scalino):
 \[
-	\delta \P(t) = \frac{2 \pi}{\hslash} |V_{E_i, i}|^2 \rho(E_i) t
-\]
-Che ovviamente è vero solo se l'intervallo di stati di cui si è tenuto conto contiene la $E_i$. La Regola d'Oro di Fermi è data dalla derivata nel tempo della formula appena ricavata:
-\[
-	\tderiv{}\delta \P(t) = \frac{2 \pi}{\hslash} |V_{E_i, i}|^2 \rho(E_i) = \Gamma_{FGR}
+	\delta \P(t) \simeq \int_{\delta E} \rho(E_j) |\braketin{j}{\hat V_0}{\psi(t)}|^2 dE_j
 \]
 
-\subsection{Metodo variazionale}
-Partiamo da una situazione classica, in cui l'Hamiltoniana è espressa nella sua base come $\H = \sum_n E_n \ketbra n n$, con gli $E_n$ ordinati per energia ($E_n < E_m \Leftrightarrow n < i$). Al ché la media dell'Hamiltoniana uno stato generico è espresso come
+Ora è necessario trovare un'espansione approssimata semplice per questa formula. \\
+Risulta utile definire una nuova funzione $F(t,\omega)$ con delle proprietà specifiche; la sua espressione è $F(t, \omega) = \dfrac{\sin^2(\omega t/2)}{(\omega/2)^2}$, e le proprietà sono:
+\begin{itemize}
+	\item per $\omega \rightarrow 0$ si comporta come $t^2$;
+	\item risulta che $\rint F(t,\omega) = 2\pi t$.
+	\item per $t$ molto grandi si comporta come una delta di Dirac in $\omega$, ovvero $F(t,\omega) \simeq 2\pi t\delta(\omega)$;
+\end{itemize}
+
+Se a questo punto supponiamo che gli stati d'arrivo siano vicini allo stato di partenza (in particolare è necessario che lo stato di partenza sia nell'intervallo analizzato), e che $t$ sia abbastanza grande, è possibile espandere al primo ordine come fatto fin'ora, ignorando l'ordine 0 (non so perché):
 \[
-	\Bra \psi \H \Ket \psi = \sum_n \braket \psi {E_n} \braket \psi {E_n} < E_0 \sum_n |\braket{\psi}{n}|^2 = E_0 \sfabs{\psi}
+	\delta \P(t) \simeq \frac{1}{\hslash^2} \int_{\delta E} \rho(E_j) |\Bra j \hat V_0  \Ket {i}|^2F(t, \omega_{E_iE_j}) dE_j \simeq \frac{1}{\hslash^2} \int_{\delta E} \rho(E_j) |\Bra j \hat V_0  \Ket {i}|^2 2\pi t\delta (\omega_{E_iE_j}) dE_j
 \]
-Che significa $E_0 < \frac{\Bra \psi \H \Ket \psi}{\sfabs \psi}$.
-In sostanza si ha che più si avvicinano le due quantità, più si è vicini alla unica soluzione, che è l'autostato che per energia ha il ground state $E_0$. Vediamo un esempio.
+Che coincide con la valutazione in $E_i$ (si ricorda che $\delta(\Delta E/\h) = \h \delta(\Delta E)$):
+\[
+	\delta \P(t) = \frac{2 \pi t}{\h} |V_{i, i}|^2 \rho(E_i)
+\]
+Che evidentemente è vero solo se l'intervallo di stati di cui si è tenuto conto contiene la $E_i$, altrimenti fa 0. La Regola d'Oro di Fermi è data dalla derivata nel tempo della formula appena ricavata:
+\[
+	\tderiv{}\delta \P(t) = \frac{2 \pi}{\h} |V_{E_i, i}|^2 \rho(E_i) = \Gamma_{FGR}
+\]
+
+Questa formula chiaramente non è qualitativamente ottimale, viste le molte approssimazioni e i molti supposti introdotti, quindi non è utilizzabile universalmente. Tuttavia l'informazione principale che si ottiene (ottenibile calcolando un solo integrale) è che la possibilità di passaggio da uno stato all'altro è fortemente dipendente dalla loro vicinanza energetica.
+
+\subsection{Metodo variazionale}
+Partiamo da una situazione semplice, in cui l'Hamiltoniana è espressa nella sua base come $\H = \sum_n E_n \ketbra n n$, con gli $E_n$ ordinati per energia ($E_n < E_m \Leftrightarrow n < m$). Al ché la media dell'Hamiltoniana uno stato generico è espresso come
+\[
+	\Bra \psi \H \Ket \psi = \sum_n \braket \psi {E_n} \braket \psi {E_n} > E_0 \sum_n |\braket{\psi}{n}|^2 = E_0 \sfabs{\psi}
+\]
+Che significa $E_0 < \braketin \psi \H \psi$ (visto che gli stati sono normalizzati).\\
+In sostanza si ha che più si avvicinano le due quantità, più si è vicini alla unica soluzione, ovvero il ground state.\\
+Il metodo variazionale consiste proprio nel cercare una stima del ground state partendo da una funzione d'onda parametrica in una rappresentazione a piacere e minimizzandone l'energia. Vediamo un esempio.
 
 \subsubsection*{Buca infinita di potenziale}
 Sia
 \[
 	V(x) = \begin{cases}
-		0 |x| < a\\
-		\infty |x| > a
-	\end{cases} \]\[
+		0 \ se \  |x| < a\\
+		\infty \ se \  |x| > a
+	\end{cases}
+\]
+Sappiamo già che:
+\[
 	\psi_0(x) = \frac{1}{\alpha}cos(\frac{\pi x}{2 a})\ ,\ \ \ E_0 = \frac{\hslash^2 \pi^2}{8ma^2}
 \]
-E variando le $\psi_\lambda(x) = a^\lambda - |x|^\lambda$ risulta
+
+Ora proviamo a cercare il ground state (nella rappresentazione delle posizione) utilizzando delle $\psi_\lambda(x) = a^\lambda - |x|^\lambda$. Risulta:
 \[
-	\avg E = \frac{\Bra {\psi_\lambda} \H \Ket {\psi_\lambda}}{\sfabs {\psi_\lambda}} = \frac{\int_{-a}^a (a^\lambda - |x|^\lambda)(-\frac{\hslash^2}{2m}\sderiv[x]{})(a^\lambda - |x|^\lambda)}{\int_{-a}^a(a^\lambda - |x|^\lambda)^2}
+	\avg[\psi_\lambda] E = \frac{\Bra {\psi_\lambda} \H \Ket {\psi_\lambda}}{\sfabs {\psi_\lambda}} = \frac{\int_{-a}^a (a^\lambda - |x|^\lambda)(-\frac{\hslash^2}{2m}\sderiv[x]{})(a^\lambda - |x|^\lambda) dx}{\int_{-a}^a(a^\lambda - |x|^\lambda)^2 dx} = \]\[
+	= \frac{\h^2}{4ma^2}\frac{2\lambda^2 + 3\lambda + 1}{2\lambda - 1}
+\]
+Quindi l'energia minima si ha quando si riesce a minimizzare questa funzione di $\lambda$! Risulta infatti che $\lambda = \frac{1+\sqrt 6}{2}$ è tale che l'energia dello stato $\Ket {\psi_\lambda}$ è:
+\[
+	E_\lambda \simeq	  1.003 E_0
 \]
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=2]
+	\def\a{2}
+	\def\lambd{1.618}
+	
+	% Axes
+	\draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+	\draw[->] (0,-0.5) -- (0,2) node[above] {$\psi(x)$};
+	
+	% Ground state: cos(\pi x / 2a)
+	\draw[blue, thick, domain=-\a:\a, samples=100] 
+		plot (\x, {cos(pi*\x/(2*\a) r)});
+	
+	% Variational: (a^\lambd - |x|^\lambd)
+	\draw[red, thick, domain=-\a:\a, samples=100] 
+		plot (\x, {(\a^\lambd - abs(\x)^\lambd)/\a^\lambd});
+	
+	% Labels
+	\node[blue] at (1.2, 1.8) {$\psi_0(x)$};
+	\node[red] at (-1.5, 1.2) {$\psi_{\lambda}$};
+	
+	% Tick labels
+	\node at (-\a, -0.3) {$-a$};
+	\node at (\a, -0.3) {$a$};
+
+    \draw[very thick] (-2,0) -- (-2,2) node[midway,left] {$V=\infty$};
+    \draw[very thick] (2,0) -- (2,2) node[midway,right] {$V=\infty$};
+\end{tikzpicture}
+\caption{Confronto tra lo stato fondamentale esatto e la stima variazionale fatta usando delle parabole.}
+\end{figure}
+
+Ulterori esempi possono essere fatti con più di un parametro variazionnale.
+
 \subsection*{Metodo di Rayleigh-Ritz}
-Questo metodo è un'evoluzione del metodo variazionale classico: se sono noti almeno alcuni elementi $\Ket {\chi_i}$ della base ortonormale dell'Hamiltoniana, si può esprimere la $\Ket \psi$ generica come combinazione lineare (complessa) di questi. Al ché si ha:
+Questo metodo è un'evoluzione del metodo variazionale classico; se è possibile trovare un'Hamiltoniana $\H_R$ che sia simile alla $\H_0$ del sistema (cercando un potenziale simile, per esempio 'occupando' una buca irregolare con delle buche quadrate), allora si può procedere in maniera simile a prima, ma utilizzando una combinazione lineare complessa di autostati di $\H_R$ e minimizando l'energia rispetto a $\H_0$. Si scelgono quindi $n$ autostati :
 \[
-	\Ket \psi = \sum_{i = 1}^n c_i \Ket {\chi_i} \]\[
-	\avg E = \frac{\Bra \psi \H \Ket \psi}{\sfabs \psi} = \sum_{i = 1}^n \sum_{j = 1}^n \frac{c_i^* c_j \Bra {\chi_i} \H \Ket {\chi_j}}{c_i^*c_j}
+	\Ket \psi = \sum_{i = 1}^n c_i \Ket {\chi_i} = \sum_{i = 1}^n \H_R \Ket {\chi_i} \]\[
+	\avg[\psi] E = \frac{\braketin \psi {\H_0} \psi}{\sfabs \psi} = \frac{\sum_{i = 1}^n \sum_{j = 1}^n c_i^* c_j \braketin {\chi_i}{\H_0} {\chi_j}}{\sum_{k = 1}^n c_k^*c_k}
 \]
-Si può ora trovare il $c_i^*$ che minimizza $\avg E$:
+Si possono ora trovare i $c_i^*$ che minimizzano $\avg[\psi] E$, ovvero quando:
 \[
-	\deriv[c_k^*]{E} = 0 = \frac{\sum_j c_j H_{kj}}{\sum_i|c_i|^2} - c_k \frac{\sum_{ij}c_i^*c_jH_{ij}}{(\sum_i|c_i|^2)^2}  
+	\deriv[c_k^*]{E} = \sum_j c_j H_{kj} - c_k \sum_{ij}c_i^*c_jH_{ij} = \]\[
+	= \sum_j c_j H_{kj} - c_k \avg[\psi]{\H_0} = 0
 \]
-E con questo risultato si può sostituire il peso e ricavare la migliore $\Ket \psi$ come combinazione della base del sottospazio utilizzato.
+Che, posti gli $H_{kj}$ elementi di matrice di $\H_0$ rispetto alla base di $\H_R$, evidentemente è un'equazione agli autovalori per il vettore dei $c_k$! Risulta infatti:
+\[
+	\H_0 \vec c = \avg[\psi]{\H_0}\vec c
+\]
+Risolvendo si trova una base di autovalori per $\H_0$ generata a partire dagli autovalori di $\H_R$, e quello con energia più bassa sarà l'approssimazione del ground state. Gli autovalori restanti sono approssimazioni dei livelli successivi.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=2]
+	\def\a{2}
+	
+	% Axes
+	\draw[->] (-3,0) -- (3,0) node[right] {$x$};
+	\draw[->] (0,-2.5) -- (0,0.5) node[above] {$V(x)$};
+	
+	% Irregular potential: smooth well
+	\draw[blue, thick, domain=-\a:\a, samples=100] 
+		plot (\x, {-2*(1-(\x/\a)^2)^3});
+	
+	% Piecewise constant potential (Rayleigh-Ritz approximation)
+	\draw[red, thick] (-\a, 0) -- (-\a, -0.7) -- (-\a/2, -0.7) -- (-\a/2, -1.6) 
+		-- (0, -1.6) -- (0, -1.9) -- (\a/2, -1.9) -- (\a/2, -0.6) 
+		-- (\a, -0.6) -- (\a, -0.6) -- (\a, 0);
+	
+	% Labels
+	\node[blue] at (1.5, 0.4) {$V(x)$ irregolare};
+	\node[red] at (-1.5, 0.4) {Approssimazione};
+	
+	% Tick labels
+	\node at (-\a, 0.15) {$-a$};
+	\node at (\a, 0.15) {$a$};
+	\node at (0.1, 0.15) {$0$};
+\end{tikzpicture}
+\caption{Metodo di Rayleigh-Ritz: una buca di potenziale irregolare viene approssimata con una combinazione di buche quadrate.}
+\end{figure}

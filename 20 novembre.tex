@@ -45,7 +45,7 @@ La probabilità di passare da uno stato $i$ a uno stato $n$, al primo ordine, è
 		domain=-2:2,
 		samples=300,
 		xlabel={$\omega_{n,i}$},
-		ylabel={$P_{i\to n}(t)$},
+		ylabel={$P_{i\to n}$},
 		axis lines=middle,
 		enlargelimits=0.12,
 		ymin=0,
@@ -64,16 +64,16 @@ La probabilità di passare da uno stato $i$ a uno stato $n$, al primo ordine, è
 	\end{axis}
 \end{tikzpicture}
 \end{center}
-Ovvero che più sono vicini i livelli più è alta la probabilità di un salto.
 
-Ora è possibile riscrivere l'ultima espressione in una maniera più utile:
+Ora, è possibile riscrivere l'ultima espressione in una maniera più utile:
 \[
 	\P_{i \to n}(t) = \frac{|V_{n,i}|^2}{\hslash^2 \l\frac{\omega_{n,i}t}{2}\r^2} \sin^2 \left( \frac{\omega_{n,i} t}{2} \right)t^2
 \]
 Da queste due forme e dal grafico è possibile evincere alcuni fatti interessanti su $\P_{i \to n}(t)$:
 \begin{itemize}
 	\item la varianza è direttamente proporzionale a $t^2$;
-	\item siccome l'integrale del grafico è per la maggior parte contenuto tra i primi due zeri della curva, si può dire che le energie coinvolte nell'approssimazione sono quelle date dagli $\omega_{n,i}$ in $\left[ -\frac{2\pi}{t}, \frac{2\pi}{t} \right]$, ovvero:
+	\item più sono vicini due livelli, maggiore è la loro interazione;
+	\item in particolare, siccome l'integrale del grafico è per la maggior parte contenuto tra i primi due zeri della curva, si può dire che le energie coinvolte nell'approssimazione sono quelle date dagli $\omega_{n,i}$ in $\left[ -\frac{2\pi}{t}, \frac{2\pi}{t} \right]$, ovvero:
 	\[
 		\Delta E \sim \h\frac{4\pi}{t}
 	\]
@@ -81,7 +81,7 @@ Da queste due forme e dal grafico è possibile evincere alcuni fatti interessant
 	\item le funzioni possono eccedere il valore $1$ (in particolare al variare di $t$ non sono limitate) nonstante siano delle probailità in quanto si tratta di un'approssimazione al primo ordine.
 \end{itemize}
 
-E quindi si può derivare una forma qualitativa della relazione d'incertezza tempo-energia, ovvero $\Delta E \Delta t \sim \hslash$.
+E quindi si può derivare una forma qualitativa della relazione d'incertezza tempo-energia, ovvero \[\Delta E \Delta t \sim \hslash\]
 
 \subsection*{Esercizio: potenziale periodico}
 Se si considera un potenziale sinusoidale e si fanno tutti i conti correttamente (buona fortuna), risulta che al primo ordine si ha un grafico con \textit{due} copie del grafico trovato nell'esercizio precedente, una a destra dello 0 e una a sinistra, speculari, causate dalla comparsa di un termine "risonante" e un termine "antirisonante".
