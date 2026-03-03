@@ -21,17 +21,17 @@ E per finire l'espansione dell'identità diventa:
 Consideriamo gli operatori posizione, che funzionano in questo modo:
 
 \begin{align*}
-    |\vec x\ket = |x,y,z\ket \\
-    \hat{X} |\vec x\ket = x |\vec x\ket \\
-    \hat{Y} |\vec x\ket = y |\vec x\ket \\
-    \hat{Z} |\vec x\ket = z |\vec x\ket \\
-    \vec{\hat{X}} |\vec x\ket = \vec x |\vec x\ket
+    \hat{X} \vpos = x \vpos \\
+    \hat{Y} \vpos = y \vpos \\
+    \hat{Z} \vpos = z \vpos \\
+    \vec{\hat{X}} \vpos = \vec x \vpos
 \end{align*}
+Poi è tipico scriver $\Ket {\vec x}$ al posto di $\vpos$ per comodità di scrittura.
 
 \subsubsection*{Altro esempio: operatore di traslazione}
 Chiamiamo $\tau$ l'operatore che si comporta in questo modo:
 \[
-    \tau (\vec {dx}) |\vec x\ket = |\vec x + \vec {dx}\ket
+    \tau (\vec {dx}) \vpos = \Ket {\vec x + \vec{dx}}
 \]
 Al chè si può usare il solito trucco:
 \[
@@ -55,8 +55,8 @@ A questo punto si ha anche
 \]
 Si può provare a calcolare il commutatore tra posizione e traslazione:
 \begin{align*}
-    [\hat{X}_j, \tau(\vec{dx})] |\vec x\ket &= \hat{X}_j \tau(\vec{dx}) |\vec x\ket - \tau(\vec{dx}) \hat{X}_j |\vec x\ket \\
-    &= \hat{X}_j |\vec x + \vec{dx}\ket - \tau(\vec{dx}) \vec x |\vec x\ket \\
+    [\hat{X}_j, \tau(\vec{dx})] \vpos &= \hat{X}_j \tau(\vec{dx}) \vpos - \tau(\vec{dx}) \hat{X}_j \vpos \\
+    &= \hat{X}_j |\vec x + \vec{dx}\ket - \tau(\vec{dx}) \vec x \vpos \\
     &= (\vec{dx}) |\vec x + \vec{dx}\ket
 \end{align*}
 per ogni operatore posizione al variare di $j$. \\
@@ -128,9 +128,9 @@ Assemblando quanto trovato fin'ora risulta:
     = \rnint \braketxp \braket {\vec p}{\psi} d^np = \\
     = \frac{1}{(2 \pi \hslash)^{n/2}} \rnint e^{\frac{i}{\hslash} \vec p \cdot \vec x} \tilde\psi(\vec p) d^np
 \end{gather*}
-Che coincide con la definizione della trasformata di Fourier! E anche: siccome invertire i termini del prodotto scalare coincide col fare il complesso coniugato risulta: ???
+Che coincide con la definizione della trasformata di Fourier!
 
-Assemblando quanto trovato fin'ora risulta:
+Se poi si procede allo stesso modo scambiando $\hat p$ e $\hat x$ (dimostrando che vale lo stesso l'equivalenza del gradiente) si ottiene anche:
 \begin{gather*}
     \bra \vec p | \psi \ket = \tilde\psi(\vec p) = \\
     = \rnint \braketpx \braket {\vec x}{\psi} d^nx = \\

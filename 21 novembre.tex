@@ -25,7 +25,7 @@ Che coincide con la valutazione in $E_i$ (si ricorda che $\delta(\Delta E/\h) = 
 \[
 	\delta \P(t) = \frac{2 \pi t}{\h} |V_{i, i}|^2 \rho(E_i)
 \]
-Che evidentemente è vero solo se l'intervallo di stati di cui si è tenuto conto contiene la $E_i$, altrimenti fa 0. La Regola d'Oro di Fermi è data dalla derivata nel tempo della formula appena ricavata:
+Che evidentemente è vero solo se l'intervallo di stati di cui si è tenuto conto contiene la $E_i$, altrimenti fa 0. La Regola d'Oro di Fermi è data dalla derivata nel tempo (rateo di transizione) della formula appena ricavata:
 \[
 	\tderiv{}\delta \P(t) = \frac{2 \pi}{\h} |V_{E_i, i}|^2 \rho(E_i) = \Gamma_{FGR}
 \]
@@ -99,7 +99,7 @@ Quindi l'energia minima si ha quando si riesce a minimizzare questa funzione di 
 Ulterori esempi possono essere fatti con più di un parametro variazionnale.
 
 \subsection*{Metodo di Rayleigh-Ritz}
-Questo metodo è un'evoluzione del metodo variazionale classico; se è possibile trovare un'Hamiltoniana $\H_R$ che sia simile alla $\H_0$ del sistema (cercando un potenziale simile, per esempio 'occupando' una buca irregolare con delle buche quadrate), allora si può procedere in maniera simile a prima, ma utilizzando una combinazione lineare complessa di autostati di $\H_R$ e minimizando l'energia rispetto a $\H_0$. Si scelgono quindi $n$ autostati :
+Questo metodo è un'evoluzione del metodo variazionale appena enunciato: se è possibile trovare un'Hamiltoniana $\H_R$ che sia simile alla $\H_0$ del sistema (cercando un potenziale simile, per esempio 'occupando' una buca irregolare con delle buche quadrate), allora si può procedere in maniera simile a prima, ma utilizzando una combinazione lineare complessa di autostati di $\H_R$ e minimizando l'energia rispetto a $\H_0$. Si scelgono quindi $n$ autostati :
 \[
 	\Ket \psi = \sum_{i = 1}^n c_i \Ket {\chi_i} = \sum_{i = 1}^n \H_R \Ket {\chi_i} \]\[
 	\avg[\psi] E = \frac{\braketin \psi {\H_0} \psi}{\sfabs \psi} = \frac{\sum_{i = 1}^n \sum_{j = 1}^n c_i^* c_j \braketin {\chi_i}{\H_0} {\chi_j}}{\sum_{k = 1}^n c_k^*c_k}
@@ -126,12 +126,11 @@ Risolvendo si trova una base di autovalori per $\H_0$ generata a partire dagli a
 	
 	% Irregular potential: smooth well
 	\draw[blue, thick, domain=-\a:\a, samples=100] 
-		plot (\x, {-2*(1-(\x/\a)^2)^3});
+		plot (\x, {-2*(1-(\x/\a)^2)^3 + (\x-\a)*(\x+\a)^3*\x/25});
 	
 	% Piecewise constant potential (Rayleigh-Ritz approximation)
-	\draw[red, thick] (-\a, 0) -- (-\a, -0.7) -- (-\a/2, -0.7) -- (-\a/2, -1.6) 
-		-- (0, -1.6) -- (0, -1.9) -- (\a/2, -1.9) -- (\a/2, -0.6) 
-		-- (\a, -0.6) -- (\a, -0.6) -- (\a, 0);
+	\draw[red, thick] (-\a*0.75, 0) -- (-\a*0.75, -0.145) -- (-\a/3, -0.145) -- (-\a/3, -1.24) 
+		-- (0, -1.24) -- (0, -1.93) -- (\a/2, -1.93) -- (\a/2, -1) -- (\a*0.86, -1) -- (\a*0.86, 0);
 	
 	% Labels
 	\node[blue] at (1.5, 0.4) {$V(x)$ irregolare};
@@ -144,3 +143,5 @@ Risolvendo si trova una base di autovalori per $\H_0$ generata a partire dagli a
 \end{tikzpicture}
 \caption{Metodo di Rayleigh-Ritz: una buca di potenziale irregolare viene approssimata con una combinazione di buche quadrate.}
 \end{figure}
+
+Si noti che è necessario che il potenziale approssimante non vada mai al di sotto del potenziale da approssimare, altrimenti si rischia di trovare un ground state di energia inferiore a quella del ground state effettivo!

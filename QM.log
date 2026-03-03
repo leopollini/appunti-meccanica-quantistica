@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.2.5)  1 MAR 2026 19:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.2.5)  3 MAR 2026 20:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -810,15 +810,15 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
 (Font)              Font shape `U/wasy/m/n' tried instead on input line 48.
 
 [31]
-<image.png, id=293, 171.64125pt x 193.72375pt>
+<image.png, id=300, 171.64125pt x 193.72375pt>
 File: image.png Graphic file (type png)
 <use image.png>
 Package pdftex.def Info: image.png  used on input line 68.
 (pdftex.def)             Requested size: 88.71434pt x 100.12799pt.
-) (./11 novembre.tex) (./13 novembre.tex [32 <./image.png>] [33] [34]) (./14 novembre.tex [35]) [36] (./17 novembre.tex) [37] (./18 novembre.tex [38] [39]) [40] (./20 novembre.tex [41] [42]) (./21 novembre.tex [43] [44]) [45] (./27 novembre.tex [46]) [47] (./2 dicembre.tex [48]) [49] (./4 dicembre.tex [50] [51] [52] [53]) [54]
+) (./11 novembre.tex) (./13 novembre.tex [32 <./image.png>] [33] [34]) (./14 novembre.tex [35]) [36] (./17 novembre.tex) [37] (./18 novembre.tex [38] [39]) [40] (./20 novembre.tex [41] [42]) (./21 novembre.tex [43] [44]) [45] (./24 novembre.tex [46] [47] [48]) [49] (./27 novembre.tex [50]) [51] (./2 dicembre.tex [52]) [53] (./4 dicembre.tex [54] [55] [56] [57]) [58]
 runsystem(makeindex QM.idx)...executed safely (allowed).
 
- (./QM.ind) [55
+ (./QM.ind) [59
 
 ] (./QM.aux)
  ***********
@@ -826,21 +826,21 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `QM.out' has not changed.
-(rerunfilecheck)             Checksum: 3F58740BB65E26BA52464B301CBFB981;2921.
+(rerunfilecheck)             Checksum: 8421F33BEEDA283C176F32BB3AF70415;3074.
  ) 
 Here is how much of TeX's memory you used:
- 36495 strings out of 469503
- 827052 string characters out of 5469597
- 1472225 words of memory out of 5000000
- 64319 multiletter control sequences out of 15000+600000
+ 36730 strings out of 469503
+ 831824 string characters out of 5469597
+ 1472134 words of memory out of 5000000
+ 64543 multiletter control sequences out of 15000+600000
  642841 words of font info for 103 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  89i,18n,97p,992b,2043s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/leonardo/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on QM.pdf (55 pages, 595370 bytes).
+Output written on QM.pdf (59 pages, 612360 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 478 compressed objects within 5 object streams
- 178 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 626 PDF objects out of 1000 (max. 8388607)
+ 499 compressed objects within 5 object streams
+ 186 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

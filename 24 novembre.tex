@@ -1,0 +1,141 @@
+\section{Einstein Coefficients}\index{Einstein coefficients}
+I coefficienti di Einstein sono i coefficienti di emissione e assorbimento che condensano il rapporto tra energia emessa ed energia assorbita per quanto riguarda le emissioni stimolate per le interazioni energia-materia. L'eneriga è assuta in forma di onde elettromagnetiche.
+\tab
+
+È opportuno supporre di essere in condizione tale che la lunghezza d'onda sia molto maggiore del raggio atomico (ad esempio la luce visibile), e che l'interazione avviene solo tramite campo elettrico. Allora si può supporre il campo elettrico orientato come $\vec e_z$ ed espandere la forza di Lorentz come:
+\[
+    \vect{F} = q \vect{E}_0 \cos \omega t = -\deriv[z]{V} \vect {e}_z
+\]
+Al ché è possibile trovare l'espressione del potenziale $V$ (si noti che la seconda espressione è costante in $z$) e promuoverlo ad operatore:
+\[
+    \V = -q E_0 \hat z \cos \omega t
+\] 
+
+Partiamo quindi da un'Hamiltoniana generica diagonale nella base $\Ket n$. Risulta:
+\[
+    \braketin{n}{\V}{m} = -qE_0\cos\omega t \braketin{n}{\hat z}{m} = qE_0\cos\omega t \rnint[3] \vphi_n(\vec x) z \vphi_m(\vec x) d\vec x
+\]
+La quantità $q \braketin{n}{\hat z}{m}$ viene solitamente indicata con $\mathbf{P}_{nm}$ e rappresenta qualcosa di simile al momento di dipolo in elettromagnetismo. Si noti che è una quantità matriciale. Allora:
+\[
+    \braketin{n}{\V}{m} = -E_0\cos\omega t \mathbf{P}_{nm}
+\]
+
+Ora, tramite la teoria delle perturbazioni, di stima l'effetto di "accendere" la pertubazione (in sostanza il passaggio dell'onda elettromagnetica). Per lo stato $\Ket{\psi(t)}$ tale che in $t = 0$ sia $\Ket n$ risulta:
+\[
+    \P_{nm} \simeq \frac{\sabs{\mathbf{P}_{nm}}}{\h^2}E_0^2 \frac{\sin^2 \l\omega_{mn}-\omega\r}{ \l\omega_{mn}-\omega\r^2}t
+\]
+Il primo risultato di questa espansione è che, almeno al primo ordine, l'energia necessaria per passare dallo stato $n$ allo stato $m$ è uguale all'energia necessaria per il passaggio inverso, in quanto $\mathbf P$ è hermitiano.
+
+Quindi quando si fa passare un fotone (di energia $\h\omega$) attraverso il sistema, viene assorbito, e fa passare una particella dallo stato $n$ allo stato $m$, oppure il contrario. Supponendo che lo stato $n$ abbia meno energia dello stato $m$, si deve avere che nel secondo caso, l'arrivo del fotone provoca un'abbassamento dell'energia della particella: è quindi necessario che due fotoni vengano emessi dalla particella, in modo da conservare l'energia del sistema. In questo caso si tratta di emissione stimolata, e così funzionano i laser.\\
+Si noti che in questa particolare configurazione l'assorbilmento e l'emissione stimolata sono eventi equiprobabili.
+\tab
+
+Esiste anche un altro tipo di interazione tra onda e.m. e materia: l'emissione spontanea (ad esempio la radiazione alpha). Ma come mai avviene quest'emissione spontanea? Ricordando che gli autostati dell'Hamiltoniana sono stati stazionari, quindi dovrebbe essere impossibile un cambio di stato in un sistema isolato! La spiegazione sta nel fatto che in realtà è impossibile avere un sistema totalmente isolato: si pensi solo alla radiazione di fondo sulla terra, oppure al fatto che in generale i ground states non hanno mai energia nulla (fluttuazioni quantistiche, zero-point energy\ldots). In sostanza le emissione spontanee non sono mai spontanee! E quindi tale Albert Einstein cercò di stimare quantitativamente questo tipo di interazione.
+
+\newpage
+
+Per iniziare conviene riscrivere l'ultima equazione in una forma più comoda. Innanzitutto si scambia $E_0^2$ con la sua funzione dell'energia ($\upsilon = \half \varepsilon_0 E_0^2$), e poi si considera l'onda in arrivo come un paccetto d'onda con densità d'energia $\rho(\omega)$:
+\[
+    \P_{nm} \simeq \frac{2}{\varepsilon_0\h^2} \sabs{\mathbf{P}_{nm}} \int_{\R^+} \rho(\omega) \frac{\sin^2 \l\omega_{mn}-\omega\r t}{ \l\omega_{mn}-\omega\r^2} d\omega
+\]
+Per comodità si può assumere che $\rho(\omega)$ è costantemente uguale a $\rho(\omega_{mn})$, visto che il picco d'intensità è già dato dalla frazione col $\sin^2$. L'integrale equivale a $\frac{\pi}{2}\rho(\omega_{mn})t$, quindi, si può mettere nella forma del rateo di transizione introdotta nel capitolo sulla Fermi Golden Rule:
+\[
+    \tderiv{\P_{nm}} \simeq \frac{\pi}{\h^2\varepsilon_0} \sabs{\mathbf{P}_{nm}} \rho(\omega_{mn})
+\]
+
+Ora, per generalizzare è necessario che $\mathbf{P}_{nm}$ tenga conto di onde dirette verso direzioni generiche, e con polarizzazione generica: quindi se si promuove a vettore $\vec{\mathbf{P}}_{nm} = q\braketin{n}{\vec r}{m}$, si fa la  media su tutte le direzioni $\vec n = \vec{e}_x, \vec{e}_y, \vec{e}_z$ e su entrambe le polarizzazioni per ogni direzione il risultato è $\frac{1}{3}$; questo fattore va a moltiplicare la $\mathbf{P}_{nm}$ per avere la versione generalizzata. La formula definitiva è:
+\[
+    \tderiv{\P_{nm}} \simeq \frac{\pi}{\mathbf{3}\h^2\varepsilon_0} \sabs{\mathbf{P}_{nm}} \rho(\omega_{mn})
+\]
+che ovviamente è simmetrico se si invertono $n$ e $m$.
+\tab
+
+Tuttavia Einsten non conosceva ancora la meccanica quantistica! Infatti la sua derivazione era diversa: lui suppose di avere un sistema con $N$ particelle che potevano essere nello "stato" $a$ o nello "stato" $b$ (non intente stati quantistici quanto condizione di esistenza della particella), lo stato $b$ avente maggiore energia. Chiamò $N_a$ e $N_b$ i numeri di particelle nei rispettivi stati, e si chiese in che modo può variare $N_b$. Scrisse quest'equazione:
+\[
+    \tderiv{N_b} = -A N_b + B_{ab} \rho(\omega_{ab})N_a - B_{ba} \rho(\omega_{ba})N_b
+\]
+dove $A$ è il rateo di emissione spontanea, $B_{ab}$ quello di assorbimento e $B_{ba}$ quello di emissione stimolata (aggiunto dopo in quanto il fenomeno era ignoto allora). Evidentemente si ha che lo stato di stazionarietà si ha quando $\tderiv{N_b} = 0$. In questa condizione si ha anche:
+\[
+    \rho(\omega_{ba}) = \frac{A}{\frac{N_a}{N_b}B_{ab} - B_{ba}}
+\]
+Dalla termodinamica si ha anche che:
+\[
+    N_a = \frac{1}{z} e^{-E_a / k_b T}\ , \ \ \ N_a = \frac{1}{z} e^{-E_a / k_b T}
+\]
+(distribuzione di Gibbs) dove $z$ è una costante di normalizzazione che tiene conto di tutte le particelle. Risulta:
+\[
+    \rho(\omega_{ba}) = \frac{A}{e^{-(E_a-E_b)/k_bT}B_{ab} - B_{ba}}
+\]
+Tuttavia si deve avere anche la validità della formula di Planc per la radiazione di corpo nero, in quanto $\rho(\omega_{ba})$ è anche la densità d'energia nello stato stazionario:
+\[
+    \rho(\omega_{ba}) = \frac{A}{e^{-(E_a-E_b)/k_bT}B_{ab} - B_{ba}} = \frac{\h\omega_{ba}^3}{\pi^2c^3}\frac{1}{e^{\h\omega_{ba}/k_bT}}
+\]
+
+Quest'ultima forma:
+\[
+    \rho(\omega_{ba}) = \frac{A}{B_{ba}}\frac{1}{\frac{B_{ab}}{B_{ba}} e^{-(E_a-E_b)/k_bT} - 1}
+\]
+permette di evidenziare i seguenti fatti:
+\begin{itemize}
+    \item $B_{ba} \neq 0$, altrimenti le due forme non possono somigliarsi;
+    \item per lo stesso motivo, $B_{ba} = B_{ab}$;
+    \item si deve avere anche: \[
+        A = \frac{\h\omega_{ba}^3}{\pi^2c^3} B_{ab}
+    \]
+\end{itemize}
+
+Einstein arrivò a questi fatti senza conoscere la meccanica quantistica! Tuttavia noi possiamo introdurre il risultato ottenuto poco fa, ovvero:
+\[
+    B_{ab} = \frac{\pi}{3\h^2\varepsilon_0} \sabs{\mathbf{P}_{ab}}
+\]
+Allora:
+\[
+    A = \frac{\omega_{ba}^3}{3\pi \varepsilon_0 \h c^3}\sabs{\mathbf{P}_{ab}}
+\]
+
+Che cosa comporta questa legge? Sia un sistema "privo di interferenze" (s'intende che c'è solo emissione spontanea). Risulta $\tderiv{N_a} = -A N_a$, ovvero:
+\[
+    N_a(t) = N_a(0)e^{-At}
+\]
+Questa legge di decadimento esponenziale introduce il concetto di "tempo di vita medio" del livello eccitato $\tau = \inv A$, che dipende da una conbinazione di costanti fondamentali, dalla differenza d'energia tra gli stati e dall'elemento di matrice del dipolo.
+
+Questo risultato cambia completamente la concezione di stato quantistico: infatti gli stati non sono più delle linee infinitamente sottili di energia ben precisa, ma (come si poteva intuire dalla relazione tempo-energia) delle "fasce" che hanno sempre la tendenza a decadere verso lo stato fondamentale.
+
+Evidentemente ogni coppia di stati ha un rate di transizione, quindi questo fenomeno si somma per ogni stato intermedio tra lo stato analizzato e il ground state ($\tau = \inv{A_0 + A_1 + \cdots}$).
+
+\subsection*{Un esempio}
+Sia un oscillatore armonico 1D simmetrico con una carica $q$ e con Hamiltoniana $H_0 = \frac{\hat p^2}{2m} + \half m \omega \hat x^2$. La differenza d'energia tra due livelli adiacenti è sempre $\h\omega$. \\
+Improvvisamente arriva un'onda elettromagnetica di intensità $E_0$ e pulsazione $\omega_0$. La matrice di polarizzazione è del tipo:
+\[
+    \mathbf{P}_{nm} = q\braketin{n}{\hat x}{m} = \sqrt{\frac{\h}{2m\omega}}\l \sqrt{m+1}\delta_{n(m+1)} + \sqrt{m}\delta_{n{n-1}} \r
+\]
+e stimiamo l'emissione spontanea. Innanzitutto evidentemente un'emissione (o un assorbimento) può essere solo di un fotone di energia $\h\omega$, in quanto gli stati differiscono tutti di quest'energia, e i salti possono essere solo di $1$ livello per volta. Nel caso di un'emissione si ha quindi:
+\[
+    \sabs{\mathbf{P}_{n(n-1)}} = \frac{m\h q^2}{2m\omega}\ , \ \ \ \ A = \frac{\omega^2q^2}{6m\pi \varepsilon_0 c^3}n\ , \ \ \ \tau = \frac{6m\pi \varepsilon_0 c^3}{\omega^2q^2n}
+\]
+E si può calcolare anche la "potenza quantistica" media emessa da questa fluttuazione:
+\[
+    W_q = \h \omega A = \frac{\h\omega^3q^2}{6m\pi \varepsilon_0 c^3}n
+\]
+
+Ora, una carica classica che accelera produce fluttuazioni nel campo elettrico, che dissipano energia (\textit{Potenza di Larmor}) come definito da questa legge:
+\[
+    W_l = \frac{q^2 a^2}{6\pi\varepsilon_0 c^3}
+\]
+Se la particella classica viene fatta oscillare con frequenza $\omega$ risulta (in media temporale):
+\[
+    a = \omega^2x_0\cos\omega t\ , \ \ \ \avg[T]{W_l} = \frac{q^2 \omega^4 x_0^2}{6\pi\varepsilon_0 c^3} \inv T \int_{0}^{2\pi/\omega}\cos^2 \omega t dt
+\]
+Sapendo che l'energia meccanica dell'oscillatore è $E=\half m \omega^2 x_0^2$ risulta allora:
+\[
+    \avg[T]{W_l} = \frac{\omega^2q^2}{6\pi\varepsilon_0mc^3}E
+\]
+Se, tornando alla potenza quantistica, si espande $n\h\omega = E_n - \frac{\h\omega}{2}$ risulta:
+\[
+    W_p = \frac{\omega^2q^2}{6\pi\varepsilon_0mc^3}\l E_n - \frac{\h\omega}{2}\r
+\]
+Evidentemente le due forme sono molto molto simili! Si possono derivare due fatti interessanti:
+\begin{itemize}
+    \item L'oscillatore classico è un limite a energia molto alta dell'oscillatore quantistico;
+    \item Il ground state non dissipa energia (si poteva già sapere in quanto non esistono livelli inferiori).
+\end{itemize}

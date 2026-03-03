@@ -1,5 +1,5 @@
 \section{Stati, Autostati, Osservabili e Indeterminazione}
-È arrivato il momento di introdurre la \textbf{notazione di Dirac} \index{notazione di Dirac}.
+È arrivato il momento di introdurre la \textbf{notazione di Dirac} \index{Notazione di Dirac}.
 
 Siccome si tratta solo di un formalismo non è data una definizione matematica. Semplicemente, approfittando del fatto che gli stati formano uno spazio vettoriale si stabilisce un modo per indicare i "vettori" di questo spazio, che saranno gli stati:
 \[
@@ -22,7 +22,7 @@ tale che per ogni stato $\Ket \chi$
 \[
 	\ketbra \psi \xi \Ket \chi = \braket \xi \chi \Ket \psi
 \]
-Se nella definizione di prodotto esterno di usano al posto di $\Ket \psi$ e $\Ket \xi$ gli elementi della base $\Ket {\psi_j}$ risulta che è possibile definire le proiezioni canoniche sulla base di un dato stato, ottenendo i "proiettori".\index{notazione di Dirac ! Proiettori}
+Se nella definizione di prodotto esterno di usano al posto di $\Ket \psi$ e $\Ket \xi$ gli elementi della base $\Ket {\psi_j}$ risulta che è possibile definire le proiezioni canoniche sulla base di un dato stato, ottenendo i "proiettori".\index{Notazione di Dirac ! Proiettori}
 \[
 	\Ket \xi = 
 	\begin{pmatrix}
@@ -57,7 +57,7 @@ L'ultimo risultato interessante è il fatto che se lo spazio degli stati è a di
 
 
 
-\subsection*{Spin degli Elettroni} \index{spin degli Elettroni}
+\subsection*{Spin degli Elettroni} \index{Spin degli Elettroni}
 Nel 1922 gli scienziati Otto Stern e Walther Gerlach hanno ideato un esperimento finalizzato a trovare quale fosse il momento magnetico dell'elettrone. Hanno costruito un apparato che avrebbe deviato un flusso di elettroni in funzione del loro momento magnetico lungo l'asse $z$. Il risultato atteso era che ogni elettrone avrebbe avuto un momento magnetico divero, seguento una distribuzione casuale, possibilmente gaussiana.\\
 Invece il risultato ottenuto fu che il fascio di elettroni di divideva in due fasci soltanto con equa distribuzione, quindi che ogni elettrone aveva uno di due valori di momento magnetico.
 
@@ -173,5 +173,18 @@ E separando la doppia sommatoria nei casi $n=m$ e $n\neq m$ risulta:
 \[
 	\P(\Ket {c_{\scriptscriptstyle 0}}) = \sum_{n}\abs{\braket{c_{\scriptscriptstyle 0}}{b_{\scriptscriptstyle n}}\braket{b_{\scriptscriptstyle n}}{a_{\scriptscriptstyle 0}}}^2 + \sum_{n\neq m}\braket{c_{\scriptscriptstyle 0}}{b_{\scriptscriptstyle n}}\braket{b_{\scriptscriptstyle n}}{a_{\scriptscriptstyle 0}}\braket{a_{\scriptscriptstyle 0}}{b_{\scriptscriptstyle m}}\braket{b_{\scriptscriptstyle m}}{c_{\scriptscriptstyle 0}}
 \]
-È evidente che la prima sommatoria è identica a quella della prima configurazione! In sostanza la rimozione dell'operatore $\hat B$ ha introdotto una serie di termini d'interferenza, uno dei molto apparenti paradossi della meccanica quantistica.\\
-È opportuno notare il fatto che se $\hat B$ commuta con $\hat A$ (oppure con $\hat C$) la seconda sommatoria si annulla, in quanto $\Ket {a_{\scriptscriptstyle n}}$ sarebbe anche base diagonalizzante per $\hat B$, quindi per $m \neq n$ si avrebbe che almeno uno tra i due termini $\braket{b_{\scriptscriptstyle n}}{a_{\scriptscriptstyle 0}}$ e $\braket{a_{\scriptscriptstyle 0}}{b_{\scriptscriptstyle m}}$ deve essere 0, perché i $\Ket {b_{\scriptscriptstyle n}}$ non sarebbero altro che una permutazione degli $\Ket {a_{\scriptscriptstyle n}}$, ovvero, solo gli osservabili non compabili modificano lo stato del sistema!
+È evidente che la prima sommatoria è identica a quella della prima configurazione! In sostanza la rimozione dell'operatore $\hat B$ ha introdotto una serie di termini d'interferenza, uno degli apparenti paradossi della meccanica quantistica.\\
+È opportuno notare il fatto che se $\hat B$ commuta con $\hat A$ (oppure con $\hat C$) la seconda sommatoria si annulla, in quanto $\Ket {a_{\scriptscriptstyle n}}$ sarebbe anche base diagonalizzante per $\hat B$, quindi per $m \neq n$ si avrebbe che almeno uno tra i due termini $\braket{b_{\scriptscriptstyle n}}{a_{\scriptscriptstyle 0}}$ e $\braket{a_{\scriptscriptstyle 0}}{b_{\scriptscriptstyle m}}$ deve essere 0, perché i $\Ket {b_{\scriptscriptstyle n}}$ non sarebbero altro che una permutazione degli $\Ket {a_{\scriptscriptstyle n}}$, ovvero, solo l'introduzione di un'osservabile non compatibile può modificare le misurazioni su un sistema!
+
+\subsection*{Principio d'indeterminazione di Heisenberg}\index{Principio d'indeterminazione di Heisenberg}
+Finalmente ecco la dimostrazione di uno dei teoremi fondamentali della \MQ.\\
+Questo teorema dimostra che dati due osservabili a piacere si ha che il prodotto dei valori medi delle varianze (indeterminazione) ha per minimo una quantità proporzionale al valor medio del commutatore.
+\begin{teorema}[Disuguaglianza di Robertson]
+	Siano $\A, \B$ due opeartori lineari hermitiani sullo spazio di Hilbert $\mathcal{H}$. Allora per ogni stato $\Ket \psi \in \mathcal{H}$ risulta:
+	\[
+		\Delta \A \Delta \B \geq \half \abs{\avg[\psi]{\comm{\A}{\B}}}
+	\]
+\end{teorema}
+\begin{proof}
+	Per la disuguaglianza di Cauchy-Schwartz si ha che $\Delta\A^2 \Delta\B^2 \geq \l\Delta\A\Delta\B\r^2$
+\end{proof}
