@@ -57,7 +57,7 @@ L'ultimo risultato interessante è il fatto che se lo spazio degli stati è a di
 
 
 
-\subsection*{Spin degli Elettroni} \index{Spin degli Elettroni}
+\subsection{Spin degli Elettroni} \index{Spin degli Elettroni}
 Nel 1922 gli scienziati Otto Stern e Walther Gerlach hanno ideato un esperimento finalizzato a trovare quale fosse il momento magnetico dell'elettrone. Hanno costruito un apparato che avrebbe deviato un flusso di elettroni in funzione del loro momento magnetico lungo l'asse $z$. Il risultato atteso era che ogni elettrone avrebbe avuto un momento magnetico divero, seguento una distribuzione casuale, possibilmente gaussiana.\\
 Invece il risultato ottenuto fu che il fascio di elettroni di divideva in due fasci soltanto con equa distribuzione, quindi che ogni elettrone aveva uno di due valori di momento magnetico.
 
@@ -100,7 +100,7 @@ Al chè si ha la rappresentazione, per esempio, dell'operatore di Stern e Gerlac
 	\hat S_z = \frac{\hslash}{2} |+\ket \bra +| - \frac{\hslash}{2} |-\ket \bra -| = \frac{\hslash}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \frac{\hslash}{2} \sigma_z
 \]
 
-\subsection*{Misurazione degli Osservabili}
+\subsection{Misurazione degli Osservabili}
 Dato uno stato generico $|\vphi \ket$ e un operatore osservabile $\hat A$ con autostati $|\psi_j \ket$ (si nota che un ossservabile per essere tale deve essere un operatore hermitiano, cosicchè gli autovalori risultino reali e gli autostati ortogonali) e autovalori $a_j$, quel che accade durante una misurazione è che lo stato $|\vphi \ket$ collassa in uno degli autostati $|\psi_j \ket$ con probabilità $p_j = |\bra \psi_j | \vphi \ket|^2$. Nel caso di un apparato di misura discreto, il risultato della misura è il valore dell'autovettore associato all'autostato in cui $\vphi$ è collassato.
 
 Riassumendo, gli assiomi della misurazione, posto lo stato del sistema rappresentato da un Ket in uno spazio di Hilbert, e un operatore hermitiano:
@@ -176,15 +176,34 @@ E separando la doppia sommatoria nei casi $n=m$ e $n\neq m$ risulta:
 È evidente che la prima sommatoria è identica a quella della prima configurazione! In sostanza la rimozione dell'operatore $\hat B$ ha introdotto una serie di termini d'interferenza, uno degli apparenti paradossi della meccanica quantistica.\\
 È opportuno notare il fatto che se $\hat B$ commuta con $\hat A$ (oppure con $\hat C$) la seconda sommatoria si annulla, in quanto $\Ket {a_{\scriptscriptstyle n}}$ sarebbe anche base diagonalizzante per $\hat B$, quindi per $m \neq n$ si avrebbe che almeno uno tra i due termini $\braket{b_{\scriptscriptstyle n}}{a_{\scriptscriptstyle 0}}$ e $\braket{a_{\scriptscriptstyle 0}}{b_{\scriptscriptstyle m}}$ deve essere 0, perché i $\Ket {b_{\scriptscriptstyle n}}$ non sarebbero altro che una permutazione degli $\Ket {a_{\scriptscriptstyle n}}$, ovvero, solo l'introduzione di un'osservabile non compatibile può modificare le misurazioni su un sistema!
 
-\subsection*{Principio d'indeterminazione di Heisenberg}\index{Principio d'indeterminazione di Heisenberg}
-Finalmente ecco la dimostrazione di uno dei teoremi fondamentali della \MQ.\\
+\subsection{Principio d'indeterminazione di Heisenberg}\index{Principio d'indeterminazione di Heisenberg}
+Finalmente ecco la dimostrazione di uno dei teoremi fondamentali della Meccanica Quantistica, visto tramite una dimostrazione estremamente generale.\\
 Questo teorema dimostra che dati due osservabili a piacere si ha che il prodotto dei valori medi delle varianze (indeterminazione) ha per minimo una quantità proporzionale al valor medio del commutatore.
-\begin{teorema}[Disuguaglianza di Robertson]
+\begin{teorema}
 	Siano $\A, \B$ due opeartori lineari hermitiani sullo spazio di Hilbert $\mathcal{H}$. Allora per ogni stato $\Ket \psi \in \mathcal{H}$ risulta:
 	\[
 		\Delta \A \Delta \B \geq \half \abs{\avg[\psi]{\comm{\A}{\B}}}
 	\]
 \end{teorema}
 \begin{proof}
-	Per la disuguaglianza di Cauchy-Schwartz si ha che $\Delta\A^2 \Delta\B^2 \geq \l\Delta\A\Delta\B\r^2$
+	Risulta utile definire innanzitutto i due operatori di comodità $\A_0 = \A - \avg[\psi]{\A}\Id$ e $\B_0 = \B - \avg[\psi]{\B}\Id$. Siano allora $\Ket\psi$ uno stato di norma $1$ e $\Ket \phi = \A_0\Ket \psi + i \lambda \B_0\Ket \psi$ un elemento di $\mathcal H$, con $\lambda \in \R$.\\
+	Si può porre:
+	\[
+		I(\lambda) = \braket{\phi}{\phi} = \l\Bra \psi \A_0 - i \lambda \Bra \psi \B_0\r\l\A_0\Ket \psi + i \lambda \B_0\Ket \psi\r = \avg[\psi]{\A_0^2} + i\lambda\avg[\psi]{\comm{\A_0}{\B_0}} + \lambda^2\avg[\psi]{\B_0^2}
+	\]
+	($\A_0$ e $\B_0$ sono autoaggiunti). Siccoe $I(\lambda) = \vabs{\Ket \phi}^2 \geq 0$ si ha che l'intera espressione è $\geq 0$.\\
+	In particolare si può notare che $I(\lambda)$ è una parabola in $\lambda$, che avrà minimo in:
+	\[
+		\lambda_0 = -i\frac{\avg[\psi]{\comm{\A_0}{\B_0}} }{2\avg[\psi]{\B_0^2}}
+	\]
+	Sostituendo risulta:
+	\[
+		I(\lambda) = \avg[\psi]{\A_0^2} - \frac{\l i\avg[\psi]{\comm{\A_0}{\B_0}}\r^2}{2\avg[\psi]{\B_0^2}} + \frac{\l i\avg[\psi]{\comm{\A_0}{\B_0}}\r^2}{4\avg[\psi]{\B^2}} = \avg[\psi]{\A_0^2} - \frac{\l i\avg[\psi]{\comm{\A_0}{\B_0}}\r^2}{4\avg[\psi]{\B_0^2}} \geq 0
+	\]
+	Che evidentemente risulta:
+	\[
+		\avg[\psi]{\A_0^2}\avg[\psi]{\B_0^2} \geq \frac{\l i\avg[\psi]{\comm{\A_0}{\B_0}}\r^2}{4}
+	\]
+
+	Notando che $\avg {\A_0^2} = \Delta A^2$, $\avg {\B_0^2} = \Delta B^2$ e $\comm{\A_0}{\B_0} = \comm{\A}{\B}$ si ha la tesi (???)
 \end{proof}

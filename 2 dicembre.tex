@@ -1,62 +1,146 @@
-\subsection*{Matrice Densità}
-La matrice densità si definisce come segue. Si parte con una successione di 'pesi':
+\subsection{Matrice Densità}
+Fino ad'ora abbiamo sempre supposto che nei sistemi presi in esame si partisse da degli stati ben precisi, che fossero autostati o combinazioni; ad esempio con Stern e Gerlach si aveva che il fascio in ingresso era già nello stato $\Ket {\psi_0} = \sqrthalf \l \Ket \uparrow + \Ket \downarrow \r$. Tuttavia  la situazione più generale deve rappresentare anche stati che non sono normalmente descrivibili come elementi degli spazi usati fin'ora (infatti, se si facesse passare $\Ket {\psi_0}$ come appena definito da $\SG{x}$ risulterebbe che il fascio è già polarizzato!). Per descrivere queste "miscele" di stati risulta comodo introdurre il concetto di matrice densità, così da tenere conto di sovrapposizioni più complesse di quelle solite.
+\tab
+
+La matrice densità è definita come segue. Si parte con una successione di 'pesi':
 \[
-    \omega_i \geq 0\ , \ \ \ \sum_{i=1}^{N} = 1
+    \omega_i \geq 0\ , \ \ \ \sum_{i=1}^{N} \omega_i = 1
 \]
 e con un operatore con la sua base:
 \[
-    \hat A \ , \ \ \ \{ \Ket {a_i} \} \ , \ \ \ \hat A \Ket {a_i} = a_i \Ket {a_i}  
+    \hat A \ , \ \ \ \{ \Ket {a_i} \} \ \ \implies \ \ \hat A \Ket {a_i} = a_i \Ket {a_i}  
 \]
 Si definisce la media statistica di $\hat A$ in modo diverso dal solito:
 \[
     \overline A = \sum_{i=1}^{N} \omega_i \Bra {a_i} \hat A \Ket {a_i}
 \]
-che è espandibile in termini di una nuova base a piacere $\{ \Ket b \}$:
+Ad ora le $\omega_i$ sono i rapporti con cui si "miscelano" gli stati. Alcuni chiamano questa miscela "combinazione classica". Non si tratta di sovrapposizione in senso quantistico. Questo risultato è espandibile in termini di una nuova base (ortonormale) a piacere $\{ \Ket b \}$:
 \[
-    \overline A = \sum_{i=1}^{N} \omega_i \Bra {a_i} \sum_{b,b'} \ketbra{b}{b'} \hat A \sum_{b,b'} \ketbra{b}{b'} \Ket {a_i} = \]\[
+    \overline A = \sum_{i=1}^{N} \omega_i \Bra {a_i} \sum_{b} \ketbra{b}{b} \hat A \sum_{b'} \ketbra{b'}{b'} \Ket {a_i} = \]\[
     \sum_{b,b'} \Bra {b'} \left( \sum_{i=1}^{N} \omega_i \ketbra{a_i}{a_i} \right) \Ket {b} \Bra {b} \hat A \Ket {b'} = \sum_{b'}  \Bra {b'} \hat \rho \hat A \Ket {b'}
 \]
-Si può notare come la quantità finale è la traccia della matrice $\hat \rho_{ij} \hat A_{jk}$. Qeusto operatore $\hat \rho$ è detto \textbf{matrice densità}.\index{Matrice Densità} Tra le proprietà di questa matrice si ha che è hermitiana, ha traccia minore o uguale a uno e che è definita positiva. Da questi fatti risulta anche che la traccia che è la somma dei suoi autovalori (tutti reali) è minore o uguale a uno.
+Evidentemente la quantità finale è la traccia di $\hat \rho A$, ed è indipendente dalla scelta di base. Qeusto operatore $\hat \rho$ è detto \textbf{matrice densità}.\index{Matrice Densità} Tra le proprietà della matrice associata all'operatore si ha che è hermitiana, ha traccia uguale a uno ed è definita positiva. Evidentemente la traccia è anche la somma dei suoi autovalori (tutti reali).
+
+Questa matrice densità è evidentemente diagonale quando espressa nella base di $\A$.
+
+Se per esempio si avesse che $\omega_i = \delta_{0i}$ che il sistema è in un autostato di $\A$, quindi si ricade nei casi analizzati precedentemente.
 
 \subsubsection*{Spazio Puro}
-Un operatore $\rho$ si dice \textbf{Stato Puro}\index{Stati puri} se esiste uno stato $\Ket \psi$ generico tale che la matrice densità è scrivibile come $\hat \rho = \ketbra \psi \psi$. In questo caso si ha la successione degli $\omega_i$ è formata da un solo elemento uguale a uno e tutti gli altri nulli. Si ha anche che $\hat \rho^2 = \hat \rho$, al chè si può mostrare che in questo caso gli autovalori possono essere solo 0 e 1.\\
-(IN GENERE GLI OPERATORI PURI SONO CHIAMATI STATI PURI, molto trol. Ricordarli come stati puri.)
+Un operatore $\hr$ si dice \textbf{Stato Puro}\index{Stati puri} se esiste uno stato $\Ket \psi$ generico tale che la matrice densità è scrivibile come $\hat \rho = \ketbra \psi \psi$. Si ha anche che $\hr^2 = \hr$, al chè si può mostrare che in questo caso gli autovalori possono essere solo 0 e 1.\\
+Lo spazio puro è lo spazio degli stati puri.
 
-\subsubsection*{Esempio}
-Se attraverso un apparato di Stern e Gerlach si fanno passare un fascio di elettroni non polarizzato, e uno nello stato $\Ket {x+}$, per i motivi descritti nel capitolo 3, i fasci uscenti saranno in entrambi i casi distribuiti al $50\% \ \Ket +$ e al $50\% \ \Ket -$. La matrice densità del primo fascio sarà quindi:
+\subsubsection*{Esempio 1: $\Ket {\psi_0} = \Up$}
+Risulta:
 \[
-    \hat \rho = \half \ketbra {z+} {z+} + \half \ketbra {z-} {z-} = \half \begin{pmatrix}
+    \hr = \ketbrabra{\psi_0} = \Up \Pu = \begin{pmatrix}
+        1 & 0 \\
+        0 & 0 \\
+    \end{pmatrix}
+\]
+che evidentemente rispetta tutti i requisiti.
+
+\subsubsection*{Esempio 2: $\Ket {\psi_0} = \Ket {x_+}$}
+Risulta:
+\[
+    \hat \rho = \ketbrabra{\psi_0} = \half \ketbra {x+} {x+} + \half \ketbra {x-} {x-} = \half \begin{pmatrix}
+        1 & 1 \\
+        1 & 1 \\
+    \end{pmatrix}
+\]
+che evidentemente rispetta tutti i requisiti.
+
+\subsubsection*{Esempio 3: Fascio non polarizzato}
+Se rivediamo l'esperimento di Stern e Gerlach alla luce delle interpretazioni introdotte in questo capitolo, si ha che un fascio di elettroni non polarizzato risulta (statisticamente) in metà degli elettroni risultanti in $\Up$ e metà $\Dn$. Questa combinazione viene trascritta così come viene:
+\[
+    \hat \rho = \half \Up \Pu + \half \Dn \Nd = \half \begin{pmatrix}
         1 & 0 \\
         0 & 1 \\
     \end{pmatrix}
 \]
-mentre quella del secondo fascio sarà:
+che \textit{non} rispetta le richieste di stato puto (ma rispetta $\Tr(\hr) = 1$).
+
+\subsubsection*{Esempio 4: Un altro fascio non polarizzato}
+Stavolta scriviamo il fascio non polarizzato come composizione di $\Ket {x_+}$ e $\Ket {x_-}$ invece che $\Up$ e $\Pu$. Risulta:
 \[
-    \hat \rho = \half \ketbra {x+} {x+} + \half \ketbra {x-} {x-} = \half \begin{pmatrix}
+    \hat \rho = \half \ketbrabra{x_+} + \half \ketbrabra{x_-} = \half \begin{pmatrix}
         1 & 0 \\
         0 & 1 \\
     \end{pmatrix}
 \]
-Ovvero i due fasci, pur essendo preparati in modi diversi, sono descritti dallo stesso operatore di matrice densità, e quindi sono indistinguibili dal punto di vista delle misure effettuabili.
+che è uguale al risultato dell'Esempio 3, nonostante la costruzione è stata fatta in modo diverso! Questo suggerisce che non vi è corrispondenza biunivoca tra matrice densità e "stato" del sistema inteso come condizione classica in cui si trova il sistema.
 
-\subsubsection*{Restrizioni degli operatori puri (caso spin 1/2)}
-Si vuole che l'oepratore generico $\hat \rho$ sia di traccia 1 e tale ceh $\hat \rho^2 = \hat \rho$. Fare i conti per esercizio.
+\subsection{State purity}\index{State puriry}
+Si può notare che negli esempi 3 e 4 si ha $\Tr(\hr^2) = 1/2 \leq 1$. Si può verificare che in generale è vero per ogni stato non puro, e l'equivalenza è vera solo per gli stati puri. Viene quindi naturale chiamare "State puriry" la quantità $\Tr(\hr^2)$, che ha massimo solo quanto lo sato è puro.
 \tab
 
-Ora ci si potrebbe chiedere: è possibile distinguere un'operatore puro da uno mixed mediante misurazione? Beh ecco dipende, tendenzialmente no.
-
-\subsubsection*{Esempio: elettrone e protone}
-Si parte dallo stato $\Ket \psi = \half \l \Ket + _p \otimes \Ket - _e + \Ket - _p \otimes \Ket + _e \r$. Se si vuole calcolare ma media del momento angolare dell'elettrone in una direzione generica si calcola:
+Se ci si restringe ai sistemi con spin $1/2$ allora si può fare un'analisi sistematica della matrice densità. Risulta, nel caso più generico possibile:
 \[
-    \overline{\S_{\vec n}} = \Tr_e\l \sigma_{e\vec n} \hro_e\r
+    \hr = \begin{pmatrix}
+        a_0 + ib_0 & a_1 + ib_1 \\
+        a_3 + ib_3 & a_4 + ib_4 \\
+    \end{pmatrix}
+\]
+Ora, ricordando del fatto che $\hr$ è hermitiano, si passa da 8 grai a solo 4. Se poi si ricorda che deve avere traccia unitaria risulta che:
+\[
+    \hr = \begin{pmatrix}
+        a_0 & a_1 + ib_1 \\
+        a_1 - ib_1 & 1 - a_0 \\
+    \end{pmatrix}
+\]
+dipende solo da tre parametri reali. È possibile ricondurre i valori di questi parametri ai valori medi di $\SG{x}, \SG{y}$ e $\SG{z}$.
+\tab
+
+Ora ci si può porre la domanda: è possibile risalire a posteriori (tramite misurazioni di osservabili) al valore della matrice densità? In particolare, è possibile distringuere gli stati puri dagli stati mixed? Che tipo di misurazioni bisogna fare?
+
+Partiamo dal calcolare il valor medio di $\SG{x}$ ed $\SG{z}$ nei casi riportati negli esempi 2 e 4. Il primo caso ricade nella situazione solita in cui non serve interpellare la matrice densità:
+\[
+    \overline{\SG{x}} = \braketin{x_+}{\SG{x}}{x_+} = \frac{\h}{2}\ , \ \ \ \overline{\SG{z}} = \braketin{x_+}{\SG{z}}{x_+} = 0
+\]
+Nel secondo caso invece risulta:
+\[
+    \overline{\SG{x}} = \Tr(\hr\SG{x}) = 0\ , \ \ \ \overline{\SG{z}} = \Tr(\hr\SG{z}) = 0
+\]
+
+In sostanza si ha che misurando $\SG{x}$ i due casi sono distinguibili, invece misurando $\SG{z}$ no! In sostanza non è possibile risalire alla matrice densità misurando il sistema con un solo osservabile.
+
+\subsection{Misure parziali}\index{Misure parziali}
+È importante analizzare alcuni particolari casi di misure, in quanto risulta che esistono misurazioni che non conservano la state puriry: un esempio sono le misure parziali.
+
+Sia un sistema descritto dal prodotto tensoriale di due spazi di Hilbert $\Hilb_1$ e $\Hilb_2$. Uno stato generico in una base generica sarà del tipo $\Kp[0] = \sum_{n,m}C_{nm}\Ket {n,m}$ con $\Ket {n,m} = \Ket n \otimes \Ket m$. Per comodità si userà la lettera $n$ per indicare stati appartenenti al primo spazio e $m$ per stati nel secondo.\\
+Allora la matrice densità sarà del tipo:
+\[
+    \hr = \ketbrabra{\psi_0} = \sum_{n,m}\sum_{n',m'} C_{nm}C^*_{n'm'}\ketbra{n,m}{n',m'}
+\]
+Sia ora $\A_1$ un operatore che agisce \textit{solo} sullo spazio $\Hilb_1$. È possibile promuoverlo a operatore in $\Hilb_1 \times \Hilb_2$ semplicemente definendo $\A = \A_1 \otimes \Id$, ovvero facendo agire $\A_0$ su $\Hilb_1$ e l'identità su $\Hilb_2$.\\
+Se ora si calcola la media di $\A$:
+\[
+    \overline{\A} = \Tr(\hr\A) = \sum_n \sum_{m} C_{nm}C^*_{nm} \braketin{n,m}{\A}{n,m} = \sum_n \sum_{m} C_{nm}C^*_{nm} \braketin{n}{\A}{n}
+\]
+Ora, per comprendere meglio questo risulato è opportuno introdurre un nuovo operatore, chiamato Matrice densità ridotta\index{Matrice densità ridotta}. È definita come segue:
+\[
+    \hr_1 = \Tr_2(\hr) = \sum_{n,m}\sum_{n'} C_{nm}C^*_{n'm} \ketbra{n}{n'}
+\]
+dove $\Tr_2$ indica l'operazione traccia fatta solo sullo spazio $\Hilb_2$.
+È facile verificare che rispetta tutte le ipotesi necessarie per essere una matrice densità, e per di più:
+\[
+    \Tr(\hr\A) = \Tr_1(\hr_1\A_1) =  \sum_{n,m} C_{nm}C^*_{nm} \ketbra{n}{n'}
+\]
+È opportuno verificare con un esempio il fatto che la matrice densità ridotta potrebbe essere non pura:
+\subsubsection*{Esempio: elettrone e protone}
+Si parte dallo stato puro $\Ket \psi = \sqrthalf \l \Up _p \otimes \Dn _e + \Dn _p \otimes \Up _e \r = \sqrthalf\l \Ket {\u,\d} + \Ket {\d,\u} \r$. Se si vuole calcolare ma media del momento angolare dell'elettrone in una direzione generica si calcola:
+\[
+    \overline{\S_{\vec n}} = \Tr\l \hr_e \hat\sigma_{\vec n} \r
 \]
 al ché:
 \[
-    \hro_e = \Tr_p \hro = \Tr_p \l \half \ketbrabra{\psi} = \begin{matrix}
-        \half & 0 \\ 0 & \half
-    \end{matrix} \r
+    \hr_e = \Tr_p (\hr) = \Tr_p \l \ketbrabra{\psi} \r = \Tr_p \left[\half \l \Ket {\u,\d} + \Ket {\d,\u} \r\l \Bra {\u,\d} + \Bra {\d,\u} \r \right] \sim \half \begin{pmatrix}
+        1 & 0 \\ 0 & 1
+    \end{pmatrix}
 \]
-(Concludere per eservicisio)
-\tab
+Che non è puro!
 
-Affinché un (sotto-)sistema in stato puro non sia rotto da una misurazione è necessario che lo stato del sistema \textbf{non} sia entangled, ovvero che lo stato sia della forma $\Ket \psi = \Ket {\psi_1} \otimes \Ket {\psi_2}$.
+\tab
+È possibile quindi definire un criterio sufficiente per far sì che una misura parziale (dopotutto tutte le misure sono parziali, visto che ogni sistema è contenuto in un sistema più grande!) non sia soggetta a questo effetto? La risposta è \textbf{sì}: si può dimostrare che lo stato puro è conservato \textit{se e solo se} non vi è entanglement tra i sottosistemi in analisi, ovvero quando lo stato del sistema è scrivibile nella forma:
+\[
+    \Ket \psi = \bigotimes_n \Ket {\psi_n}
+\]

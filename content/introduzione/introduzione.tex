@@ -61,14 +61,14 @@ Quindi si ricordano alcuni concetti fondamentali:\\
 Le parentesi di Poisson sono uno strumento essenziale per generare una classe d'equivalenza per i cambiamenti di variabile in Meccanica Hamiltoniana.
 \end{itemize}
 % Vediamo ora un esempio tipico di problema classico risolvibile facilmente con i concetti di meccanica Analitica.
-% \subsection*{Problema dei due corpi: soluzione di Newton} \index{Problema dei due corpi}
+% \subsection{Problema dei due corpi: soluzione di Newton} \index{Problema dei due corpi}
 
 Fino a qui in sostanza si parriva al più alla dinamica delle particelle. Ora è necessario introdurre la dinamica delle onde, in quanto la \MQ si basa pesantemente sulle proprietà delle onde.
 
 
 
 
-\subsection*{Dalle Onde stazionarie ...}
+\subsection{Dalle Onde stazionarie ...}
 A partire dalle equazioni di maxwell si ottiene: \index{Onde elettromagnetiche}
 \begin{align*}
 	\Curl (\VCurl E) &= \Grad (\VDiv E) - \Lap E = - \Lap \vect E\\
@@ -136,7 +136,7 @@ Al chè di può dimostrare che il gauge di Lorentz è una classe di gauge, tali 
 È chiaro che il Gauge di Radiazione non è altro che un caso specifico di Gauge di Lorentz.
 
 
-\subsection*{... Alla Dinamica dei pacchetti d'onda}
+\subsection{... Alla Dinamica dei pacchetti d'onda}
 È necessario introdurre ora un nuovo strumento essenziale per comprendere la dinamica delle onde reali: la Trasformata di Fourier.
 \fidaty
 \begin{definizione}[Trasformata di Fourier] \index{Trasformata di Fourier}
@@ -158,9 +158,9 @@ Si applichi per esercizio la definizione al potenziale vettore. [Soluzione: quel
 \subsubsection*{Varianza} \index{Varianza}
 La varianza è una quantità che rappresenta la localizzazione di un'onda, ovvero quanto essa sia 'dispersa' nello spazio (o nel tempo). La varianza di un operatore o di una funzione $A$ è indicata con $\var A$ ed è definita nel seguente modo:
 \[
-	\l\var A\r^2 =\ \avg{A^2} - \avg{A}^2
+	\l\var A\r^2  = \avg{\l \A - \avg \A \r^2} = \avg{A^2} - \avg{A}^2
 \]
-dove $\avg A$ è la media temporale, o la media sullo stato, in base al contesto. Nel primo caso si integra sul tempo e si divide per l'intervallo, nel secondo, dato uno stato (una funzione $\L^2$) generico $\psi(x)$, equivale all'integrale
+dove $\avg A$ è la media sullo stato (o a volta la media temporale, in base al contesto). Nel primo caso si integra sul tempo e si divide per l'intervallo, nel secondo, dato uno stato (una funzione $\L^2$) generico $\psi(x)$, equivale all'integrale
 \[
 	\avg A \ = \rnint \psi^*(x)A(x)\psi(x) dx
 \]
